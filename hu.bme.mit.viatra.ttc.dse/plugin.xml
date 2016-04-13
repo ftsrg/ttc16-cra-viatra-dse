@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="hu.bme.mit.viatra.ttc.dse.queries.Queries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.viatra.ttc.dse.queries.Queries" id="hu.bme.mit.viatra.ttc.dse.queries.Queries"/>
+  </extension>
+</plugin>

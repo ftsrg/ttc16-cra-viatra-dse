@@ -1,0 +1,185 @@
+package hu.bme.mit.viatra.ttc.dse.queries
+
+import "http://momot.big.tuwien.ac.at/architectureCRA/1.0"
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+pattern clazz(c : Class) {
+    Class(c);
+}
+
+pattern classPair(c1 : Class, c2 : Class) {
+    Class(c1);
+    Class(c2);
+    c1 != c2;
+}
+
+pattern feature(f : Feature) {
+    Feature(f);
+}
+
+pattern attribute(c : Class, a : Attribute) {
+    find feature(a);
+    Class.encapsulates(c, a);
+    Attribute(a);
+}
+
+pattern method(c : Class, m : Method) {
+    find feature(m);
+    Class.encapsulates(c, m);
+    Method(m);
+}
+
+pattern encapsulated(c : Class, f : Feature) {
+    Class.encapsulates(c, f);
+}
+
+// Hard constraints
+pattern encapsulatedFeature(f : Feature) {
+    find encapsulated(_, f);
+}
+
+pattern notEncapsulatedFeature(f : Feature) {
+    neg find encapsulated(_, f);
+}
+
+pattern allFeatureEncapsulated2() {
+    neg find notEncapsulatedFeature(_);
+}
+
+// bug
+pattern allFeatureEncapsulated() {
+    N == count find feature(_);
+    M == count find encapsulatedFeature(_);
+    N == M;
+}
+
+pattern emptyClass(c : Class) {
+    neg find encapsulated(c, _);
+}
+
+pattern noEmptyClass() {
+    neg find emptyClass(_);
+}
+
+// Rules
+pattern classModel(cm : ClassModel) {
+    ClassModel(cm);
+    N == count find emptyClass(_);
+    check(N < 2);
+}
+
+pattern createClassWithFeautre(cm : ClassModel, f : Feature) {
+    ClassModel(cm);
+    N == count find emptyClass(_);
+    check(N < 2);
+    Feature(f);
+    neg find encapsulated(_, f);
+}
+
+pattern addFeature(c : Class, f : Feature) {
+    Class(c);
+    Feature(f);
+    neg find encapsulated(_, f);
+}
+
+// Objectives
+pattern dma(m : Method, a : Attribute) {
+    Method.dataDependency(m, a);
+}
+
+pattern dmm(m1 : Method, m2 : Method) {
+    Method.functionalDependency(m1, m2);
+}
+
+pattern mmiPartial(c1 : Class, c2 : Class, m1: Method, m2: Method) {
+    Method.isEncapsulatedBy(m1, c1);
+    Method.isEncapsulatedBy(m2, c2);
+    find dmm(m1,m2);
+}
+
+pattern maiPartial(c1 : Class, c2 : Class, m1: Method, a2: Attribute) {
+    Method.isEncapsulatedBy(m1, c1);
+    Attribute.isEncapsulatedBy(a2, c2);
+    find dma(m1,a2);
+}
+
+pattern sortClass(c1 : Class, c2 : Class) {
+    Class.name(c1,name1);
+    Class.name(c2,name2);
+    check(name1.compareTo(name2) <= 0);
+}
+
+pattern mmi(c1 : Class, c2 : Class, N) {
+    N == count find mmiPartial(c1,c2,_,_);
+}
+
+pattern mai(c1 : Class, c2 : Class, N) {
+    N == count find maiPartial(c1,c2,_,_);
+}
+
+//pattern cohesianRatio(c : Class/*, ratio : EInt*/) {
+//    find mai(c,c,mai);
+//    find mmi(c,c,mmi);
+//    
+//    0 == count find method(c,_);
+//    0 == count find attribute(c,_);
+//    
+//    ratio == 0;
+//    
+//} or {
+//    find mai(c,c,mai);
+//    find mmi(c,c,mmi);
+//    
+//    find attribute(c,_);
+//    
+//    0 == count find method(c,_);
+//    a == count find attribute(c,_);
+//    
+//    ratio == eval(mai + mmi);
+//} or {
+//    find mai(c,c,mai);
+//    find mmi(c,c,mmi);
+//    
+//    find attribute(c,_);
+//    
+//    1 == count find method(c,_);
+//    a == count find attribute(c,_);
+//    
+//    ratio == eval(mai + mmi);
+//} or {
+//    find mai(c,c,mai);
+//    find mmi(c,c,mmi);
+//    
+//    find method(c,m1);
+//    find method(c,m2);
+//    m1 != m2;
+//    
+//    m == count find method(c,_);
+//    0 == count find attribute(c,_);
+//    
+//    y == eval(m*(m-1));
+//    
+//    ratio == eval( mai + mmi/y);
+//} or {
+//    find mai(c,c,mai);
+//    find mmi(c,c,mmi);
+//    
+//    find method(c,m1);
+//    find method(c,m2);
+//    m1 != m2;
+//    find attribute(c,_);
+//    
+//    m == count find method(c,_);
+//    a == count find attribute(c,_);
+//    
+//    x == eval(m*a);
+//    y == eval(m*(m-1));
+//    
+//    e == eval(mai/x);
+//    
+//    ratio == eval( mai/x + mmi/y);
+//}
+
+//pattern cohesionRation(N) {
+//    
+//}
