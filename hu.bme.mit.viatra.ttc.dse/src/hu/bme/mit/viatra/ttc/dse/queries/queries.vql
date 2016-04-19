@@ -65,7 +65,7 @@ pattern noEmptyClass() {
 pattern classModel(cm : ClassModel) {
     ClassModel(cm);
     N == count find emptyClass(_);
-    check(N < 2);
+    check(N < 1);
 }
 
 pattern createClassWithFeautre(cm : ClassModel, f : Feature) {

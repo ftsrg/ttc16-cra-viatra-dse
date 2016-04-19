@@ -22,13 +22,10 @@ public class CraStateCoder implements IStateCoder {
     @Override
     public void init(Notifier notifier) {
         this.model = (ClassModel) notifier;
-        // TODO Auto-generated method stub
-        
     }
 
     @Override
     public Object createStateCode() {
-        // TODO Auto-generated method stub
         StringBuilder sb = new StringBuilder();
         
         for (Class clazz : model.getClasses()) {
