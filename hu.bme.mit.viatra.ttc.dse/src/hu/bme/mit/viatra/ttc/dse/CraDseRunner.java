@@ -37,7 +37,7 @@ public class CraDseRunner {
 
     @Test
     public void test() throws IOException, ViatraQueryException {
-        String inputModelName = CraModelNameConstants.INPUT_D;
+        String inputModelName = CraModelNameConstants.INPUT_A;
         EObject initialModel = loadInitialModel(inputModelName);
         runDseWithInputModel(initialModel);
         EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");

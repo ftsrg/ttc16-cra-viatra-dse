@@ -10,36 +10,56 @@
 	<artifactId>hu.bme.mit.viatra.ttc.dse</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>org.eclipse.incquery</groupId> -->
-	<!-- <artifactId>incquery-maven-plugin</artifactId> -->
-	<!-- <version>${incquery.version}</version> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <goals> -->
-	<!-- <goal>generate</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
-	<!-- <configuration> -->
-	<!-- <outputDirectory>src-gen</outputDirectory> -->
-	<!-- <metamodels> -->
-	<!-- <metamodel> -->
-	<!-- <packageClass>org.eclipse.viatra.examples.petrinet.model.PetriNetPackage</packageClass> -->
-	<!-- </metamodel> -->
-	<!-- </metamodels> -->
-	<!-- </configuration> -->
-	<!-- <dependencies> -->
-	<!-- <dependency> -->
-	<!-- <groupId>org.eclipse.viatra.examples.petrinet.tycho</groupId> -->
-	<!-- <artifactId>org.eclipse.viatra.examples.petrinet.tycho.model</artifactId> -->
-	<!-- <version>0.8.0-SNAPSHOT</version> -->
-	<!-- </dependency> -->
-	<!-- </dependencies> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/lib/</outputDirectory>
+							<excludeTransitive>true</excludeTransitive>
+							<addParentPoms>false</addParentPoms>
+							<excludeScope>provided</excludeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <groupId>org.eclipse.incquery</groupId> -->
+			<!-- <artifactId>incquery-maven-plugin</artifactId> -->
+			<!-- <version>${incquery.version}</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <goals> -->
+			<!-- <goal>generate</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- <configuration> -->
+			<!-- <outputDirectory>src-gen</outputDirectory> -->
+			<!-- <metamodels> -->
+			<!-- <metamodel> -->
+			<!-- <packageClass>org.eclipse.viatra.examples.petrinet.model.PetriNetPackage</packageClass> -->
+			<!-- </metamodel> -->
+			<!-- </metamodels> -->
+			<!-- </configuration> -->
+			<!-- <dependencies> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.eclipse.viatra.examples.petrinet.tycho</groupId> -->
+			<!-- <artifactId>org.eclipse.viatra.examples.petrinet.tycho.model</artifactId> -->
+			<!-- <version>0.8.0-SNAPSHOT</version> -->
+			<!-- </dependency> -->
+			<!-- </dependencies> -->
+			<!-- </plugin> -->
+		</plugins>
+	</build>
 
 </project>
