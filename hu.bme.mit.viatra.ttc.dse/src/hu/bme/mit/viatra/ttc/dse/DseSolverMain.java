@@ -11,13 +11,16 @@ import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import com.google.common.base.Stopwatch;
 
 public class DseSolverMain {
-	
+
 	public static void main(String[] args) throws IOException, ViatraQueryException {
-		runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
-//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_B);
-//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_C);
-//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_D);
-//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_E);
+		if (args.length < 1) {
+			args = new String[] { "A", "B", "C", "D", "E" };
+		}
+		
+		for (String arg : args) {
+			String inputModelName = "TTC_InputRDG_" + arg.toUpperCase();
+			runExplorationWithTtcInput(inputModelName);
+		}
 	}
 
 	private static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
@@ -35,5 +38,5 @@ public class DseSolverMain {
 		System.out.println();
 		DseIdPoolHelper.INSTANCE.resetFallBackId();
 	}
-	
+
 }
