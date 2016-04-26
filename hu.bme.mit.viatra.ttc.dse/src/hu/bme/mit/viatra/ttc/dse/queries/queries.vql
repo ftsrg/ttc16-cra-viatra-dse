@@ -1,7 +1,7 @@
 package hu.bme.mit.viatra.ttc.dse.queries
 
 import "http://momot.big.tuwien.ac.at/architectureCRA/1.0"
-import "http://www.eclipse.org/emf/2002/Ecore"
+//import "http://www.eclipse.org/emf/2002/Ecore"
 
 pattern clazz(c : Class) {
     Class(c);
@@ -117,7 +117,7 @@ pattern mai(c1 : Class, c2 : Class, N) {
     N == count find maiPartial(c1,c2,_,_);
 }
 
-//pattern cohesianRatio(c : Class/*, ratio : EInt*/) {
+//pattern cohesionRatio(c : Class/*, ratio : EInt*/) {
 //    find mai(c,c,mai);
 //    find mmi(c,c,mmi);
 //    

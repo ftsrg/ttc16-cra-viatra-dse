@@ -44,6 +44,8 @@ public class CraDseRunner {
     }
 
     public static EObject loadInitialModel(String inputModelName) throws IOException {
+		EMFHelper.registerExtensionForXmiSerializer("xmi");
+		ArchitectureCRAPackage.eINSTANCE.eClass();
         ResourceSetImpl rSet = new ResourceSetImpl();
         Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
         resource.load(null);

@@ -9,13 +9,9 @@ import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import com.google.common.base.Stopwatch;
 
-import architectureCRA.ArchitectureCRAPackage;
-
 public class DseSolverMain {
 	
 	public static void main(String[] args) throws IOException, ViatraQueryException {
-		EMFHelper.registerExtensionForXmiSerializer("xmi");
-		ArchitectureCRAPackage.eINSTANCE.eClass();
 		runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
 		runExplorationWithTtcInput(CraModelNameConstants.INPUT_B);
 		runExplorationWithTtcInput(CraModelNameConstants.INPUT_C);
