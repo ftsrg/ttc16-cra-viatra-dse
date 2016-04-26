@@ -8,7 +8,6 @@
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.feature.group" version="4.5.1.v20150904-0015"/>
-<unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.2.1.v20150828-1818"/>
 <unit id="org.eclipse.rcp.feature.group" version="4.5.1.v20150904-0015"/>
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.1.v20150831-1342"/>
 <unit id="org.eclipse.core.runtime.feature.feature.group" version="1.1.101.v20150903-1804"/>
