@@ -21,7 +21,6 @@
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.1.v20150806-0404"/>
-<unit id="org.eclipse.pde.feature.group" version="3.11.1.v20150904-0345"/>
 <unit id="org.eclipse.platform.sdk" version="4.5.1.M20150904-0015"/>
 <repository location="http://download.eclipse.org/releases/mars/"/>
 </location>
