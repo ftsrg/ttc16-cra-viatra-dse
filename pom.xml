@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hu.bme.mit.viatra.ttc</groupId>
+	<artifactId>hu.bme.mit.viatra.ttc</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtend.version>2.8.2</xtend.version>
+		<tycho.version>0.24.0</tycho.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+	</properties>
+
+	<modules>
+		<module>hu.bme.mit.viatra.ttc.dse</module>
+		<module>hu.bme.mit.viatra.ttc.model</module>
+		<module>hu.bme.mit.viatra.ttc.target</module>
+	</modules>
+
+	<!-- <pluginRepositories> -->
+	<!-- <pluginRepository> -->
+	<!-- <id>incquery-snapshots</id> -->
+	<!-- <snapshots> -->
+	<!-- <enabled>true</enabled> -->
+	<!-- </snapshots> -->
+	<!-- <releases> -->
+	<!-- <enabled>true</enabled> -->
+	<!-- </releases> -->
+	<!-- <url>https://repo.eclipse.org/content/repositories/emf-incquery/</url> -->
+	<!-- </pluginRepository> -->
+	<!-- </pluginRepositories> -->
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>hu.bme.mit.viatra.ttc</groupId>
+							<artifactId>hu.bme.mit.viatra.ttc.target</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

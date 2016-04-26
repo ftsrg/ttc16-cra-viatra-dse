@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hu.bme.mit.viatra.ttc</groupId>
+		<artifactId>hu.bme.mit.viatra.ttc</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>hu.bme.mit.viatra.ttc.dse</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<!-- <build> -->
+	<!-- <plugins> -->
+	<!-- <plugin> -->
+	<!-- <groupId>org.eclipse.incquery</groupId> -->
+	<!-- <artifactId>incquery-maven-plugin</artifactId> -->
+	<!-- <version>${incquery.version}</version> -->
+	<!-- <executions> -->
+	<!-- <execution> -->
+	<!-- <goals> -->
+	<!-- <goal>generate</goal> -->
+	<!-- </goals> -->
+	<!-- </execution> -->
+	<!-- </executions> -->
+	<!-- <configuration> -->
+	<!-- <outputDirectory>src-gen</outputDirectory> -->
+	<!-- <metamodels> -->
+	<!-- <metamodel> -->
+	<!-- <packageClass>org.eclipse.viatra.examples.petrinet.model.PetriNetPackage</packageClass> -->
+	<!-- </metamodel> -->
+	<!-- </metamodels> -->
+	<!-- </configuration> -->
+	<!-- <dependencies> -->
+	<!-- <dependency> -->
+	<!-- <groupId>org.eclipse.viatra.examples.petrinet.tycho</groupId> -->
+	<!-- <artifactId>org.eclipse.viatra.examples.petrinet.tycho.model</artifactId> -->
+	<!-- <version>0.8.0-SNAPSHOT</version> -->
+	<!-- </dependency> -->
+	<!-- </dependencies> -->
+	<!-- </plugin> -->
+	<!-- </plugins> -->
+	<!-- </build> -->
+
+</project>
