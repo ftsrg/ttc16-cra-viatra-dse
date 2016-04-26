@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="Model Metrics Target Platform" sequenceNumber="367">
+<?pde version="3.8"?><target includeMode="feature" name="Model Metrics Target Platform" sequenceNumber="368">
 <locations>
-
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="com.google.guava" version="15.0.0.v201403281430"/>
 <unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
 </location>
-
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.feature.group" version="4.5.1.v20150904-0015"/>
 <unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.2.1.v20150828-1818"/>
@@ -17,13 +15,11 @@
 <unit id="org.eclipse.jdt.source.feature.group" version="3.11.2.v20160212-1500"/>
 <repository location="http://download.eclipse.org/eclipse/updates/4.5"/>
 </location>
-
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.viatra.dse.feature.source.feature.group" version="0.13.0.201604261304"/>
 <unit id="org.eclipse.viatra.query.sdk.feature.source.feature.group" version="1.3.0.201604261304"/>
 <repository location="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository/"/>
 </location>
-
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.1.v20150806-0404"/>
 <unit id="org.eclipse.pde.feature.group" version="3.11.1.v20150904-0345"/>
@@ -31,41 +27,9 @@
 <repository location="http://download.eclipse.org/releases/mars/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.3.v201505260429"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.0.v201412160421"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201510020259"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201510300426"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201511170433"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.0.v201502030924"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.3.v201505190403"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201505220408"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201507170721"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.3.v201505051043"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201511170433"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.3.v201505260429"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.3.v201506010551"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.10.0.v201602020334"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201510020259"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201510300426"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.0.v201409300608"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201505180813"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.10.0.v201602020334"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201510010343"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201511100835"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.0.v201411111037"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.3.v201505051043"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201510010343"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.0.v201412160421"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201505220408"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.0.v201502030924"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.3.v201505190403"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201511100835"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.0.v201409300608"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.8.0.v201411111037"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.0.v201507170721"/>
-<unit id="org.eclipse.xtend.gwt.feature.group" version="2.9.0.v201505180813"/>
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.3.v201506010551"/>
-<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones/"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.9.2.v201603040440"/>
+<unit id="org.eclipse.xtend.sdk.feature.group" version="2.9.2.v201603040440"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
