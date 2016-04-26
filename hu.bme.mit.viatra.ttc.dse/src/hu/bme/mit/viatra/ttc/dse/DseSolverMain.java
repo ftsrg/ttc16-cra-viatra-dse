@@ -43,7 +43,6 @@ public class DseSolverMain {
 		EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
 		System.out.println(" Result model serialized.");
 		System.out.println();
-		DseIdPoolHelper.INSTANCE.resetFallBackId();
 	}
 
 }

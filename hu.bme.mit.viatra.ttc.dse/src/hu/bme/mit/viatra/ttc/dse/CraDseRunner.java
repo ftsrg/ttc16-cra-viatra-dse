@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
+import org.eclipse.viatra.dse.base.DseIdPoolHelper;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
 import org.eclipse.viatra.dse.evolutionary.crossovers.SwapTransitionCrossover;
@@ -115,7 +116,7 @@ public class CraDseRunner {
         dse.startExploration(nsga2.build());
         
         System.out.println(dse.toStringSolutions());
-        
+        DseIdPoolHelper.INSTANCE.resetFallBackId();
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
         
