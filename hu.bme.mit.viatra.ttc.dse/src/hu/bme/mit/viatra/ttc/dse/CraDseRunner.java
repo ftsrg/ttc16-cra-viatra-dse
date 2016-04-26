@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
-import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyConsoleLogAdapter;
 import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
 import org.eclipse.viatra.dse.evolutionary.crossovers.SwapTransitionCrossover;
 import org.eclipse.viatra.dse.evolutionary.initialselectors.BfsInitialSelector;
