@@ -12,6 +12,8 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.junit,
  org.eclipse.viatra.dse.base,
  org.eclipse.viatra.dse.genetic,
- org.eclipse.equinox.app
+ org.eclipse.equinox.app,
+ org.eclipse.emf.edit,
+ org.eclipse.emf.ecore.xmi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j
