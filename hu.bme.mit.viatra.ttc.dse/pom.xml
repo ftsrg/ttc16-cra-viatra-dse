@@ -23,10 +23,10 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/lib/</outputDirectory>
-							<excludeTransitive>true</excludeTransitive>
-							<addParentPoms>false</addParentPoms>
-							<excludeScope>provided</excludeScope>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+<!-- 							<excludeTransitive>true</excludeTransitive> -->
+<!-- 							<addParentPoms>false</addParentPoms> -->
+<!-- 							<excludeScope>provided</excludeScope> -->
 						</configuration>
 					</execution>
 				</executions>
