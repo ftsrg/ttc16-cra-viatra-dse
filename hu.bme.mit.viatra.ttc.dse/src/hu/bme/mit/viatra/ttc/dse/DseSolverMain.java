@@ -13,8 +13,8 @@ import com.google.common.base.Stopwatch;
 public class DseSolverMain {
 	
 	public static void main(String[] args) throws IOException, ViatraQueryException {
-//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
-		runExplorationWithTtcInput(CraModelNameConstants.INPUT_B);
+		runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
+//		runExplorationWithTtcInput(CraModelNameConstants.INPUT_B);
 //		runExplorationWithTtcInput(CraModelNameConstants.INPUT_C);
 //		runExplorationWithTtcInput(CraModelNameConstants.INPUT_D);
 //		runExplorationWithTtcInput(CraModelNameConstants.INPUT_E);
