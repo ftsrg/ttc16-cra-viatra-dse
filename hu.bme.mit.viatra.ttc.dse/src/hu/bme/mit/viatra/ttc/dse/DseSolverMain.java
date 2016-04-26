@@ -1,6 +1,9 @@
 package hu.bme.mit.viatra.ttc.dse;
 
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.ecore.EObject;
@@ -13,6 +16,10 @@ import com.google.common.base.Stopwatch;
 public class DseSolverMain {
 
 	public static void main(String[] args) throws IOException, ViatraQueryException {
+		RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
+		List<String> arguments = runtimeMxBean.getInputArguments();
+		System.out.println(arguments);
+		
 		if (args.length < 1) {
 			args = new String[] { "A", "B", "C", "D", "E" };
 		}
