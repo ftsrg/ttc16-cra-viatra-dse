@@ -9,18 +9,18 @@ import architectureCRA.ArchitectureCRAFactory;
 import architectureCRA.Class;
 import architectureCRA.ClassModel;
 import architectureCRA.Feature;
-import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
-import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreProcessor;
-import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AddFeatureProcessor;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AddFeatureQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.ClassModelProcessor;
 import hu.bme.mit.viatra.ttc.dse.queries.util.ClassModelQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreProcessor;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreQuerySpecification;
 
 public class CraDseRules {
 

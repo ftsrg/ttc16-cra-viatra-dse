@@ -10,9 +10,15 @@ import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyConsoleLogAdapter;
+import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
+import org.eclipse.viatra.dse.evolutionary.crossovers.SwapTransitionCrossover;
+import org.eclipse.viatra.dse.evolutionary.initialselectors.BfsInitialSelector;
+import org.eclipse.viatra.dse.evolutionary.mutationrate.SimpleMutationRate;
+import org.eclipse.viatra.dse.evolutionary.mutations.AddRandomTransitionMutation;
+import org.eclipse.viatra.dse.evolutionary.mutations.ModifyRandomTransitionMutation;
 import org.eclipse.viatra.dse.evolutionary.stopconditions.CompositeStopCondition;
-import org.eclipse.viatra.dse.evolutionary.stopconditions.ConstantParetoFrontStopCondition;
-import org.eclipse.viatra.dse.evolutionary.stopconditions.ParetoFrontIncludesGoodSolutionStopCondition;
+import org.eclipse.viatra.dse.evolutionary.stopconditions.OneSurvivalStopCondition;
+import org.eclipse.viatra.dse.evolutionary.stopconditions.ParetoFrontIncludesGoalSolutionStopCondition;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
 import org.eclipse.viatra.dse.solutionstore.SolutionStore;
@@ -30,24 +36,25 @@ import hu.bme.mit.viatra.ttc.dse.statecoder.CraStateCoderFactory;
 
 public class CraDseRunner {
 
-    private static final String INPUT_A = "TTC_InputRDG_A";
-    private static final String INPUT_B = "TTC_InputRDG_B";
-    private static final String INPUT_C = "TTC_InputRDG_C";
-    private static final String INPUT_D = "TTC_InputRDG_D";
-    private static final String INPUT_E = "TTC_InputRDG_E";
-    
-    private static final String INPUT_MODEL = INPUT_B;
-
     @Test
     public void test() throws IOException, ViatraQueryException {
+        String inputModelName = CraModelNameConstants.INPUT_D;
+        EObject initialModel = loadInitialModel(inputModelName);
+        runDseWithInputModel(initialModel);
+        EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
+    }
+
+    public static EObject loadInitialModel(String inputModelName) throws IOException {
+        ResourceSetImpl rSet = new ResourceSetImpl();
+        Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
+        resource.load(null);
+        return resource.getContents().get(0);
+    }
+    
+    public static void runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
         
         DesignSpaceExplorer dse = new DesignSpaceExplorer();
         
-        ResourceSetImpl rSet = new ResourceSetImpl();
-        Resource resource = rSet.createResource(URI.createFileURI(INPUT_MODEL + ".xmi"));
-        resource.load(null);
-        
-        EObject model = resource.getContents().get(0);
         dse.setInitialModel(model);
         dse.addMetaModelPackage(ArchitectureCRAPackage.eINSTANCE);
         dse.setStateCoderFactory(new CraStateCoderFactory());
@@ -78,23 +85,38 @@ public class CraDseRunner {
         
         SolutionStore solutionStore = new SolutionStore(1);
         solutionStore.logSolutionsWhenFound();
+//        solutionStore.acceptAnySolutions();
         dse.setSolutionStore(solutionStore);
         
-        EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2BuilderFull(25);
-        nsga2.addStrategyAdapter(new EvolutionaryStrategyConsoleLogAdapter());
+        
+        EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2Builder(40);
+        nsga2.setInitialPopulationSelector(new BfsInitialSelector(0.18f, 2));
+        nsga2.setMutationRate(new SimpleMutationRate(0.8));
+        nsga2.addMutation(new AddRandomTransitionMutation(), 6);
+        nsga2.addMutation(new ModifyRandomTransitionMutation(), 2);
+        nsga2.addCrossover(new CutAndSpliceCrossover());
+        nsga2.addCrossover(new SwapTransitionCrossover());
+        nsga2.addMutation(new RemoveUnusedClassMutation());
+        
+//        EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2BuilderFull(20);
+        
+//        nsga2.addStrategyAdapter(new EvolutionaryStrategyConsoleLogAdapter());
 //        nsga2.addStrategyAdapter(new EvolutionaryStrategyLogAdapter());
-        nsga2.setStopCondition(new CompositeStopCondition()
-                .withStopCondition(new ConstantParetoFrontStopCondition(50))
-                .withStopCondition(new ParetoFrontIncludesGoodSolutionStopCondition())
+        nsga2.setStopCondition(
+                new CompositeStopCondition()
+//                .withStopCondition(new IterationStopCondition(1000))
+                .withStopCondition(new OneSurvivalStopCondition(100))
+//                .withStopCondition(new ConstantParetoFrontStopCondition(100))
+                .withStopCondition(new ParetoFrontIncludesGoalSolutionStopCondition())
                 );
+
+//        dse.startExplorationWithTimeout(nsga2.build(), 20000);
         dse.startExploration(nsga2.build());
         
         System.out.println(dse.toStringSolutions());
         
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
-        
-        EMFHelper.serializeModel(model, "result_" + INPUT_MODEL, "xmi");
         
     }
 

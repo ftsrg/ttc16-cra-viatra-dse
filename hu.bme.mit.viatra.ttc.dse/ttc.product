@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="CRA solver" uid="hu.bme.mit.viatra.ttc.product" id="hu.bme.mit.viatra.ttc.dse.product" application="hu.bme.mit.viatra.ttc.dse.application" version="0.13.0" useFeatures="false" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-consoleLog
+      </programArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="com.google.guava"/>
+      <plugin id="hu.bme.mit.viatra.ttc"/>
+      <plugin id="hu.bme.mit.viatra.ttc.dse"/>
+      <plugin id="javax.xml"/>
+      <plugin id="org.apache.log4j"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.edit"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
+      <plugin id="org.eclipse.viatra.dse.api"/>
+      <plugin id="org.eclipse.viatra.dse.base"/>
+      <plugin id="org.eclipse.viatra.dse.designspace"/>
+      <plugin id="org.eclipse.viatra.dse.genetic"/>
+      <plugin id="org.eclipse.viatra.query.runtime"/>
+      <plugin id="org.eclipse.viatra.query.runtime.base"/>
+      <plugin id="org.eclipse.viatra.query.runtime.base.itc"/>
+      <plugin id="org.eclipse.viatra.query.runtime.matchers"/>
+      <plugin id="org.eclipse.viatra.query.runtime.rete"/>
+      <plugin id="org.eclipse.viatra.query.runtime.rete.recipes"/>
+      <plugin id="org.eclipse.viatra.transformation.evm"/>
+      <plugin id="org.eclipse.viatra.transformation.runtime.emf"/>
+      <plugin id="org.eclipse.xtend.lib"/>
+      <plugin id="org.eclipse.xtend.lib.macro"/>
+      <plugin id="org.eclipse.xtext.logging" fragment="true"/>
+      <plugin id="org.eclipse.xtext.xbase.lib"/>
+      <plugin id="org.hamcrest.core"/>
+      <plugin id="org.junit"/>
+   </plugins>
+
+
+</product>
