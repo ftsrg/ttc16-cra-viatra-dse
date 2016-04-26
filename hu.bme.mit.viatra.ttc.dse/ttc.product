@@ -25,8 +25,8 @@
 
    <plugins>
       <plugin id="com.google.guava"/>
-      <plugin id="hu.bme.mit.viatra.ttc"/>
       <plugin id="hu.bme.mit.viatra.ttc.dse"/>
+      <plugin id="hu.bme.mit.viatra.ttc.model"/>
       <plugin id="javax.xml"/>
       <plugin id="org.apache.log4j"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -63,5 +63,12 @@
       <plugin id="org.junit"/>
    </plugins>
 
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>
