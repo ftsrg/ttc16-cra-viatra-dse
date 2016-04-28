@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.viatra.dse.statecode.IStateCoder;
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
 
@@ -21,7 +23,13 @@ public class CraStateCoder implements IStateCoder {
 
     @Override
     public void init(Notifier notifier) {
-        this.model = (ClassModel) notifier;
+        if (notifier instanceof ClassModel) {
+            this.model = (ClassModel) notifier;
+        } else if (notifier instanceof Resource) {
+            this.model = (ClassModel) ((Resource)notifier).getContents().get(0);
+        } else if (notifier instanceof ResourceSet) {
+            this.model = (ClassModel) ((ResourceSet)notifier).getResources().get(0).getContents().get(0);
+        }
     }
 
     @Override
