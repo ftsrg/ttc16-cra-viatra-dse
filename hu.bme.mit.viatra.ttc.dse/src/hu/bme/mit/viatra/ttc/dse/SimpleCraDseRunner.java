@@ -2,14 +2,10 @@ package hu.bme.mit.viatra.ttc.dse;
 
 import java.io.IOException;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.Strategies;
-import org.eclipse.viatra.dse.base.DesignSpaceManager;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
-import org.eclipse.viatra.dse.solutionstore.SolutionStore;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.junit.Test;
 
@@ -30,25 +26,7 @@ public class SimpleCraDseRunner {
     @Test
     public void runDseWithInputModel() throws IOException, ViatraQueryException {
         
-        Logger.getLogger(DesignSpaceManager.class).setLevel(Level.DEBUG);
-        
-        ArchitectureCRAFactory factory = ArchitectureCRAFactory.eINSTANCE;
-        ClassModel model = factory.createClassModel();
-        Method m1 = factory.createMethod();
-        Method m2 = factory.createMethod();
-        Method m3 = factory.createMethod();
-        Attribute a1 = factory.createAttribute();
-        m1.setName("M1");
-        m2.setName("M2");
-        m3.setName("M3");
-        a1.setName("A1");
-        model.getFeatures().add(m1);
-        model.getFeatures().add(m2);
-        model.getFeatures().add(m3);
-        model.getFeatures().add(a1);
-        m1.getFunctionalDependency().add(m2);
-        m2.getFunctionalDependency().add(m3);
-        m2.getDataDependency().add(a1);
+        ClassModel model = createSimpleCraProblem();
         
         DesignSpaceExplorer dse = new DesignSpaceExplorer();
         
@@ -69,14 +47,31 @@ public class SimpleCraDseRunner {
                 );
         dse.addObjective(new CraIndexObjective().withLevel(0));
         
-        SolutionStore solutionStore = new SolutionStore(0);
-        solutionStore.logSolutionsWhenFound();
-        dse.setSolutionStore(solutionStore);
-        
         dse.startExploration(Strategies.createDFSStrategy(0));
         
         System.out.println(dse.toStringSolutions());
         
+    }
+
+    private ClassModel createSimpleCraProblem() {
+        ArchitectureCRAFactory factory = ArchitectureCRAFactory.eINSTANCE;
+        ClassModel model = factory.createClassModel();
+        Method m1 = factory.createMethod();
+        Method m2 = factory.createMethod();
+        Method m3 = factory.createMethod();
+        Attribute a1 = factory.createAttribute();
+        m1.setName("M1");
+        m2.setName("M2");
+        m3.setName("M3");
+        a1.setName("A1");
+        model.getFeatures().add(m1);
+        model.getFeatures().add(m2);
+        model.getFeatures().add(m3);
+        model.getFeatures().add(a1);
+        m1.getFunctionalDependency().add(m2);
+        m2.getFunctionalDependency().add(m3);
+        m2.getDataDependency().add(a1);
+        return model;
     }
 
 }
