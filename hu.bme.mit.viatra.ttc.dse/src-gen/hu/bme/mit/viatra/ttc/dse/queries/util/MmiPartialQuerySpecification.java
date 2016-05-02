@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import hu.bme.mit.viatra.ttc.dse.queries.MmiPartialMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.MmiPartialMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.DmmQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedQuerySpecification;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -12,11 +13,9 @@ import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
-import org.eclipse.viatra.query.runtime.emf.types.EStructuralFeatureInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
@@ -134,16 +133,10 @@ public final class MmiPartialQuerySpecification extends BaseGeneratedEMFQuerySpe
       		   new ExportedParameter(body, var_m1, "m1"),
       		   new ExportedParameter(body, var_m2, "m2")
       		));
-      		//     Method.isEncapsulatedBy(m1, c1)
-      		new TypeConstraint(body, new FlatTuple(var_m1), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")));
-      		PVariable var__virtual_0_ = body.getOrCreateVariableByName(".virtual{0}");
-      		new TypeConstraint(body, new FlatTuple(var_m1, var__virtual_0_), new EStructuralFeatureInstancesKey(getFeatureLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Feature", "isEncapsulatedBy")));
-      		new Equality(body, var__virtual_0_, var_c1);
-      		//     Method.isEncapsulatedBy(m2, c2)
-      		new TypeConstraint(body, new FlatTuple(var_m2), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")));
-      		PVariable var__virtual_1_ = body.getOrCreateVariableByName(".virtual{1}");
-      		new TypeConstraint(body, new FlatTuple(var_m2, var__virtual_1_), new EStructuralFeatureInstancesKey(getFeatureLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Feature", "isEncapsulatedBy")));
-      		new Equality(body, var__virtual_1_, var_c2);
+      		//     find encapsulated(c1, m1)
+      		new PositivePatternCall(body, new FlatTuple(var_c1, var_m1), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());
+      		//     find encapsulated(c2, m2)
+      		new PositivePatternCall(body, new FlatTuple(var_c2, var_m2), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());
       		//     find dmm(m1,m2)
       		new PositivePatternCall(body, new FlatTuple(var_m1, var_m2), DmmQuerySpecification.instance().getInternalQueryRepresentation());
       		bodies.add(body);

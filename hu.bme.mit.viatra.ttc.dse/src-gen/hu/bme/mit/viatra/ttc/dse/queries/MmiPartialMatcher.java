@@ -27,8 +27,8 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * <p>Original source:
  * <code><pre>
  * pattern mmiPartial(c1 : Class, c2 : Class, m1: Method, m2: Method) {
- *     Method.isEncapsulatedBy(m1, c1);
- *     Method.isEncapsulatedBy(m2, c2);
+ *     find encapsulated(c1, m1);
+ *     find encapsulated(c2, m2);
  *     find dmm(m1,m2);
  * }
  * </pre></code>

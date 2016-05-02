@@ -13,7 +13,7 @@ import architectureCRA.Class;
 import architectureCRA.ClassModel;
 import architectureCRA.Feature;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatch;
-import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatch;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
 
 public class CraStateCoder implements IStateCoder {
@@ -63,7 +63,7 @@ public class CraStateCoder implements IStateCoder {
         } else if (match instanceof CreateClassWithFeautreMatch) {
             CreateClassWithFeautreMatch createClassWithFeautreMatch = (CreateClassWithFeautreMatch) match;
             return (CX + createClassWithFeautreMatch.getF().getName()).intern();
-        } else if (match instanceof ClassModelMatch) {
+        } else if (match instanceof CreateClassMatch) {
             return CX;
         } else {
             throw new RuntimeException("Unsopprted rule.");

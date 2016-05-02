@@ -1,12 +1,9 @@
 package hu.bme.mit.viatra.ttc.dse.queries;
 
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.AllFeatureEncapsulated2Matcher;
 import hu.bme.mit.viatra.ttc.dse.queries.AllFeatureEncapsulatedMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.AttributeMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.ClassPairMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.ClazzMatcher;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.DmaMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.DmmMatcher;
@@ -23,12 +20,9 @@ import hu.bme.mit.viatra.ttc.dse.queries.NoEmptyClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.NotEncapsulatedFeatureMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.SortClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AddFeatureQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.AllFeatureEncapsulated2QuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AllFeatureEncapsulatedQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AttributeQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClassModelQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClassPairQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClazzQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.DmaQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.DmmQuerySpecification;
@@ -56,19 +50,16 @@ import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
  * in order to achieve better performance than one-by-one on-demand matcher initialization.
  * 
  * <p> From package hu.bme.mit.viatra.ttc.dse.queries, the group contains the definition of the following patterns: <ul>
- * <li>clazz</li>
- * <li>classPair</li>
  * <li>feature</li>
  * <li>attribute</li>
  * <li>method</li>
  * <li>encapsulated</li>
  * <li>encapsulatedFeature</li>
  * <li>notEncapsulatedFeature</li>
- * <li>allFeatureEncapsulated2</li>
  * <li>allFeatureEncapsulated</li>
  * <li>emptyClass</li>
  * <li>noEmptyClass</li>
- * <li>classModel</li>
+ * <li>createClass</li>
  * <li>createClassWithFeautre</li>
  * <li>addFeature</li>
  * <li>dma</li>
@@ -102,19 +93,16 @@ public final class Queries extends BaseGeneratedPatternGroup {
   private static Queries INSTANCE;
   
   private Queries() throws ViatraQueryException {
-    querySpecifications.add(ClazzQuerySpecification.instance());
-    querySpecifications.add(ClassPairQuerySpecification.instance());
     querySpecifications.add(FeatureQuerySpecification.instance());
     querySpecifications.add(AttributeQuerySpecification.instance());
     querySpecifications.add(MethodQuerySpecification.instance());
     querySpecifications.add(EncapsulatedQuerySpecification.instance());
     querySpecifications.add(EncapsulatedFeatureQuerySpecification.instance());
     querySpecifications.add(NotEncapsulatedFeatureQuerySpecification.instance());
-    querySpecifications.add(AllFeatureEncapsulated2QuerySpecification.instance());
     querySpecifications.add(AllFeatureEncapsulatedQuerySpecification.instance());
     querySpecifications.add(EmptyClassQuerySpecification.instance());
     querySpecifications.add(NoEmptyClassQuerySpecification.instance());
-    querySpecifications.add(ClassModelQuerySpecification.instance());
+    querySpecifications.add(CreateClassQuerySpecification.instance());
     querySpecifications.add(CreateClassWithFeautreQuerySpecification.instance());
     querySpecifications.add(AddFeatureQuerySpecification.instance());
     querySpecifications.add(DmaQuerySpecification.instance());
@@ -124,22 +112,6 @@ public final class Queries extends BaseGeneratedPatternGroup {
     querySpecifications.add(SortClassQuerySpecification.instance());
     querySpecifications.add(MmiQuerySpecification.instance());
     querySpecifications.add(MaiQuerySpecification.instance());
-  }
-  
-  public ClazzQuerySpecification getClazz() throws ViatraQueryException {
-    return ClazzQuerySpecification.instance();
-  }
-  
-  public ClazzMatcher getClazz(final ViatraQueryEngine engine) throws ViatraQueryException {
-    return ClazzMatcher.on(engine);
-  }
-  
-  public ClassPairQuerySpecification getClassPair() throws ViatraQueryException {
-    return ClassPairQuerySpecification.instance();
-  }
-  
-  public ClassPairMatcher getClassPair(final ViatraQueryEngine engine) throws ViatraQueryException {
-    return ClassPairMatcher.on(engine);
   }
   
   public FeatureQuerySpecification getFeature() throws ViatraQueryException {
@@ -190,14 +162,6 @@ public final class Queries extends BaseGeneratedPatternGroup {
     return NotEncapsulatedFeatureMatcher.on(engine);
   }
   
-  public AllFeatureEncapsulated2QuerySpecification getAllFeatureEncapsulated2() throws ViatraQueryException {
-    return AllFeatureEncapsulated2QuerySpecification.instance();
-  }
-  
-  public AllFeatureEncapsulated2Matcher getAllFeatureEncapsulated2(final ViatraQueryEngine engine) throws ViatraQueryException {
-    return AllFeatureEncapsulated2Matcher.on(engine);
-  }
-  
   public AllFeatureEncapsulatedQuerySpecification getAllFeatureEncapsulated() throws ViatraQueryException {
     return AllFeatureEncapsulatedQuerySpecification.instance();
   }
@@ -222,12 +186,12 @@ public final class Queries extends BaseGeneratedPatternGroup {
     return NoEmptyClassMatcher.on(engine);
   }
   
-  public ClassModelQuerySpecification getClassModel() throws ViatraQueryException {
-    return ClassModelQuerySpecification.instance();
+  public CreateClassQuerySpecification getCreateClass() throws ViatraQueryException {
+    return CreateClassQuerySpecification.instance();
   }
   
-  public ClassModelMatcher getClassModel(final ViatraQueryEngine engine) throws ViatraQueryException {
-    return ClassModelMatcher.on(engine);
+  public CreateClassMatcher getCreateClass(final ViatraQueryEngine engine) throws ViatraQueryException {
+    return CreateClassMatcher.on(engine);
   }
   
   public CreateClassWithFeautreQuerySpecification getCreateClassWithFeautre() throws ViatraQueryException {

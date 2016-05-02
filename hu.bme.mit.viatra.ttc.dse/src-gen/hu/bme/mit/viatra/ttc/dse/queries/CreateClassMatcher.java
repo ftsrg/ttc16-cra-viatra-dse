@@ -1,7 +1,8 @@
 package hu.bme.mit.viatra.ttc.dse.queries;
 
-import hu.bme.mit.viatra.ttc.dse.queries.ClazzMatch;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClazzQuerySpecification;
+import architectureCRA.ClassModel;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatch;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassQuerySpecification;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,30 +16,30 @@ import org.eclipse.viatra.query.runtime.matchers.tuple.Tuple;
 import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
 
 /**
- * Generated pattern matcher API of the hu.bme.mit.viatra.ttc.dse.queries.clazz pattern,
+ * Generated pattern matcher API of the hu.bme.mit.viatra.ttc.dse.queries.createClass pattern,
  * providing pattern-specific query methods.
  * 
  * <p>Use the pattern matcher on a given model via {@link #on(ViatraQueryEngine)},
  * e.g. in conjunction with {@link ViatraQueryEngine#on(Notifier)}.
  * 
- * <p>Matches of the pattern will be represented as {@link ClazzMatch}.
+ * <p>Matches of the pattern will be represented as {@link CreateClassMatch}.
  * 
  * <p>Original source:
  * <code><pre>
- * //import "http://www.eclipse.org/emf/2002/Ecore"
- * 
- * pattern clazz(c : Class) {
- *     Class(c);
+ * // Rules
+ * pattern createClass(cm : ClassModel) {
+ *     ClassModel(cm);
+ *     neg find emptyClass(_);
  * }
  * </pre></code>
  * 
- * @see ClazzMatch
- * @see ClazzProcessor
- * @see ClazzQuerySpecification
+ * @see CreateClassMatch
+ * @see CreateClassProcessor
+ * @see CreateClassQuerySpecification
  * 
  */
 @SuppressWarnings("all")
-public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
+public class CreateClassMatcher extends BaseMatcher<CreateClassMatch> {
   /**
    * Initializes the pattern matcher within an existing VIATRA Query engine.
    * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
@@ -47,19 +48,19 @@ public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  public static ClazzMatcher on(final ViatraQueryEngine engine) throws ViatraQueryException {
+  public static CreateClassMatcher on(final ViatraQueryEngine engine) throws ViatraQueryException {
     // check if matcher already exists
-    ClazzMatcher matcher = engine.getExistingMatcher(querySpecification());
+    CreateClassMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new ClazzMatcher(engine);
+    	matcher = new CreateClassMatcher(engine);
     	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
     }
     return matcher;
   }
   
-  private final static int POSITION_C = 0;
+  private final static int POSITION_CM = 0;
   
-  private final static Logger LOGGER = ViatraQueryLoggingUtil.getLogger(ClazzMatcher.class);
+  private final static Logger LOGGER = ViatraQueryLoggingUtil.getLogger(CreateClassMatcher.class);
   
   /**
    * Initializes the pattern matcher within an existing VIATRA Query engine.
@@ -69,110 +70,110 @@ public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private ClazzMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
+  private CreateClassMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
     super(engine, querySpecification());
   }
   
   /**
    * Returns the set of all matches of the pattern that conform to the given fixed values of some parameters.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
-   * @return matches represented as a ClazzMatch object.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
+   * @return matches represented as a CreateClassMatch object.
    * 
    */
-  public Collection<ClazzMatch> getAllMatches(final architectureCRA.Class pC) {
-    return rawGetAllMatches(new Object[]{pC});
+  public Collection<CreateClassMatch> getAllMatches(final ClassModel pCm) {
+    return rawGetAllMatches(new Object[]{pCm});
   }
   
   /**
    * Returns an arbitrarily chosen match of the pattern that conforms to the given fixed values of some parameters.
    * Neither determinism nor randomness of selection is guaranteed.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
-   * @return a match represented as a ClazzMatch object, or null if no match is found.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
+   * @return a match represented as a CreateClassMatch object, or null if no match is found.
    * 
    */
-  public ClazzMatch getOneArbitraryMatch(final architectureCRA.Class pC) {
-    return rawGetOneArbitraryMatch(new Object[]{pC});
+  public CreateClassMatch getOneArbitraryMatch(final ClassModel pCm) {
+    return rawGetOneArbitraryMatch(new Object[]{pCm});
   }
   
   /**
    * Indicates whether the given combination of specified pattern parameters constitute a valid pattern match,
    * under any possible substitution of the unspecified parameters (if any).
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @return true if the input is a valid (partial) match of the pattern.
    * 
    */
-  public boolean hasMatch(final architectureCRA.Class pC) {
-    return rawHasMatch(new Object[]{pC});
+  public boolean hasMatch(final ClassModel pCm) {
+    return rawHasMatch(new Object[]{pCm});
   }
   
   /**
    * Returns the number of all matches of the pattern that conform to the given fixed values of some parameters.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @return the number of pattern matches found.
    * 
    */
-  public int countMatches(final architectureCRA.Class pC) {
-    return rawCountMatches(new Object[]{pC});
+  public int countMatches(final ClassModel pCm) {
+    return rawCountMatches(new Object[]{pCm});
   }
   
   /**
    * Executes the given processor on each match of the pattern that conforms to the given fixed values of some parameters.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @param processor the action that will process each pattern match.
    * 
    */
-  public void forEachMatch(final architectureCRA.Class pC, final IMatchProcessor<? super ClazzMatch> processor) {
-    rawForEachMatch(new Object[]{pC}, processor);
+  public void forEachMatch(final ClassModel pCm, final IMatchProcessor<? super CreateClassMatch> processor) {
+    rawForEachMatch(new Object[]{pCm}, processor);
   }
   
   /**
    * Executes the given processor on an arbitrarily chosen match of the pattern that conforms to the given fixed values of some parameters.
    * Neither determinism nor randomness of selection is guaranteed.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @param processor the action that will process the selected match.
    * @return true if the pattern has at least one match with the given parameter values, false if the processor was not invoked
    * 
    */
-  public boolean forOneArbitraryMatch(final architectureCRA.Class pC, final IMatchProcessor<? super ClazzMatch> processor) {
-    return rawForOneArbitraryMatch(new Object[]{pC}, processor);
+  public boolean forOneArbitraryMatch(final ClassModel pCm, final IMatchProcessor<? super CreateClassMatch> processor) {
+    return rawForOneArbitraryMatch(new Object[]{pCm}, processor);
   }
   
   /**
    * Returns a new (partial) match.
    * This can be used e.g. to call the matcher with a partial match.
    * <p>The returned match will be immutable. Use {@link #newEmptyMatch()} to obtain a mutable match object.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @return the (partial) match object.
    * 
    */
-  public ClazzMatch newMatch(final architectureCRA.Class pC) {
-    return ClazzMatch.newMatch(pC);
+  public CreateClassMatch newMatch(final ClassModel pCm) {
+    return CreateClassMatch.newMatch(pCm);
   }
   
   /**
-   * Retrieve the set of values that occur in matches for c.
+   * Retrieve the set of values that occur in matches for cm.
    * @return the Set of all values, null if no parameter with the given name exists, empty set if there are no matches
    * 
    */
-  protected Set<architectureCRA.Class> rawAccumulateAllValuesOfc(final Object[] parameters) {
-    Set<architectureCRA.Class> results = new HashSet<architectureCRA.Class>();
-    rawAccumulateAllValues(POSITION_C, parameters, results);
+  protected Set<ClassModel> rawAccumulateAllValuesOfcm(final Object[] parameters) {
+    Set<ClassModel> results = new HashSet<ClassModel>();
+    rawAccumulateAllValues(POSITION_CM, parameters, results);
     return results;
   }
   
   /**
-   * Retrieve the set of values that occur in matches for c.
+   * Retrieve the set of values that occur in matches for cm.
    * @return the Set of all values, null if no parameter with the given name exists, empty set if there are no matches
    * 
    */
-  public Set<architectureCRA.Class> getAllValuesOfc() {
-    return rawAccumulateAllValuesOfc(emptyArray());
+  public Set<ClassModel> getAllValuesOfcm() {
+    return rawAccumulateAllValuesOfcm(emptyArray());
   }
   
   @Override
-  protected ClazzMatch tupleToMatch(final Tuple t) {
+  protected CreateClassMatch tupleToMatch(final Tuple t) {
     try {
-    	return ClazzMatch.newMatch((architectureCRA.Class) t.get(POSITION_C));
+    	return CreateClassMatch.newMatch((ClassModel) t.get(POSITION_CM));
     } catch(ClassCastException e) {
     	LOGGER.error("Element(s) in tuple not properly typed!",e);
     	return null;
@@ -180,9 +181,9 @@ public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
   }
   
   @Override
-  protected ClazzMatch arrayToMatch(final Object[] match) {
+  protected CreateClassMatch arrayToMatch(final Object[] match) {
     try {
-    	return ClazzMatch.newMatch((architectureCRA.Class) match[POSITION_C]);
+    	return CreateClassMatch.newMatch((ClassModel) match[POSITION_CM]);
     } catch(ClassCastException e) {
     	LOGGER.error("Element(s) in array not properly typed!",e);
     	return null;
@@ -190,9 +191,9 @@ public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
   }
   
   @Override
-  protected ClazzMatch arrayToMatchMutable(final Object[] match) {
+  protected CreateClassMatch arrayToMatchMutable(final Object[] match) {
     try {
-    	return ClazzMatch.newMutableMatch((architectureCRA.Class) match[POSITION_C]);
+    	return CreateClassMatch.newMutableMatch((ClassModel) match[POSITION_CM]);
     } catch(ClassCastException e) {
     	LOGGER.error("Element(s) in array not properly typed!",e);
     	return null;
@@ -204,7 +205,7 @@ public class ClazzMatcher extends BaseMatcher<ClazzMatch> {
    * @throws ViatraQueryException if the pattern definition could not be loaded
    * 
    */
-  public static IQuerySpecification<ClazzMatcher> querySpecification() throws ViatraQueryException {
-    return ClazzQuerySpecification.instance();
+  public static IQuerySpecification<CreateClassMatcher> querySpecification() throws ViatraQueryException {
+    return CreateClassQuerySpecification.instance();
   }
 }

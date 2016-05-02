@@ -2,6 +2,8 @@ package hu.bme.mit.viatra.ttc.dse;
 
 import java.io.IOException;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -28,7 +30,8 @@ import org.junit.Test;
 
 import architectureCRA.ArchitectureCRAPackage;
 import hu.bme.mit.viatra.ttc.dse.objectives.CraIndexObjective;
-import hu.bme.mit.viatra.ttc.dse.queries.util.AllFeatureEncapsulated2QuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.operators.RemoveUnusedClassMutation;
+import hu.bme.mit.viatra.ttc.dse.queries.util.AllFeatureEncapsulatedQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.NoEmptyClassQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.NotEncapsulatedFeatureQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.rules.CraDseRules;
@@ -38,7 +41,8 @@ public class CraDseRunner {
 
     @Test
     public void test() throws IOException, ViatraQueryException {
-        String inputModelName = CraModelNameConstants.INPUT_A;
+        Logger.getRootLogger().setLevel(Level.WARN);
+        String inputModelName = CraModelNameConstants.INPUT_B;
         EObject initialModel = loadInitialModel(inputModelName);
         runDseWithInputModel(initialModel);
         EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
@@ -67,23 +71,13 @@ public class CraDseRunner {
         dse.addTransformationRule(rules.addFeatureRule);
         
         dse.addObjective(new ConstraintsObjective()
-                .withHardConstraint("allFeatureEncapsulated", AllFeatureEncapsulated2QuerySpecification.instance())
+                .withHardConstraint("allFeatureEncapsulated", AllFeatureEncapsulatedQuerySpecification.instance())
                 .withHardConstraint("noEmtpyClass", NoEmptyClassQuerySpecification.instance())
                 .withSoftConstraint("unusedFeature", NotEncapsulatedFeatureQuerySpecification.instance(), 1)
                 .withComparator(Comparators.LOWER_IS_BETTER)
                 .withLevel(0)
                 );
         dse.addObjective(new CraIndexObjective().withLevel(0));
-//        dse.addObjective(new ConstraintsObjective("emptyClassObjective")
-//                .withSoftConstraint("emtpyClass", EmptyClassQuerySpecification.instance(), 1)
-//                .withComparator(Comparators.LOWER_IS_BETTER)
-//                .withLevel(1)
-//                );
-//        dse.addObjective(new ConstraintsObjective("classObjective")
-//                .withSoftConstraint("class", ClazzQuerySpecification.instance(), 1)
-//                .withComparator(Comparators.HIGHER_IS_BETTER)
-//                .withLevel(1)
-//                );
         
         SolutionStore solutionStore = new SolutionStore(1);
         solutionStore.logSolutionsWhenFound();
@@ -99,8 +93,6 @@ public class CraDseRunner {
         nsga2.addCrossover(new CutAndSpliceCrossover());
         nsga2.addCrossover(new SwapTransitionCrossover());
         nsga2.addMutation(new RemoveUnusedClassMutation());
-        
-//        EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2BuilderFull(20);
         
 //        nsga2.addStrategyAdapter(new EvolutionaryStrategyConsoleLogAdapter());
 //        nsga2.addStrategyAdapter(new EvolutionaryStrategyLogAdapter());

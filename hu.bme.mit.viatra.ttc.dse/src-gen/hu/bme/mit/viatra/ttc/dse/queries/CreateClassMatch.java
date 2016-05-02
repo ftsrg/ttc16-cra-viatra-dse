@@ -1,6 +1,7 @@
 package hu.bme.mit.viatra.ttc.dse.queries;
 
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClazzQuerySpecification;
+import architectureCRA.ClassModel;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassQuerySpecification;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
@@ -8,77 +9,77 @@ import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 /**
- * Pattern-specific match representation of the hu.bme.mit.viatra.ttc.dse.queries.clazz pattern,
- * to be used in conjunction with {@link ClazzMatcher}.
+ * Pattern-specific match representation of the hu.bme.mit.viatra.ttc.dse.queries.createClass pattern,
+ * to be used in conjunction with {@link CreateClassMatcher}.
  * 
  * <p>Class fields correspond to parameters of the pattern. Fields with value null are considered unassigned.
  * Each instance is a (possibly partial) substitution of pattern parameters,
  * usable to represent a match of the pattern in the result of a query,
  * or to specify the bound (fixed) input parameters when issuing a query.
  * 
- * @see ClazzMatcher
- * @see ClazzProcessor
+ * @see CreateClassMatcher
+ * @see CreateClassProcessor
  * 
  */
 @SuppressWarnings("all")
-public abstract class ClazzMatch extends BasePatternMatch {
-  private architectureCRA.Class fC;
+public abstract class CreateClassMatch extends BasePatternMatch {
+  private ClassModel fCm;
   
-  private static List<String> parameterNames = makeImmutableList("c");
+  private static List<String> parameterNames = makeImmutableList("cm");
   
-  private ClazzMatch(final architectureCRA.Class pC) {
-    this.fC = pC;
+  private CreateClassMatch(final ClassModel pCm) {
+    this.fCm = pCm;
   }
   
   @Override
   public Object get(final String parameterName) {
-    if ("c".equals(parameterName)) return this.fC;
+    if ("cm".equals(parameterName)) return this.fCm;
     return null;
   }
   
-  public architectureCRA.Class getC() {
-    return this.fC;
+  public ClassModel getCm() {
+    return this.fCm;
   }
   
   @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
-    if ("c".equals(parameterName) ) {
-    	this.fC = (architectureCRA.Class) newValue;
+    if ("cm".equals(parameterName) ) {
+    	this.fCm = (ClassModel) newValue;
     	return true;
     }
     return false;
   }
   
-  public void setC(final architectureCRA.Class pC) {
+  public void setCm(final ClassModel pCm) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
-    this.fC = pC;
+    this.fCm = pCm;
   }
   
   @Override
   public String patternName() {
-    return "hu.bme.mit.viatra.ttc.dse.queries.clazz";
+    return "hu.bme.mit.viatra.ttc.dse.queries.createClass";
   }
   
   @Override
   public List<String> parameterNames() {
-    return ClazzMatch.parameterNames;
+    return CreateClassMatch.parameterNames;
   }
   
   @Override
   public Object[] toArray() {
-    return new Object[]{fC};
+    return new Object[]{fCm};
   }
   
   @Override
-  public ClazzMatch toImmutable() {
-    return isMutable() ? newMatch(fC) : this;
+  public CreateClassMatch toImmutable() {
+    return isMutable() ? newMatch(fCm) : this;
   }
   
   @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
-    result.append("\"c\"=" + prettyPrintValue(fC)
+    result.append("\"cm\"=" + prettyPrintValue(fCm)
     );
     return result.toString();
   }
@@ -87,7 +88,7 @@ public abstract class ClazzMatch extends BasePatternMatch {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((fC == null) ? 0 : fC.hashCode());
+    result = prime * result + ((fCm == null) ? 0 : fCm.hashCode());
     return result;
   }
   
@@ -95,7 +96,7 @@ public abstract class ClazzMatch extends BasePatternMatch {
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
-    if (!(obj instanceof ClazzMatch)) { // this should be infrequent
+    if (!(obj instanceof CreateClassMatch)) { // this should be infrequent
     	if (obj == null) {
     		return false;
     	}
@@ -107,16 +108,16 @@ public abstract class ClazzMatch extends BasePatternMatch {
     		return false;
     	return Arrays.deepEquals(toArray(), otherSig.toArray());
     }
-    ClazzMatch other = (ClazzMatch) obj;
-    if (fC == null) {if (other.fC != null) return false;}
-    else if (!fC.equals(other.fC)) return false;
+    CreateClassMatch other = (CreateClassMatch) obj;
+    if (fCm == null) {if (other.fCm != null) return false;}
+    else if (!fCm.equals(other.fCm)) return false;
     return true;
   }
   
   @Override
-  public ClazzQuerySpecification specification() {
+  public CreateClassQuerySpecification specification() {
     try {
-    	return ClazzQuerySpecification.instance();
+    	return CreateClassQuerySpecification.instance();
     } catch (ViatraQueryException ex) {
      	// This cannot happen, as the match object can only be instantiated if the query specification exists
      	throw new IllegalStateException (ex);
@@ -130,7 +131,7 @@ public abstract class ClazzMatch extends BasePatternMatch {
    * @return the empty match.
    * 
    */
-  public static ClazzMatch newEmptyMatch() {
+  public static CreateClassMatch newEmptyMatch() {
     return new Mutable(null);
   }
   
@@ -138,29 +139,29 @@ public abstract class ClazzMatch extends BasePatternMatch {
    * Returns a mutable (partial) match.
    * Fields of the mutable match can be filled to create a partial match, usable as matcher input.
    * 
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @return the new, mutable (partial) match object.
    * 
    */
-  public static ClazzMatch newMutableMatch(final architectureCRA.Class pC) {
-    return new Mutable(pC);
+  public static CreateClassMatch newMutableMatch(final ClassModel pCm) {
+    return new Mutable(pCm);
   }
   
   /**
    * Returns a new (partial) match.
    * This can be used e.g. to call the matcher with a partial match.
    * <p>The returned match will be immutable. Use {@link #newEmptyMatch()} to obtain a mutable match object.
-   * @param pC the fixed value of pattern parameter c, or null if not bound.
+   * @param pCm the fixed value of pattern parameter cm, or null if not bound.
    * @return the (partial) match object.
    * 
    */
-  public static ClazzMatch newMatch(final architectureCRA.Class pC) {
-    return new Immutable(pC);
+  public static CreateClassMatch newMatch(final ClassModel pCm) {
+    return new Immutable(pCm);
   }
   
-  private static final class Mutable extends ClazzMatch {
-    Mutable(final architectureCRA.Class pC) {
-      super(pC);
+  private static final class Mutable extends CreateClassMatch {
+    Mutable(final ClassModel pCm) {
+      super(pCm);
     }
     
     @Override
@@ -169,9 +170,9 @@ public abstract class ClazzMatch extends BasePatternMatch {
     }
   }
   
-  private static final class Immutable extends ClazzMatch {
-    Immutable(final architectureCRA.Class pC) {
-      super(pC);
+  private static final class Immutable extends CreateClassMatch {
+    Immutable(final ClassModel pCm) {
+      super(pCm);
     }
     
     @Override

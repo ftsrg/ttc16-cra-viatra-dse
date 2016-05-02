@@ -26,7 +26,7 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * 
  * <p>Original source:
  * <code><pre>
- * // Hard constraints
+ * // Constraints
  * pattern encapsulatedFeature(f : Feature) {
  *     find encapsulated(_, f);
  * }

@@ -28,8 +28,8 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * <p>Original source:
  * <code><pre>
  * pattern maiPartial(c1 : Class, c2 : Class, m1: Method, a2: Attribute) {
- *     Method.isEncapsulatedBy(m1, c1);
- *     Attribute.isEncapsulatedBy(a2, c2);
+ *     find encapsulated(c1, m1);
+ *     find encapsulated(c2, a2);
  *     find dma(m1,a2);
  * }
  * </pre></code>

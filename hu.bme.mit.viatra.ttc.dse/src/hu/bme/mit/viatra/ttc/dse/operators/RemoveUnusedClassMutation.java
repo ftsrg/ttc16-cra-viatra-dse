@@ -7,7 +7,7 @@
  * Contributors:
  *   Andras Szabolcs Nagy - initial API and implementation
  *******************************************************************************/
-package hu.bme.mit.viatra.ttc.dse;
+package hu.bme.mit.viatra.ttc.dse.operators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

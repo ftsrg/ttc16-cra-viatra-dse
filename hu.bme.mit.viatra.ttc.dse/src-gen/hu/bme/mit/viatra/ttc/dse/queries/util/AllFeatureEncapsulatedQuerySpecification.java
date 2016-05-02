@@ -3,8 +3,7 @@ package hu.bme.mit.viatra.ttc.dse.queries.util;
 import com.google.common.collect.Sets;
 import hu.bme.mit.viatra.ttc.dse.queries.AllFeatureEncapsulatedMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.AllFeatureEncapsulatedMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedFeatureQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.FeatureQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.NotEncapsulatedFeatureQuerySpecification;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -14,9 +13,8 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecificat
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.PatternMatchCounter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.NegativePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
@@ -113,22 +111,11 @@ public final class AllFeatureEncapsulatedQuerySpecification extends BaseGenerate
       try {
       	{
       		PBody body = new PBody(this);
-      		PVariable var_N = body.getOrCreateVariableByName("N");
       		PVariable var___0_ = body.getOrCreateVariableByName("_<0>");
-      		PVariable var_M = body.getOrCreateVariableByName("M");
-      		PVariable var___1_ = body.getOrCreateVariableByName("_<1>");
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
       		));
-      		//     N == count find feature(_)
-      		PVariable var__virtual_0_ = body.getOrCreateVariableByName(".virtual{0}");
-      		new PatternMatchCounter(body, new FlatTuple(var___0_), FeatureQuerySpecification.instance().getInternalQueryRepresentation(), var__virtual_0_);
-      		new Equality(body, var_N, var__virtual_0_);
-      		//     M == count find encapsulatedFeature(_)
-      		PVariable var__virtual_1_ = body.getOrCreateVariableByName(".virtual{1}");
-      		new PatternMatchCounter(body, new FlatTuple(var___1_), EncapsulatedFeatureQuerySpecification.instance().getInternalQueryRepresentation(), var__virtual_1_);
-      		new Equality(body, var_M, var__virtual_1_);
-      		//     N == M
-      		new Equality(body, var_N, var_M);
+      		//     neg find notEncapsulatedFeature(_)
+      		new NegativePatternCall(body, new FlatTuple(var___0_), NotEncapsulatedFeatureQuerySpecification.instance().getInternalQueryRepresentation());
       		bodies.add(body);
       	}
       	// to silence compiler error

@@ -21,11 +21,8 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * 
  * <p>Original source:
  * <code><pre>
- * // bug
  * pattern allFeatureEncapsulated() {
- *     N == count find feature(_);
- *     M == count find encapsulatedFeature(_);
- *     N == M;
+ *     neg find notEncapsulatedFeature(_);
  * }
  * </pre></code>
  * 

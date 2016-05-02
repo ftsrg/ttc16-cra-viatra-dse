@@ -3,16 +3,6 @@ package hu.bme.mit.viatra.ttc.dse.queries
 import "http://momot.big.tuwien.ac.at/architectureCRA/1.0"
 //import "http://www.eclipse.org/emf/2002/Ecore"
 
-pattern clazz(c : Class) {
-    Class(c);
-}
-
-pattern classPair(c1 : Class, c2 : Class) {
-    Class(c1);
-    Class(c2);
-    c1 != c2;
-}
-
 pattern feature(f : Feature) {
     Feature(f);
 }
@@ -33,7 +23,7 @@ pattern encapsulated(c : Class, f : Feature) {
     Class.encapsulates(c, f);
 }
 
-// Hard constraints
+// Constraints
 pattern encapsulatedFeature(f : Feature) {
     find encapsulated(_, f);
 }
@@ -42,15 +32,8 @@ pattern notEncapsulatedFeature(f : Feature) {
     neg find encapsulated(_, f);
 }
 
-pattern allFeatureEncapsulated2() {
-    neg find notEncapsulatedFeature(_);
-}
-
-// bug
 pattern allFeatureEncapsulated() {
-    N == count find feature(_);
-    M == count find encapsulatedFeature(_);
-    N == M;
+    neg find notEncapsulatedFeature(_);
 }
 
 pattern emptyClass(c : Class) {
@@ -62,16 +45,13 @@ pattern noEmptyClass() {
 }
 
 // Rules
-pattern classModel(cm : ClassModel) {
+pattern createClass(cm : ClassModel) {
     ClassModel(cm);
-    N == count find emptyClass(_);
-    check(N < 1);
+    neg find emptyClass(_);
 }
 
 pattern createClassWithFeautre(cm : ClassModel, f : Feature) {
     ClassModel(cm);
-    N == count find emptyClass(_);
-    check(N < 2);
     Feature(f);
     neg find encapsulated(_, f);
 }
@@ -92,14 +72,14 @@ pattern dmm(m1 : Method, m2 : Method) {
 }
 
 pattern mmiPartial(c1 : Class, c2 : Class, m1: Method, m2: Method) {
-    Method.isEncapsulatedBy(m1, c1);
-    Method.isEncapsulatedBy(m2, c2);
+    find encapsulated(c1, m1);
+    find encapsulated(c2, m2);
     find dmm(m1,m2);
 }
 
 pattern maiPartial(c1 : Class, c2 : Class, m1: Method, a2: Attribute) {
-    Method.isEncapsulatedBy(m1, c1);
-    Attribute.isEncapsulatedBy(a2, c2);
+    find encapsulated(c1, m1);
+    find encapsulated(c2, a2);
     find dma(m1,a2);
 }
 

@@ -29,8 +29,6 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * <code><pre>
  * pattern createClassWithFeautre(cm : ClassModel, f : Feature) {
  *     ClassModel(cm);
- *     N == count find emptyClass(_);
- *     check(N {@literal <} 2);
  *     Feature(f);
  *     neg find encapsulated(_, f);
  * }

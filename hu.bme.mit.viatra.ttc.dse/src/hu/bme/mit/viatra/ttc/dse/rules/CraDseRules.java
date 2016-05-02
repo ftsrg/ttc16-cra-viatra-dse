@@ -11,28 +11,28 @@ import architectureCRA.ClassModel;
 import architectureCRA.Feature;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatch;
-import hu.bme.mit.viatra.ttc.dse.queries.ClassModelMatcher;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatch;
+import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AddFeatureProcessor;
 import hu.bme.mit.viatra.ttc.dse.queries.util.AddFeatureQuerySpecification;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClassModelProcessor;
-import hu.bme.mit.viatra.ttc.dse.queries.util.ClassModelQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassProcessor;
+import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreProcessor;
 import hu.bme.mit.viatra.ttc.dse.queries.util.CreateClassWithFeautreQuerySpecification;
 
 public class CraDseRules {
 
-    public DSETransformationRule<ClassModelMatch, ClassModelMatcher> createClassRule;
+    public DSETransformationRule<CreateClassMatch, CreateClassMatcher> createClassRule;
     public DSETransformationRule<CreateClassWithFeautreMatch, CreateClassWithFeautreMatcher> createClassWithFeatureRule;
     public DSETransformationRule<AddFeatureMatch, AddFeatureMatcher> addFeatureRule;
     
     public CraDseRules() {
         try {
             createClassRule = new DSETransformationRule<>("CreateClassRule",
-                    ClassModelQuerySpecification.instance(),
-                    new ClassModelProcessor() {
+                    CreateClassQuerySpecification.instance(),
+                    new CreateClassProcessor() {
                         
                         @Override
                         public void process(ClassModel pCm) {

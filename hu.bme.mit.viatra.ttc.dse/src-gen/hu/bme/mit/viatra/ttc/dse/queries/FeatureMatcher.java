@@ -26,6 +26,8 @@ import org.eclipse.viatra.query.runtime.util.ViatraQueryLoggingUtil;
  * 
  * <p>Original source:
  * <code><pre>
+ * //import "http://www.eclipse.org/emf/2002/Ecore"
+ * 
  * pattern feature(f : Feature) {
  *     Feature(f);
  * }

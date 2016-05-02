@@ -3,7 +3,6 @@ package hu.bme.mit.viatra.ttc.dse.queries.util;
 import com.google.common.collect.Sets;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatcher;
-import hu.bme.mit.viatra.ttc.dse.queries.util.EmptyClassQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedQuerySpecification;
 import java.util.Arrays;
 import java.util.List;
@@ -14,15 +13,10 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
-import org.eclipse.viatra.query.runtime.matchers.psystem.IExpressionEvaluator;
-import org.eclipse.viatra.query.runtime.matchers.psystem.IValueProvider;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExpressionEvaluation;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.NegativePatternCall;
-import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.PatternMatchCounter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
@@ -124,9 +118,7 @@ public final class CreateClassWithFeautreQuerySpecification extends BaseGenerate
       		PBody body = new PBody(this);
       		PVariable var_cm = body.getOrCreateVariableByName("cm");
       		PVariable var_f = body.getOrCreateVariableByName("f");
-      		PVariable var_N = body.getOrCreateVariableByName("N");
       		PVariable var___0_ = body.getOrCreateVariableByName("_<0>");
-      		PVariable var___1_ = body.getOrCreateVariableByName("_<1>");
       		new TypeConstraint(body, new FlatTuple(var_cm), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")));
       		new TypeConstraint(body, new FlatTuple(var_f), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Feature")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
@@ -135,33 +127,10 @@ public final class CreateClassWithFeautreQuerySpecification extends BaseGenerate
       		));
       		//     ClassModel(cm)
       		new TypeConstraint(body, new FlatTuple(var_cm), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")));
-      		//     N == count find emptyClass(_)
-      		PVariable var__virtual_0_ = body.getOrCreateVariableByName(".virtual{0}");
-      		new PatternMatchCounter(body, new FlatTuple(var___0_), EmptyClassQuerySpecification.instance().getInternalQueryRepresentation(), var__virtual_0_);
-      		new Equality(body, var_N, var__virtual_0_);
-      		//     check(N < 2)
-      		new ExpressionEvaluation(body, new IExpressionEvaluator() {
-      		                            
-      		                            @Override
-      		                            public String getShortDescription() {
-      		                                return "Expression evaluation from pattern createClassWithFeautre";
-      		                            }
-      		
-      		                            @Override
-      		                            public Iterable<String> getInputParameterNames() {
-      		                                return Arrays.asList("N");
-      		                            }
-      		
-      		                            @Override
-      		                            public Object evaluateExpression(IValueProvider provider) throws Exception {
-      		                                    java.lang.Integer N = (java.lang.Integer) provider.getValue("N");
-      		                                    return evaluateExpression_1_1(N);
-      		                                }
-      		
-      		                        },  null); //     Feature(f)
+      		//     Feature(f)
       		new TypeConstraint(body, new FlatTuple(var_f), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Feature")));
       		//     neg find encapsulated(_, f)
-      		new NegativePatternCall(body, new FlatTuple(var___1_, var_f), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());
+      		new NegativePatternCall(body, new FlatTuple(var___0_, var_f), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());
       		bodies.add(body);
       	}
       	// to silence compiler error
@@ -171,9 +140,5 @@ public final class CreateClassWithFeautreQuerySpecification extends BaseGenerate
       }
       return bodies;
     }
-  }
-  
-  private static boolean evaluateExpression_1_1(final Integer N) {
-    return ((N).intValue() < 2);
   }
 }
