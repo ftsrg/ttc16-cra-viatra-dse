@@ -34,10 +34,14 @@ public class CraStateCoder implements IStateCoder {
 
     @Override
     public Object createStateCode() {
-        StringBuilder sb = new StringBuilder();
         
-        for (Class clazz : model.getClasses()) {
-            sb.append(clazz.getName());
+        EList<Class> classes = model.getClasses();
+        String[] classCodes = new String[model.getClasses().size()];
+
+        for (int i = 0; i < classes.size(); i++) {
+            Class clazz = classes.get(i);
+            StringBuilder sb = new StringBuilder();
+//            sb.append(clazz.getName());
             EList<Feature> feauters = clazz.getEncapsulates();
             String[] names = new String[feauters.size()];
             int index = 0;
@@ -50,7 +54,17 @@ public class CraStateCoder implements IStateCoder {
                 sb.append(code);
             }
             sb.append("),");
+            classCodes[i] = sb.toString();
         }
+        
+        Arrays.sort(classCodes);
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for (String classCode : classCodes) {
+            sb.append(classCode);
+        }
+        
         return sb.toString();
     }
 
