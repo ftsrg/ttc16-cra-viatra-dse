@@ -1,6 +1,7 @@
 package hu.bme.mit.viatra.ttc.dse;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -23,10 +24,11 @@ import org.eclipse.viatra.dse.evolutionary.stopconditions.OneSurvivalStopConditi
 import org.eclipse.viatra.dse.evolutionary.stopconditions.ParetoFrontIncludesGoalSolutionStopCondition;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
-import org.eclipse.viatra.dse.solutionstore.SolutionStore;
 import org.eclipse.viatra.dse.util.EMFHelper;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.junit.Test;
+
+import com.google.common.base.Stopwatch;
 
 import architectureCRA.ArchitectureCRAPackage;
 import hu.bme.mit.viatra.ttc.dse.objectives.CraIndexObjective;
@@ -42,20 +44,10 @@ public class CraDseRunner {
     @Test
     public void test() throws IOException, ViatraQueryException {
         Logger.getRootLogger().setLevel(Level.WARN);
-        String inputModelName = CraModelNameConstants.INPUT_B;
-        EObject initialModel = loadInitialModel(inputModelName);
-        runDseWithInputModel(initialModel);
-        EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
+        runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
     }
 
-    public static EObject loadInitialModel(String inputModelName) throws IOException {
-		EMFHelper.registerExtensionForXmiSerializer("xmi");
-		ArchitectureCRAPackage.eINSTANCE.eClass();
-        ResourceSetImpl rSet = new ResourceSetImpl();
-        Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
-        resource.load(null);
-        return resource.getContents().get(0);
-    }
+
     
     public static void runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
         
@@ -79,12 +71,6 @@ public class CraDseRunner {
                 );
         dse.addObjective(new CraIndexObjective().withLevel(0));
         
-        SolutionStore solutionStore = new SolutionStore(1);
-        solutionStore.logSolutionsWhenFound();
-//        solutionStore.acceptAnySolutions();
-        dse.setSolutionStore(solutionStore);
-        
-        
         EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2Builder(40);
         nsga2.setInitialPopulationSelector(new BfsInitialSelector(0.18f, 2));
         nsga2.setMutationRate(new SimpleMutationRate(0.8));
@@ -94,18 +80,16 @@ public class CraDseRunner {
         nsga2.addCrossover(new SwapTransitionCrossover());
         nsga2.addMutation(new RemoveUnusedClassMutation());
         
-//        nsga2.addStrategyAdapter(new EvolutionaryStrategyConsoleLogAdapter());
-//        nsga2.addStrategyAdapter(new EvolutionaryStrategyLogAdapter());
         nsga2.setStopCondition(
                 new CompositeStopCondition()
-//                .withStopCondition(new IterationStopCondition(1000))
                 .withStopCondition(new OneSurvivalStopCondition(100))
-//                .withStopCondition(new ConstantParetoFrontStopCondition(100))
                 .withStopCondition(new ParetoFrontIncludesGoalSolutionStopCondition())
+//                .withStopCondition(new IterationStopCondition(1000))
+//                .withStopCondition(new ConstantParetoFrontStopCondition(100))
                 );
 
-//        dse.startExplorationWithTimeout(nsga2.build(), 20000);
         dse.startExploration(nsga2.build());
+//        dse.startExplorationWithTimeout(nsga2.build(), 20000);
         
         System.out.println(dse.toStringSolutions());
         DseIdPoolHelper.INSTANCE.resetFallBackId();
@@ -114,4 +98,50 @@ public class CraDseRunner {
         
     }
 
+    public static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
+        System.out.println("---------- " + inputModelName);
+        System.out.println(" Loading model...");
+        EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
+        System.out.println(" Running exploration...");
+        
+//        System.gc();
+//        System.gc();
+//        System.gc();
+//        System.gc();
+//        System.gc();
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//        }
+//
+//        long memBefore = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+//        memBefore = (memBefore / 1024) / 1024;
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        
+        CraDseRunner.runDseWithInputModel(initialModel);
+        
+        stopwatch.stop();
+        long elapsedMiliseconds = stopwatch.elapsed(TimeUnit.MILLISECONDS);
+//        long memAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+//        memAfter = (memAfter / 1024) / 1024;
+        
+        System.out.println(" Init and exploration time: " + elapsedMiliseconds);
+//        System.out.println(" Memory before: " + memBefore + " MB, Memory after: " + memAfter + " MB, Memory usage: " + (memAfter - memBefore) + " MB");
+        
+        
+        EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
+        System.out.println(" Result model serialized.");
+        System.out.println();
+    }
+    
+    public static EObject loadInitialModel(String inputModelName) throws IOException {
+        EMFHelper.registerExtensionForXmiSerializer("xmi");
+        ArchitectureCRAPackage.eINSTANCE.eClass();
+        ResourceSetImpl rSet = new ResourceSetImpl();
+        Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
+        resource.load(null);
+        return resource.getContents().get(0);
+    }
+    
 }
