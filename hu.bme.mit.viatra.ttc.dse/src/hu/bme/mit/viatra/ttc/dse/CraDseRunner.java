@@ -46,11 +46,8 @@ public class CraDseRunner {
         Logger.getRootLogger().setLevel(Level.WARN);
         runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
     }
-
-
     
     public static void runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
-        
         DesignSpaceExplorer dse = new DesignSpaceExplorer();
         
         dse.setInitialModel(model);
@@ -100,9 +97,9 @@ public class CraDseRunner {
 
     public static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
         System.out.println("---------- " + inputModelName);
-        System.out.println(" Loading model...");
+        System.out.println("Loading model...");
         EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
-        System.out.println(" Running exploration...");
+        System.out.println("Running exploration...");
         
 //        System.gc();
 //        System.gc();
@@ -126,12 +123,12 @@ public class CraDseRunner {
 //        long memAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 //        memAfter = (memAfter / 1024) / 1024;
         
-        System.out.println(" Init and exploration time: " + elapsedMiliseconds);
-//        System.out.println(" Memory before: " + memBefore + " MB, Memory after: " + memAfter + " MB, Memory usage: " + (memAfter - memBefore) + " MB");
+        System.out.println("Init and exploration time: " + elapsedMiliseconds);
+//        System.out.println("Memory before: " + memBefore + " MB, Memory after: " + memAfter + " MB, Memory usage: " + (memAfter - memBefore) + " MB");
         
         
         EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
-        System.out.println(" Result model serialized.");
+        System.out.println("Result model serialized.");
         System.out.println();
     }
     

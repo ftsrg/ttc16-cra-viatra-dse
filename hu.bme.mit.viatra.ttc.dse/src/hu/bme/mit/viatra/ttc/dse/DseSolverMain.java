@@ -1,31 +1,47 @@
 package hu.bme.mit.viatra.ttc.dse;
 
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.lang.management.RuntimeMXBean;
-import java.util.List;
+import java.util.Arrays;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
+import hu.bme.mit.viatra.ttc.dse.benchmark.BenchmarkEntry;
+import hu.bme.mit.viatra.ttc.dse.benchmark.BenchmarkResults;
+
 public class DseSolverMain {
 
-    public static void main(String[] args) throws IOException, ViatraQueryException {
-        RuntimeMXBean runtimeMxBean = ManagementFactory.getRuntimeMXBean();
-        List<String> arguments = runtimeMxBean.getInputArguments();
-        System.out.println(arguments);
+	public static void main(String[] args) throws IOException, ViatraQueryException {
+		if (args.length < 1) {
+			System.out.println("Usage: DseSolver number-of-runs [inputs]");
+			System.out.println("Examples: ");
+			System.out.println("- DseSolver 10");
+			System.out.println("- DseSolver 5 A B");
+		}
 
-        if (args.length < 1) {
-            args = new String[] { "A", "B", "C", "D", "E" };
-        }
+		final int runs = Integer.valueOf(args[0]);
+		
+		String[] inputs = Arrays.copyOfRange(args, 1, args.length);
+		if (inputs.length < 1) {
+			inputs = new String[] { "A", "B", "C", "D", "E" };
+		}
 
-        Logger.getRootLogger().setLevel(Level.WARN);
+		Logger.getRootLogger().setLevel(Level.WARN);
 
-        for (String arg : args) {
-            String inputModelName = "TTC_InputRDG_" + arg.toUpperCase();
-            CraDseRunner.runExplorationWithTtcInput(inputModelName);
-        }
-    }
+		final BenchmarkResults results = BenchmarkResults.create();
+		
+		for (String input : inputs) {
+			for (int run = 0; run < runs; run++) {
+				final String inputModelName = "TTC_InputRDG_" + input.toUpperCase();
+				final BenchmarkEntry entry = results.createEntry(input);
+				entry.startTimer();
+				CraDseRunner.runExplorationWithTtcInput(inputModelName);
+				entry.stopTimer();
+			}
+		}
+		
+		results.serialize();
+	}
 
 }
