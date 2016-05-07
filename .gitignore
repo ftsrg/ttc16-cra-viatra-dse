@@ -3,4 +3,4 @@ target/
 *._trace
 result_*.xmi
 results.csv
-
+results.log
