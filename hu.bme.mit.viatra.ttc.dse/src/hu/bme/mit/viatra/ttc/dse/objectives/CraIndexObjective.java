@@ -21,7 +21,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.MmiMatcher;
 
 public class CraIndexObjective extends BaseObjective {
 
-    private static final String CRA_INDEX_OBJECTIVE_NAME = "CraIndexObjective";
+    public static final String CRA_INDEX_OBJECTIVE_NAME = "CraIndexObjective";
     private MmiMatcher mmiMatcher;
     private MaiMatcher maiMatcher;
     private AttributeMatcher attributeMatcher;

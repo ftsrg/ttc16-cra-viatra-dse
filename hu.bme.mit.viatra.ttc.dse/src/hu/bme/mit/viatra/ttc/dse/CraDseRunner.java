@@ -20,6 +20,7 @@ import org.eclipse.viatra.dse.evolutionary.mutationrate.SimpleMutationRate;
 import org.eclipse.viatra.dse.evolutionary.mutations.AddRandomTransitionMutation;
 import org.eclipse.viatra.dse.evolutionary.mutations.ModifyRandomTransitionMutation;
 import org.eclipse.viatra.dse.evolutionary.stopconditions.CompositeStopCondition;
+import org.eclipse.viatra.dse.evolutionary.stopconditions.CompositeStopCondition.CompositeType;
 import org.eclipse.viatra.dse.evolutionary.stopconditions.OneSurvivalStopCondition;
 import org.eclipse.viatra.dse.evolutionary.stopconditions.ParetoFrontIncludesGoalSolutionStopCondition;
 import org.eclipse.viatra.dse.objectives.Comparators;
@@ -47,7 +48,7 @@ public class CraDseRunner {
         runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
     }
     
-    public static void runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
+    public static double runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
         DesignSpaceExplorer dse = new DesignSpaceExplorer();
         
         dse.setInitialModel(model);
@@ -56,7 +57,6 @@ public class CraDseRunner {
         
         CraDseRules rules = new CraDseRules();
         dse.addTransformationRule(rules.createClassRule);
-//        dse.addTransformationRule(rules.createClassWithFeatureRule);
         dse.addTransformationRule(rules.addFeatureRule);
         
         dse.addObjective(new ConstraintsObjective()
@@ -79,6 +79,7 @@ public class CraDseRunner {
         
         nsga2.setStopCondition(
                 new CompositeStopCondition()
+                .withCompositeType(CompositeType.AND)
                 .withStopCondition(new OneSurvivalStopCondition(100))
                 .withStopCondition(new ParetoFrontIncludesGoalSolutionStopCondition())
 //                .withStopCondition(new IterationStopCondition(1000))
@@ -92,6 +93,7 @@ public class CraDseRunner {
         DseIdPoolHelper.INSTANCE.resetFallBackId();
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
+        return solution.getFitness().get(CraIndexObjective.CRA_INDEX_OBJECTIVE_NAME);
         
     }
 
@@ -101,31 +103,14 @@ public class CraDseRunner {
         EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
         System.out.println("Running exploration...");
         
-//        System.gc();
-//        System.gc();
-//        System.gc();
-//        System.gc();
-//        System.gc();
-//
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//        }
-//
-//        long memBefore = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-//        memBefore = (memBefore / 1024) / 1024;
         Stopwatch stopwatch = Stopwatch.createStarted();
         
         CraDseRunner.runDseWithInputModel(initialModel);
         
         stopwatch.stop();
         long elapsedMiliseconds = stopwatch.elapsed(TimeUnit.MILLISECONDS);
-//        long memAfter = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-//        memAfter = (memAfter / 1024) / 1024;
         
         System.out.println("Init and exploration time: " + elapsedMiliseconds);
-//        System.out.println("Memory before: " + memBefore + " MB, Memory after: " + memAfter + " MB, Memory usage: " + (memAfter - memBefore) + " MB");
-        
         
         EMFHelper.serializeModel(initialModel, "result_" + inputModelName, "xmi");
         System.out.println("Result model serialized.");

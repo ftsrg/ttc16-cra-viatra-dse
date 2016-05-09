@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.viatra.dse.util.EMFHelper;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import hu.bme.mit.viatra.ttc.dse.benchmark.BenchmarkEntry;
@@ -33,11 +35,15 @@ public class DseSolverMain {
 		
 		for (String input : inputs) {
 			for (int run = 0; run < runs; run++) {
+			    System.out.println("Model: " + input + ", run: " + run);
 				final String inputModelName = "TTC_InputRDG_" + input.toUpperCase();
 				final BenchmarkEntry entry = results.createEntry(input);
+				EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
 				entry.startTimer();
-				CraDseRunner.runExplorationWithTtcInput(inputModelName);
+				double craIndex = CraDseRunner.runDseWithInputModel(initialModel);
 				entry.stopTimer();
+				entry.setCraIndex(craIndex);
+				EMFHelper.serializeModel(initialModel, "result_" + inputModelName + run, "xmi");
 			}
 		}
 		

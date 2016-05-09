@@ -9,8 +9,8 @@ public class BenchmarkEntry {
 	public static String SEPARATOR = ",";
 	
 	protected String input;
-	
 	protected Stopwatch stopwatch;
+	protected double craIndex;
 
 	public BenchmarkEntry(String input, Stopwatch stopwatch) {
 		this.input = input;
@@ -24,10 +24,14 @@ public class BenchmarkEntry {
 	public void stopTimer() {
 		stopwatch.stop();
 	}
-	
+
+	public void setCraIndex(double craIndex) {
+        this.craIndex = craIndex;
+    }
+
 	@Override
 	public String toString() {
-		return input + SEPARATOR + stopwatch.elapsed(TimeUnit.NANOSECONDS);
+		return input + SEPARATOR + craIndex + SEPARATOR + stopwatch.elapsed(TimeUnit.MILLISECONDS);
 	}
 
 }

@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-
+import com.google.common.base.Charsets;
 import com.google.common.base.Stopwatch;
+import com.google.common.io.Files;
 
 public class BenchmarkResults {
 
@@ -32,12 +32,12 @@ public class BenchmarkResults {
 	}
 
 	public void serialize() throws IOException {
-		String results = "input" + BenchmarkEntry.SEPARATOR + "time" + NEWLINE;	
+		String results = "input" + BenchmarkEntry.SEPARATOR + "CRA-Index" + BenchmarkEntry.SEPARATOR + "time" + NEWLINE;	
 		for (BenchmarkEntry entry : entries) {
 			results += entry.toString() + NEWLINE;
 		}
 		File file = new File("results.csv");
-		FileUtils.writeStringToFile(file, results);
+		Files.write(results, file, Charsets.UTF_8);
 	}
 	
 }
