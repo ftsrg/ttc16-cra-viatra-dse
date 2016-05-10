@@ -15,8 +15,17 @@ public class BenchmarkResults {
 	
 	protected List<BenchmarkEntry> entries = new LinkedList<>();
 	protected Stopwatch stopwatch = Stopwatch.createUnstarted();
+	protected final File file;
+	protected BenchmarkEntry lastEntry;
 	
 	protected BenchmarkResults() {
+	    file = new File("results.csv");
+	    String heading = "input" + BenchmarkEntry.SEPARATOR + "CRA-Index" + BenchmarkEntry.SEPARATOR + "time" + NEWLINE;	
+	    try {
+            Files.write(heading, file, Charsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 		
 	}
 	
@@ -26,18 +35,13 @@ public class BenchmarkResults {
 
 	public BenchmarkEntry createEntry(String input) {
 		final Stopwatch stopwatch = Stopwatch.createUnstarted();
-		final BenchmarkEntry entry = new BenchmarkEntry(input, stopwatch);
-		entries.add(entry);
-		return entry;
+		lastEntry = new BenchmarkEntry(input, stopwatch);
+		entries.add(lastEntry);
+		return lastEntry;
 	}
 
-	public void serialize() throws IOException {
-		String results = "input" + BenchmarkEntry.SEPARATOR + "CRA-Index" + BenchmarkEntry.SEPARATOR + "time" + NEWLINE;	
-		for (BenchmarkEntry entry : entries) {
-			results += entry.toString() + NEWLINE;
-		}
-		File file = new File("results.csv");
-		Files.write(results, file, Charsets.UTF_8);
+	public void serializeLastEntry() throws IOException {
+		Files.append(lastEntry.toString() + NEWLINE, file, Charsets.UTF_8);
 	}
 	
 }

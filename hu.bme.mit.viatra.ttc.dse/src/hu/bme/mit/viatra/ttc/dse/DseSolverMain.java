@@ -43,11 +43,11 @@ public class DseSolverMain {
 				double craIndex = CraDseRunner.runDseWithInputModel(initialModel);
 				entry.stopTimer();
 				entry.setCraIndex(craIndex);
+				results.serializeLastEntry();
 				EMFHelper.serializeModel(initialModel, "result_" + inputModelName + run, "xmi");
 			}
 		}
 		
-		results.serialize();
 	}
 
 }
