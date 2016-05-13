@@ -4,3 +4,6 @@ target/
 result_*.xmi
 results.csv
 results.log
+!hu.bme.mit.viatra.ttc.dse/Submitted\ results/*.xmi
+!hu.bme.mit.viatra.ttc.dse/Submitted\ results/results.csv
+!hu.bme.mit.viatra.ttc.dse/Submitted\ results/results.log
