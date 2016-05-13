@@ -1,0 +1,368 @@
+Model: A, run: 0
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A2 | CX | C0M2 | C1A5 | CX | C1M4 | C2A1 | CX | C2M1 | C3A4 | C2A3 | C3M3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0A2 | CX | C0M2 | C1A5 | CX | C1M4 | C1A3 | C2A1 | CX | C2M1 | C3A4 | C3M3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A2 | CX | C0M2 | C1A5 | CX | C1M4 | C2A1 | CX | C2M1 | C3A4 | C3M3 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 1
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1A4 | C1M3 | CX | C2A2 | C2M2 | CX | C3A1 | C3M1 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1A4 | C1M3 | CX | C2A2 | C2M2 | CX | C0A3 | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1A4 | C1M3 | CX | C1A3 | C2A2 | C2M2 | CX | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 2
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M4 | CX | C1A5 | C2A2 | C2M2 | CX | C3M1 | C3A1 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M4 | CX | C1A5 | C2A2 | C2M2 | CX | C3A1 | C1A3 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M4 | CX | C1A5 | C2A2 | C2M2 | CX | C3M1 | C3A1 | C0A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 3
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M3 | C0A4 | CX | C1A5 | C1M4 | CX | C2A2 | CX | C2M2 | C3A1 | C3M1 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M3 | C0A4 | CX | C1A5 | C1M4 | C1A3 | CX | C2A2 | C2M2 | CX | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M3 | C0A4 | CX | C1A5 | C1M4 | CX | C2A2 | C0A3 | C2M2 | CX | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 4
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M1 | CX | C1A5 | CX | C0A1 | C1M4 | C2A2 | C2M2 | C0A3 | CX | C3M3 | C3A4 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M1 | CX | C1A5 | CX | C0A1 | C1M4 | C2A2 | C2M2 | CX | C3A4 | C1A3 | C3M3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M1 | CX | C1A5 | CX | C0A1 | C1M4 | C2A2 | C2M2 | CX | C3M3 | C3A4 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 5
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M1 | CX | C1A5 | C1M4 | C0A1 | CX | C2A2 | C2M2 | CX | C3M3 | C3A4 | C0A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M1 | CX | C1A5 | C1M4 | C0A1 | CX | C2A2 | C2M2 | CX | C3M3 | C3A4 | C1A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A4 | CX | C0A3 | C0M3 | C1A5 | C1M4 | CX | C2A2 | C2M2 | CX | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 6
+Number of solutions: 1
+Solution: (A1A4A5),(A2M2),(A3M1M3M4),
+  Trajectory: CX | C0M3 | CX | C1M2 | C1A2 | C0M4 | C0A3 | CX | C2A1 | C2A4 | C2A5 | C0M1 | | Fitness: {CraIndexObjective=1.8333333333333333, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 7
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1A1 | C1M1 | CX | C2A2 | C2M2 | CX | C3M3 | C3A4 | C1A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1A1 | C1M1 | CX | C2A2 | C2M2 | CX | C0A3 | C3A4 | C3M3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M4 | CX | C0A5 | C1M3 | C1A3 | CX | C2A2 | CX | C2M2 | C1A4 | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 8
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A3 | CX | C0M1 | C1A5 | C1M4 | CX | C0A1 | C2A2 | C2M2 | CX | C3A4 | C3M3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M1 | CX | C0A1 | C1A5 | CX | C2A2 | CX | C1M4 | C2M2 | C3A4 | C3M3 | C1A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M1 | CX | C0A1 | C1A5 | CX | C2A2 | CX | C1M4 | C2M2 | C3A4 | C3M3 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 9
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M1 | C0A1 | CX | C1A5 | CX | C1M4 | C2A2 | CX | C2M2 | C3A4 | C3M3 | C0A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M1 | C0A1 | CX | C1A5 | CX | C1M4 | C2A2 | CX | C2M2 | C3A4 | C3M3 | C1A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M1 | C0A1 | CX | C1A5 | CX | C1M4 | C2A2 | CX | C2M2 | C3A4 | C3M3 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 10
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M1 | C1A1 | CX | C2M2 | CX | C1A3 | C2A2 | C3M4 | C3A5 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M1 | C1A1 | CX | C2M2 | CX | C2A2 | C3A5 | C3M4 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1M1 | C1A1 | CX | C2M2 | CX | C2A2 | C3A5 | C3M4 | C0A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 11
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1A5 | CX | C1M4 | C2A2 | C2M2 | CX | C3M1 | C3A1 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1A5 | CX | C1M4 | C2A2 | C2M2 | CX | C1A3 | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A4 | C0M3 | CX | C1A5 | CX | C1M4 | C2A2 | C2M2 | CX | C0A3 | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 12
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0A5 | CX | C1M1 | C1A1 | C0M4 | CX | C2M3 | C2A4 | CX | C3A2 | C3M2 | C1A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0A5 | CX | C1M1 | C1A1 | C0M4 | CX | C2M3 | C2A4 | CX | C3A2 | C3M2 | C0A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0A5 | CX | C1M1 | C1A1 | C0M4 | CX | C2M3 | C2A4 | CX | C3A2 | C3M2 | C2A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 13
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M2 | CX | C1M3 | C0A2 | C1A4 | CX | C2A5 | C2M4 | CX | C3A1 | C3M1 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M2 | CX | C1M3 | C0A2 | C1A4 | CX | C2A5 | C2M4 | CX | C3A1 | C3M1 | C2A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M2 | CX | C1M3 | C1A3 | C0A2 | C1A4 | CX | C2A5 | C2M4 | CX | C3A1 | C3M1 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: A, run: 14
+Number of solutions: 3
+Solution: (A1A3M1),(A2M2),(A4M3),(A5M4),
+  Trajectory: CX | C0M3 | CX | C1M2 | C1A2 | CX | C0A4 | C2A1 | CX | C2M1 | C3A5 | C3M4 | C2A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A5M4),(A4M3),
+  Trajectory: CX | C0M3 | CX | C1M2 | C1A2 | CX | C0A4 | C2A1 | CX | C2M1 | C3A5 | C3M4 | C3A3 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1M1),(A2M2),(A3A4M3),(A5M4),
+  Trajectory: CX | C0M3 | C0A3 | CX | C1M2 | C1A2 | CX | C0A4 | C2A1 | CX | C2M1 | C3A5 | C3M4 | | Fitness: {CraIndexObjective=3.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 0
+Number of solutions: 1
+Solution: (A10M3),(A1A3A6M4),(A2A5M1),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0A5 | C0A2 | C0M1 | CX | C1M8 | CX | C1A7 | C2A4 | C2M6 | C2A8 | CX | C3A10 | C3M3 | CX | C4A1 | CX | C4M4 | C4A6 | C5A9 | C5M5 | CX | C4A3 | C6M7 | C1M2 | | Fitness: {CraIndexObjective=3.833333333333334, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 1
+Number of solutions: 3
+Solution: (A1),(A10M3),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0M3 | CX | C1A4 | CX | C1A8 | C2A7 | C2M8 | CX | C1M6 | C0A10 | C3A5 | CX | C3M1 | C4A9 | CX | C4M5 | C5A1 | CX | C3A2 | C6A6 | C6M4 | CX | C2M2 | C6A3 | C7M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A10M3),(A1M7),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M3 | CX | C1A4 | CX | C1A8 | C2A7 | C2M8 | CX | C1M6 | C0A10 | C3A5 | CX | C3M1 | C4A9 | CX | C4M5 | C5A1 | CX | C3A2 | C6A6 | C6M4 | C2M2 | C6A3 | C5M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A10M3),(A1A3M4),(A2A5M1),(A4A8M6),(A6M7),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M3 | CX | C1A4 | CX | C1A8 | C2A7 | C2M8 | CX | C1M6 | C0A10 | C3A5 | CX | C3M1 | C4A9 | CX | C4M5 | C5A1 | CX | C3A2 | C6A6 | C6M7 | C5A3 | C2M2 | C5M4 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 2
+Number of solutions: 2
+Solution: (A1),(A10M3),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0M4 | C0A6 | CX | C1M1 | C1A5 | CX | C2A7 | C2M8 | CX | C3A4 | C3A8 | CX | C4A9 | C3M6 | CX | C4M5 | C1A2 | C5A10 | CX | C5M3 | C6A1 | C2M2 | C0A3 | CX | C7M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A10M3),(A1M7),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M4 | C0A6 | CX | C1M1 | C1A5 | CX | C2A7 | C2M8 | CX | C3A4 | C3A8 | CX | C4A9 | C3M6 | CX | C4M5 | C1A2 | C5A10 | CX | C5M3 | C6A1 | C2M2 | C0A3 | C6M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 3
+Number of solutions: 1
+Solution: (A10M3),(A1A3M4),(A2A6M7),(A4A8M6),(A5M1),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M1 | C0A5 | CX | C1M3 | CX | C2A4 | C2A8 | C2M6 | CX | C3A9 | C3M5 | C1A10 | CX | C4A6 | C4M7 | CX | C5A7 | CX | C5M8 | C6A1 | C4A2 | C6M4 | C6A3 | C5M2 | | Fitness: {CraIndexObjective=4.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 4
+Number of solutions: 1
+Solution: (A10M3),(A1A3M4),(A2A6M7),(A4A8M6),(A5M1),(A7M2M8),(A9M5),
+  Trajectory: CX | C0A10 | CX | C1M1 | C0M3 | CX | C2A7 | CX | C2M8 | C3A4 | C3A8 | CX | C4M5 | C3M6 | C4A9 | CX | C1A5 | C5A6 | C5M7 | CX | C6A1 | C5A2 | C6M4 | C6A3 | C2M2 | | Fitness: {CraIndexObjective=4.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 5
+Number of solutions: 2
+Solution: (A1),(A10M3),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0A2 | C0A5 | C0M1 | CX | C1M3 | CX | C1A10 | C2A7 | C2M8 | CX | C3M4 | C3A6 | CX | C4A8 | CX | C4M6 | C4A4 | C2M2 | C5A9 | CX | C5M5 | C6A1 | C3A3 | CX | C7M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A10M3),(A1M7),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),
+  Trajectory: CX | C0A2 | C0A5 | C0M1 | CX | C1M3 | CX | C1A10 | C2A7 | C2M8 | CX | C3M4 | C3A6 | CX | C4A8 | CX | C4M6 | C4A4 | C2M2 | C5A9 | CX | C5M5 | C6A1 | C3A3 | C6M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 6
+Number of solutions: 2
+Solution: (A1A10),(A2A5M1),(A3A7M8),(A4A8M6),(A6M2M3M4M7),(A9M5),
+  Trajectory: CX | C0A5 | C0M1 | CX | C1M4 | CX | C1M7 | C1A6 | C2A7 | CX | C2M8 | C3A8 | C3A4 | CX | C4A9 | CX | C1M2 | C4M5 | C1M3 | C3M6 | C5A10 | C2A3 | C5A1 | C0A2 | | Fitness: {CraIndexObjective=3.166666666666667, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1),(A10A6M2M3M4M7),(A2A5M1),(A3A7M8),(A4A8M6),(A9M5),
+  Trajectory: CX | C0A5 | C0M1 | CX | C1M4 | CX | C1M7 | C1A6 | C2A7 | CX | C2M8 | C3A8 | C3A4 | CX | C4A9 | CX | C1M2 | C4M5 | C1M3 | C3M6 | C1A10 | C2A3 | C5A1 | C0A2 | | Fitness: {CraIndexObjective=3.166666666666667, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 7
+Number of solutions: 1
+Solution: (A10M3),(A1A3M4),(A2A6M7),(A4A8M6),(A5M1),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M7 | C0A6 | CX | C1A7 | CX | C1M8 | C2A5 | CX | C2M1 | C3A9 | CX | C4M6 | C4A8 | C3M5 | CX | C4A4 | C5A10 | C5M3 | CX | C6A1 | C0A2 | C6M4 | C6A3 | C1M2 | | Fitness: {CraIndexObjective=4.0, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 8
+Number of solutions: 1
+Solution: (A10M3),(A1A3A6M4),(A2A5M1),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0M1 | C0A5 | CX | C1A6 | CX | C1M4 | C0A2 | C2A10 | C2M3 | CX | C3M8 | CX | C3A7 | C4A8 | CX | C4A4 | C4M6 | C3M2 | C5M5 | C5A9 | C1A1 | CX | C1A3 | C6M7 | | Fitness: {CraIndexObjective=3.833333333333333, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 9
+Number of solutions: 1
+Solution: (A10M3),(A1A3A6M4),(A2M1),(A4A5M2),(A7M8),(A8M6),(A9M5),(M7),
+  Trajectory: CX | C0M3 | C0A10 | CX | C1M8 | C1A7 | CX | C2M2 | CX | C3A9 | CX | C4A8 | C4M6 | C3M5 | CX | C5M4 | C5A6 | CX | C2A4 | C6A2 | C6M1 | C5A1 | CX | C2A5 | C5A3 | C7M7 | | Fitness: {CraIndexObjective=3.666666666666667, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 10
+Number of solutions: 1
+Solution: (A10M3),(A1A3A6M4),(A2A5M1),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0M1 | C0A5 | CX | C1A6 | C0A2 | C1M4 | CX | C2A7 | C2M8 | CX | C3A10 | C1A1 | CX | C3M3 | C4A8 | C4M6 | CX | C4A4 | C5A9 | C2M2 | CX | C5M5 | C1A3 | C6M7 | | Fitness: {CraIndexObjective=3.833333333333333, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 11
+Number of solutions: 1
+Solution: (A10M3),(A1M7),(A2A5M1),(A3A6M4),(A4A8M6),(A7M2M8),(A9M5),
+  Trajectory: CX | C0M1 | C0A2 | C0A5 | CX | C1M8 | C1A7 | CX | C2A8 | CX | C3A6 | C2M6 | C3M4 | CX | C2A4 | C4A10 | C4M3 | CX | C5M5 | C5A9 | CX | C1M2 | C6A1 | C3A3 | C6M7 | | Fitness: {CraIndexObjective=3.75, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 12
+Number of solutions: 1
+Solution: (A10M3),(A1A3A6M4),(A2A5M1),(A4A8M6),(A7M2M8),(A9M5),(M7),
+  Trajectory: CX | C0M4 | CX | C0A6 | C1A7 | C1M8 | CX | C2M3 | CX | C3A5 | CX | C3M1 | C4A8 | C2A10 | CX | C4M6 | C4A4 | C3A2 | C5M5 | C5A9 | CX | C0A1 | C1M2 | C0A3 | C6M7 | | Fitness: {CraIndexObjective=3.833333333333333, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 13
+Number of solutions: 1
+Solution: (A1A10A2A7M1),(A3M3M4M8),(A4A5M2),(A6M7),(A8M6),(A9M5),
+  Trajectory: CX | C0A5 | C0M2 | CX | C1A3 | C1M3 | CX | C2A8 | CX | C2M6 | C3A1 | C3A7 | CX | C3A2 | C4A9 | C4M5 | CX | C1M8 | C5A6 | C5M7 | C3A10 | C3M1 | C0A4 | C1M4 | | Fitness: {CraIndexObjective=2.666666666666667, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: B, run: 14
+Number of solutions: 2
+Solution: (A1A10),(A2A5M1),(A3A7M8),(A4A8M6),(A6M2M3M4M7),(A9M5),
+  Trajectory: CX | C0M1 | CX | C1M7 | CX | C1M4 | C0A5 | C2A7 | CX | C2M8 | C1A6 | C3A8 | CX | C3A4 | C2A3 | C3M6 | C1M3 | C4A9 | CX | C4M5 | C0A2 | C5A1 | C5A10 | C1M2 | | Fitness: {CraIndexObjective=3.166666666666667, ConstraintsObjective=0.0} hardObjectives=true
+Solution: (A1),(A10A6M2M3M4M7),(A2A5M1),(A3A7M8),(A4A8M6),(A9M5),
+  Trajectory: CX | C0M1 | CX | C1M7 | CX | C1M4 | C0A5 | C2A7 | CX | C2M8 | C1A6 | C3A8 | CX | C3A4 | C2A3 | C3M6 | C1M3 | C4A9 | CX | C4M5 | C0A2 | C5A1 | C1A10 | C1M2 | | Fitness: {CraIndexObjective=3.166666666666667, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 0
+Number of solutions: 1
+Solution: (A17M11M9),(A1A10A11A12A13A14A15A16A18A19A20A3A5A6A7A8A9M1M10M12M13M14M15M2M3M4M5M7M8),(A2A4M6),
+  Trajectory: CX | C0M8 | C0M14 | CX | C0A20 | C1M11 | C0A7 | C0M7 | C0A10 | C0A3 | C0A8 | C0A9 | C1M9 | C0A19 | C1A17 | C0A18 | C0A16 | C0A6 | C0M5 | C0A1 | C0A14 | C0A12 | C0A15 | C0A13 | CX | C2A2 | C0M12 | C2M6 | C0M1 | C0M10 | C0M3 | C0A11 | C2A4 | C0M13 | C0A5 | C0M15 | C0M2 | C0M4 | | Fitness: {CraIndexObjective=1.522504456327986, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 1
+Number of solutions: 1
+Solution: (A11A12M3),(A16M8),(A1A10A13A14A15A17A18A19A2A20A3A4A5A6A7A8M1M10M11M13M14M2M4M5M6M7M9),(A9M12M15),
+  Trajectory: CX | C0M13 | C0M7 | C0A17 | C0A10 | C0A1 | C0A8 | CX | C1M15 | CX | C0A6 | C0A13 | C0A18 | C0A3 | C1A9 | C0A20 | C0M4 | C0A7 | C0A2 | C0M2 | C0M9 | C0M11 | C0M10 | C2A16 | CX | C2M8 | C0A4 | C0M5 | C3M3 | C3A12 | C0A19 | C0A5 | C0A15 | C1M12 | C0A14 | C3A11 | C0M14 | C0M6 | C0M1 | | Fitness: {CraIndexObjective=2.4960227272727273, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 2
+Number of solutions: 1
+Solution: (A10A14A15A17A20A3M9),(A11A12A16A19A6A7A8M1M12M13M14M15M2M3M4M5M7M8),(A13A18M10),(A1A5M11),(A2A4A9M6),
+  Trajectory: CX | C0A6 | C0M1 | CX | C1M9 | C1A20 | C0A19 | CX | C0A12 | C0M3 | C0A7 | C1A3 | C1A14 | C0A8 | C0M8 | C0M7 | C0M14 | C2M6 | CX | C2A4 | C1A10 | C0A16 | C2A9 | C1A15 | C2A2 | C1A17 | C3A1 | C3M11 | CX | C3A5 | C0A11 | C4A13 | C4M10 | C4A18 | C0M15 | C0M13 | C0M4 | C0M5 | C0M12 | C0M2 | | Fitness: {CraIndexObjective=2.0389610389610384, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 3
+Number of solutions: 1
+Solution: (A12M1M3),(A13M12),(A1A10A11A14A15A16A17A18A19A2A20A3A4A5A6A7A8A9M10M11M13M14M15M2M4M5M6M7M8M9),
+  Trajectory: CX | C0A10 | C0A16 | C0M7 | C0A8 | CX | C0A6 | C1M3 | C0A19 | C0M4 | C0A4 | C0A20 | C0M14 | C0A2 | C0M2 | C1A12 | C0A1 | C0A14 | C0A18 | CX | C2A13 | C0A9 | C0A3 | C0A17 | C0M6 | C0A15 | C1M1 | C2M12 | C0M11 | C0A5 | C0A11 | C0A7 | C0M9 | C0M8 | C0M10 | C0M13 | C0M15 | C0M5 | | Fitness: {CraIndexObjective=1.9385521885521886, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 4
+Number of solutions: 1
+Solution: (A11A12M3),(A16M8),(A1A10A13A14A15A17A18A19A2A20A3A4A5A6A7A8M1M10M11M13M14M2M4M5M6M7M9),(A9M12M15),
+  Trajectory: CX | C0M7 | C0M10 | C0A19 | C0A1 | C0A6 | C0A20 | C0M4 | C0A17 | C0A13 | C0M5 | C0A3 | C0A8 | C0A15 | C0A2 | C0A5 | C0M13 | CX | C1A16 | CX | C1M8 | C0A10 | C0A4 | C0M2 | C0A14 | C2A9 | CX | C3A12 | C0A18 | C2M15 | C2M12 | C0M11 | C0M9 | C3A11 | C0M14 | C3M3 | C0M6 | C0M1 | C0A7 | | Fitness: {CraIndexObjective=2.4960227272727273, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 5
+Number of solutions: 1
+Solution: (A10A19M7),(A15M9),(A16A7M8),(A1A11A12A13A14A17A18A2A20A3A4A5A6A8M1M10M11M13M14M2M3M4M5M6),(A9M12M15),
+  Trajectory: CX | C0A17 | C0A8 | C0M4 | C0A6 | C0A12 | C0M11 | CX | C0A1 | C1M12 | C1M15 | CX | C1A9 | C2A10 | C2M7 | CX | C0A3 | C0A5 | C3A16 | CX | C0A11 | C3M8 | C3A7 | C4M9 | C4A15 | C0A18 | C0A2 | C0A20 | C0A4 | C0M3 | C0A14 | C2A19 | C0M14 | C0M10 | C0M2 | C0M13 | C0A13 | C0M1 | C0M5 | C0M6 | | Fitness: {CraIndexObjective=2.72936507936508, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 6
+Number of solutions: 1
+Solution: (A12M1M3),(A1A10A11A13A14A15A16A17A18A19A2A20A3A4A5A6A7A8A9M10M11M12M13M14M15M2M4M5M6M7M8M9),
+  Trajectory: CX | C0A1 | C0M4 | C0A14 | C0M6 | C0A5 | C0A2 | C0M9 | C0A17 | C0A3 | C0A6 | C0M13 | CX | C0A16 | C0M2 | C0M10 | C0A11 | C0A10 | C0A7 | C0A15 | C0A8 | C0A18 | C0A4 | C0A9 | C0M7 | C0M11 | C0A20 | C1M1 | C1M3 | C0M14 | C1A12 | C0A13 | C0M12 | C0M8 | C0M15 | C0M5 | C0A19 | | Fitness: {CraIndexObjective=1.3230431848852902, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 7
+Number of solutions: 1
+Solution: (A13A9M12),(A17M11M9),(A1A10A11A12A14A15A16A18A19A2A20A3A4A5A6A7A8M1M10M13M14M15M2M3M4M5M6M7M8),
+  Trajectory: CX | C0A12 | C0M7 | C0A8 | C0A10 | C0M14 | C0A16 | C0A7 | CX | C1A13 | C0M8 | C0A20 | CX | C0A2 | C2A17 | C2M9 | C0A1 | C0A3 | C0M2 | C0A4 | C0A11 | C0A6 | C0A19 | C0M3 | C0A18 | C1A9 | C0M1 | C0A5 | C0M6 | C2M11 | C1M12 | C0A15 | C0A14 | C0M10 | C0M5 | C0M15 | C0M4 | C0M13 | | Fitness: {CraIndexObjective=1.5601604278074865, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 8
+Number of solutions: 1
+Solution: (A12M1M3),(A13A9M12),(A1A10A11A14A15A16A17A18A19A2A20A3A4A5A6A7A8M10M11M13M14M15M2M4M5M6M7M8M9),
+  Trajectory: CX | C0M6 | C0M13 | C0M10 | C0M8 | C0M4 | C0M14 | C0A2 | C0M7 | C0A11 | C0A17 | C0A18 | C0M11 | C0A6 | C0A16 | C0A8 | CX | C0A7 | C1M1 | CX | C0A10 | C0A5 | C1M3 | C0A20 | C1A12 | C0M2 | C0A15 | C2A9 | C2M12 | C0A3 | C0A1 | C0M5 | C0A4 | C0A14 | C0M9 | C0A19 | C0M15 | C2A13 | | Fitness: {CraIndexObjective=1.9848484848484846, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 9
+Number of solutions: 1
+Solution: (A11A12A6A7M3),(A13A14A17A18A20A9M10M15),(A1A10A15A16A19A2A3A4A5A8M1M11M12M13M14M2M4M5M6M7M8M9),
+  Trajectory: CX | C0M4 | C0A1 | C0M11 | C0M13 | C0A10 | C0M6 | C0A16 | CX | C1A17 | CX | C0A4 | C0A19 | C0A8 | C0A2 | C0A3 | C1A20 | C2A12 | C2M3 | C1A18 | C2A11 | C0A15 | C0M2 | C0M7 | C2A7 | C0M14 | C0M5 | C1M10 | C1M15 | C2A6 | C0M12 | C1A13 | C1A14 | C0A5 | C1A9 | C0M8 | C0M1 | C0M9 | | Fitness: {CraIndexObjective=1.6175505050505052, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 10
+Number of solutions: 1
+Solution: (A11A12A7M3),(A15M9),(A1A10A13A14A16A17A18A19A2A20A3A4A5A6A8M1M10M11M13M14M2M4M5M6M7M8),(A9M12M15),
+  Trajectory: CX | C0A10 | C0M2 | CX | C0A6 | C0A14 | C1A9 | C0A5 | C0M7 | C0M5 | C1M12 | C0A19 | C0A13 | CX | C2M3 | C0A3 | C2A11 | C0A17 | C0M13 | C2A12 | CX | C0A20 | C0A16 | C0A18 | C0M4 | C1M15 | C3A15 | C2A7 | C0A4 | C0A8 | C0A1 | C0A2 | C0M11 | C3M9 | C0M10 | C0M8 | C0M6 | C0M14 | C0M1 | | Fitness: {CraIndexObjective=2.3909090909090907, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 11
+Number of solutions: 1
+Solution: (A16A7M8),(A1A10A11A12A13A14A15A17A18A19A2A20A4A6A8A9M1M10M12M13M14M15M2M3M4M5M6M7M9),(A3),(A5M11),
+  Trajectory: CX | C0A17 | C0A10 | C0M7 | C0A19 | C0A2 | CX | C0M2 | C0A15 | C0A12 | C0M4 | C0A11 | C1M8 | C1A7 | C0A14 | C0A4 | C0A9 | C0A18 | C0A6 | C1A16 | C0A13 | CX | C0A8 | C2A5 | C0A20 | C0M9 | C0A1 | CX | C2M11 | C0M12 | C0M1 | C0M5 | C0M3 | C0M13 | C0M15 | C3A3 | C0M10 | C0M14 | C0M6 | | Fitness: {CraIndexObjective=1.6586538461538463, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 12
+Number of solutions: 1
+Solution: (A1A10A11A12A13A14A15A16A17A18A19A2A20A3A4A5A6A8M1M10M11M13M14M2M4M5M6M7M9),(A7M3M8),(A9M12M15),
+  Trajectory: CX | C0A4 | C0M2 | C0A20 | C0A15 | C0A12 | C0A10 | C0A14 | CX | C1M12 | C1A9 | C0A6 | CX | C0A2 | C0A3 | C0A8 | C0A13 | C2A7 | C0A5 | C0A17 | C0A16 | C2M3 | C0M11 | C0A1 | C0A18 | C1M15 | C0A19 | C2M8 | C0A11 | C0M9 | C0M4 | C0M14 | C0M5 | C0M7 | C0M13 | C0M10 | C0M6 | C0M1 | | Fitness: {CraIndexObjective=2.0929292929292926, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 13
+Number of solutions: 1
+Solution: (A10A19A8M7),(A15M9),(A16M8),(A1A11A12A13A14A17A18A2A20A3A4A5A6A7M1M10M11M13M14M2M3M4M5M6),(A9M12M15),
+  Trajectory: CX | C0A1 | C0M4 | C0A12 | C0A13 | C0A6 | C0A17 | C0A4 | C0A20 | CX | C1A10 | C0A2 | C1M7 | CX | C0A11 | C2A15 | CX | C2M9 | C0A18 | C1A19 | C0A3 | C3M15 | C3M12 | C0M11 | C3A9 | C0A5 | C0A7 | C0M3 | C0M2 | C1A8 | C0M5 | C0M13 | CX | C4M8 | C4A16 | C0M14 | C0M10 | C0M6 | C0A14 | C0M1 | | Fitness: {CraIndexObjective=2.7222222222222214, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: C, run: 14
+Number of solutions: 1
+Solution: (A19M7),(A1A10A11A12A13A14A15A16A17A18A2A20A3A4A5A6A7A8M1M10M11M13M14M2M3M4M5M6M8M9),(A9M12M15),
+  Trajectory: CX | C0M3 | C0A6 | C0M9 | C0A14 | C0A15 | C0M4 | C0A1 | C0M13 | C0A12 | C0A17 | C0A10 | C0M6 | C0M8 | C0M11 | C0M2 | C0A5 | C0A2 | C0M14 | C0A8 | C0A7 | C0A4 | C0A16 | C0A20 | C0A11 | CX | C1A9 | C1M12 | C0A18 | C1M15 | CX | C2A19 | C0A13 | C2M7 | C0M1 | C0A3 | C0M5 | C0M10 | | Fitness: {CraIndexObjective=1.8724747474747474, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 0
+Number of solutions: 1
+Solution: (A15M19),(A1A10A11A12A13A14A16A17A18A19A2A20A21A22A23A24A25A26A28A29A3A30A31A32A33A34A35A36A37A38A39A4A40A5A6A7A8M1M10M11M12M13M14M16M17M18M2M20M21M23M24M25M26M27M28M29M3M30M31M32M33M35M36M37M38M39M40M5M6M7M8M9),(A27M34M4),(A9M15M22),
+  Trajectory: CX | C0M28 | C0M38 | C0A11 | C0A5 | C0A39 | C0A26 | C0A33 | C0M31 | C0A25 | C0M23 | C0M6 | C0A12 | C0A8 | C0A18 | C0A21 | C0A14 | C0A2 | CX | C0A10 | C1A27 | C0M18 | C0M40 | C0A24 | C0A19 | C0A30 | C0A29 | C0M14 | C0A16 | C0M1 | C0M21 | CX | C0A6 | C0A20 | C0A1 | C0A13 | C2M22 | C2M15 | C0M33 | C0A36 | CX | C2A9 | C0A23 | C1M34 | C0M29 | C0A4 | C0A31 | C0M12 | C0M37 | C0M27 | C0M25 | C0M5 | C0M2 | C0A35 | C0A40 | C0M13 | C0M32 | C0A38 | C0M10 | C0M3 | C0M35 | C0M17 | C0A3 | C0A32 | C0A34 | C0A7 | C0M30 | C3A15 | C1M4 | C3M19 | C0M26 | C0M39 | C0A17 | C0M9 | C0M8 | C0A37 | C0M24 | C0M7 | C0A28 | C0M36 | C0M11 | C0M20 | C0A22 | C0M16 | | Fitness: {CraIndexObjective=3.2992164433340907, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 1
+Number of solutions: 1
+Solution: (A10A11A18A20A29A36A40A6M32M33),(A1A12A13A14A15A16A17A19A2A21A22A24A26A27A28A3A30A31A32A33A34A35A37A38A39A5A8A9M1M10M11M12M13M14M15M16M17M18M19M2M20M21M22M23M24M25M27M28M29M3M30M31M34M35M36M37M38M39M5M6M7M8M9),(A23A25A4M4M40),(A7M26),
+  Trajectory: CX | C0M6 | C0A19 | C0M20 | C0M13 | C0A22 | C0M39 | C0A34 | C0A3 | C0A33 | CX | C1A29 | C1M33 | C1M32 | C0M3 | C0A30 | C0A38 | C0M15 | C0A35 | C1A20 | C1A18 | C0M28 | C0A39 | CX | C1A10 | C0A21 | C0M8 | C0M27 | C0M12 | C0M30 | C0A12 | C0A5 | C1A40 | C0A26 | C0A32 | C0A8 | C0A1 | C0M35 | C0M34 | C0M22 | C1A36 | C0M37 | C0A15 | C0M17 | C0A13 | C0M38 | C0A24 | C2A23 | C0A27 | C0A31 | C0M19 | C0A16 | CX | C0M11 | C0A28 | C0A37 | C1A6 | C3A7 | C0M10 | C3M26 | C0M7 | C2M4 | C0M36 | C0A2 | C2A25 | C2M40 | C0M21 | C0M5 | C0M14 | C0M2 | C0A9 | C0M31 | C0M24 | C0A14 | C0M16 | C0M25 | C0A17 | C0M18 | C0M1 | C0M9 | C0M23 | C2A4 | C1A11 | C0M29 | | Fitness: {CraIndexObjective=2.4044267707082834, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 2
+Number of solutions: 1
+Solution: (A13A30A35A40M21),(A1A10A11A12A14A15A16A17A18A19A2A20A21A22A23A24A29A3A31A32A33A34A36A37A38A39A5A6A7A8A9M1M10M11M12M13M14M15M17M19M2M20M22M23M25M26M28M29M3M30M31M32M33M34M35M36M37M38M39M4M40M5M6M7M8M9),(A25A26A4M18M27),(A27A28M16M24),
+  Trajectory: CX | C0A10 | C0M37 | C0A1 | C0A32 | C0A6 | C0A8 | C0A12 | C0A14 | C0A24 | C0A20 | C0A36 | C0A7 | CX | C0A2 | C0A23 | C0A19 | C0A31 | C0A3 | C0A11 | C1A27 | CX | C0A17 | C0A39 | C0A29 | C0A33 | C0A38 | C1M16 | C0A9 | C2M18 | C2A4 | C0M19 | C0M2 | C0M20 | C0A16 | C0A5 | C0A21 | CX | C0A34 | C3A40 | C3M21 | C0M36 | C0M10 | C0M14 | C2M27 | C0M4 | C0A37 | C0M1 | C0M35 | C1M24 | C0A18 | C0M40 | C0M33 | C0M25 | C0M12 | C2A26 | C0M38 | C0M29 | C1A28 | C0M13 | C0M7 | C0M26 | C0M6 | C0M28 | C0A15 | C0M30 | C0M9 | C0M15 | C0M39 | C0M22 | C0M8 | C0A22 | C0M17 | C0M3 | C3A35 | C0M32 | C0M31 | C2A25 | C3A13 | C0M11 | C3A30 | C0M23 | C0M34 | C0M5 | | Fitness: {CraIndexObjective=3.359221107797958, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 3
+Number of solutions: 1
+Solution: (A10A11A14A15A16A17A19A2A20A21A22A23A24A25A26A28A29A3A30A31A32A33A34A35A36A37A38A39A4A40A6A7A9M1M10M12M13M14M15M16M18M19M2M20M21M22M23M24M25M26M27M28M29M3M30M31M32M33M34M36M38M39M4M40M7M8M9),(A12M5),(A13M11M17),(A18A27M35),(A1A8M37),(A5M6),
+  Trajectory: CX | C0M11 | C0A13 | C0M17 | CX | C1A20 | C1M29 | C1M2 | CX | C1A29 | C1A3 | C1M33 | C1A25 | C1A16 | C2A8 | C1A39 | CX | C2M37 | C1A34 | C3A27 | C3M35 | CX | C1A22 | C4A12 | C1A15 | C4M5 | C1A21 | C1A40 | C2A1 | C1A36 | CX | C1M36 | C1M31 | C1A35 | C1A6 | C1A7 | C1M18 | C1A2 | C1M1 | C5M6 | C1A23 | C1A28 | C1M9 | C1A19 | C1M26 | C1M38 | C1M23 | C1M34 | C1A31 | C1M25 | C1A37 | C1M32 | C1A30 | C1M4 | C5A5 | C1M40 | C1M16 | C1A9 | C1A10 | C1A38 | C1M8 | C1A4 | C1A17 | C1A33 | C1M13 | C1M28 | C1M24 | C1M14 | C1M3 | C3A18 | C1A24 | C1M21 | C1M39 | C1M22 | C1M30 | C1M27 | C1M19 | C1A11 | C1M15 | C1A26 | C1A14 | C1M10 | C1M12 | C1A32 | C1M7 | C1M20 | | Fitness: {CraIndexObjective=4.300802139037433, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 4
+Number of solutions: 1
+Solution: (A13A35M21),(A1A10A11A12A14A15A16A17A18A19A20A21A22A23A24A25A26A27A29A3A30A31A32A33A34A36A38A39A4A40A5A6A7A8A9M1M10M11M12M13M14M15M17M18M19M20M22M23M25M27M28M29M3M30M31M32M33M34M35M36M37M38M39M4M40M5M6M7M8M9),(A28M16M24),(A2M2),(A37M26),
+  Trajectory: CX | C0M3 | C0M10 | C0A31 | C0M9 | C0A17 | C0A26 | C0M7 | C0A8 | C0A16 | C0A1 | C0M25 | C0A29 | C0A4 | CX | C0M38 | C1M16 | C1A28 | C0A5 | C1M24 | C0A39 | C0A20 | C0M37 | C0A38 | CX | C0A7 | C0A18 | C0A33 | C0M14 | C0M27 | C0A12 | C0M22 | C0M40 | C0A36 | C0A30 | C2M21 | C2A13 | C0A40 | C0A23 | CX | C0M28 | C0A32 | C0A6 | C0A24 | C0M4 | C0A14 | C0A19 | C0M5 | C0M34 | C0M18 | C0A25 | C0A9 | C0M13 | C0M12 | C0A10 | C3A37 | CX | C0A22 | C3M26 | C0M39 | C4M2 | C0M30 | C0A15 | C0A27 | C0M19 | C0M8 | C0A21 | C0A34 | C0M35 | C0A3 | C0M32 | C0M31 | C0M1 | C0A11 | C0M20 | C0M33 | C0M15 | C0M29 | C0M36 | C0M11 | C2A35 | C4A2 | C0M17 | C0M6 | C0M23 | | Fitness: {CraIndexObjective=3.7437575030012002, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 5
+Number of solutions: 1
+Solution: (A11A14A20M1),(A1A10A12A13A15A16A17A18A19A2A21A22A23A27A28A29A3A30A31A32A34A35A36A38A39A4A40A5A6A7A8A9M10M11M12M15M16M17M18M19M2M20M21M22M23M24M25M27M28M29M3M31M32M33M35M36M37M39M40M5M6M7M8M9),(A24A33M13M30),(A25M34M38M4),(A26M14),(A37M26),
+  Trajectory: CX | C0A12 | C0M33 | C0A31 | C0A21 | C0M37 | C0A10 | C0A34 | C0A7 | C0A29 | C0A18 | C0A5 | C0A23 | C0A4 | C0A3 | C0A16 | C0A28 | C0A8 | C0A2 | C0A17 | C0A19 | CX | C0A39 | C1M1 | C0A13 | C0A30 | CX | C0M16 | C1A20 | C1A14 | C2M34 | C2M4 | CX | C0A40 | C0A9 | C0A38 | C0A22 | C0A15 | C2A25 | C3A33 | C0M28 | CX | C0A32 | C3M30 | C0M21 | C1A11 | C0M19 | C0M25 | C0A36 | C0M27 | C0M22 | C0M9 | C0A1 | C4A37 | C0M3 | C3A24 | CX | C0M10 | C0M35 | C0M15 | C0M40 | C0M23 | C0M11 | C4M26 | C0M7 | C5A26 | C5M14 | C0M31 | C0M12 | C0A35 | C0M5 | C3M13 | C0A6 | C0M2 | C0M39 | C0M24 | C0M6 | C0M32 | C0M29 | C0M8 | C0M20 | C0M17 | C0M18 | C0M36 | C0A27 | C2M38 | | Fitness: {CraIndexObjective=3.340431787634409, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 6
+Number of solutions: 1
+Solution: (A1A10A11A12A13A14A15A16A17A18A19A2A20A21A22A23A24A27A29A3A30A31A32A33A34A35A36A37A38A39A40A6A8A9M1M10M11M12M13M14M15M17M19M2M20M21M22M23M25M26M28M29M3M30M31M32M33M34M35M36M37M38M39M4M40M5M7M8),(A25A26A4M18M27),(A28M16M24),(A5M6),(A7M9),
+  Trajectory: CX | C0M21 | C0A40 | C0A22 | C0A35 | C0A37 | C0A29 | CX | C1M9 | C0A34 | C0A10 | C0A30 | CX | C0A18 | C0M25 | C0A15 | C0A20 | C0M33 | C0A3 | C0A9 | C0A13 | C0M10 | C0A11 | C0A33 | C1A7 | C2A28 | C0A31 | CX | C2M16 | C0M38 | C0A16 | C0A8 | C0A1 | C0A21 | C0A12 | C0M30 | C0A36 | C2M24 | C0M32 | C0M12 | C0A2 | C0M7 | C3A4 | C0M22 | C3A25 | C3M18 | C0A38 | C0A24 | C0A14 | CX | C0A39 | C3M27 | C0M40 | C3A26 | C0M37 | C4A5 | C0A17 | C0M1 | C0M2 | C0M4 | C0M35 | C0M20 | C0M28 | C0M15 | C0A6 | C4M6 | C0M3 | C0A23 | C0M31 | C0M26 | C0M17 | C0M8 | C0M34 | C0A32 | C0A27 | C0M39 | C0M13 | C0M11 | C0M36 | C0M14 | C0M19 | C0M5 | C0M29 | C0A19 | C0M23 | | Fitness: {CraIndexObjective=4.043383663625878, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 7
+Number of solutions: 1
+Solution: (A11A15A16A17A18A20A22A23A27A28A30A34A36A40M1M10M11M12M14M15M16M17M19M2M20M21M22M23M24M25M29M3M31M32M33M34M35M36M37M38M39M4M40M5M6M7M8M9),(A1A10A12A13A14A19A21A25A26A29A3A31A35A37A39A4A5A6A8A9M18M27),(A24A33M13M30),(A2A38M28),(A32A7M26),
+  Trajectory: CX | C0M18 | C0A25 | C0M27 | CX | C0A13 | C1M1 | CX | C0A26 | C1M24 | C0A4 | C0A21 | C0A37 | C2M28 | CX | C1A18 | C0A10 | C0A1 | C0A14 | C0A5 | C0A12 | C1A22 | C1M33 | C0A29 | C0A3 | C1A36 | C0A39 | C0A19 | C2A38 | C1M32 | C0A35 | C1A16 | C1A17 | C2A2 | C0A6 | C0A9 | C1A20 | C0A8 | C1A40 | C3M26 | CX | C1A28 | C1A34 | C1A23 | C3A32 | C1A30 | C1A27 | C1M8 | C1A15 | C1A11 | C0A31 | C4A24 | C4M13 | C4M30 | C1M12 | C1M7 | C1M2 | C1M39 | C1M21 | C1M35 | C1M16 | C1M10 | C1M4 | C1M22 | C1M19 | C1M25 | C1M20 | C1M9 | C1M15 | C1M40 | C1M37 | C1M17 | C1M29 | C1M36 | C1M11 | C1M6 | C1M5 | C1M14 | C1M34 | C1M31 | C3A7 | C1M3 | C1M38 | C4A33 | C1M23 | | Fitness: {CraIndexObjective=3.593780239368475, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 8
+Number of solutions: 1
+Solution: (A11A17A18M32M33M8),(A14A2A22M2),(A1A10A12A13A15A16A19A20A21A23A25A27A28A3A31A32A34A35A36A37A39A40A5A7A9M1M10M11M12M13M14M15M16M17M19M20M21M22M23M24M25M26M28M29M3M30M31M34M35M37M39M4M40M5M6M7M9),(A24A29A30A38M36),(A26A4A6M18M27),(A33A8M38),
+  Trajectory: CX | C0A5 | C0M26 | C0M39 | C0A19 | C0A1 | C0A28 | CX | C0A7 | C0A37 | C0A15 | C1M38 | C0A40 | CX | C0A21 | C0A32 | C0A23 | C0A31 | C0A20 | C0A36 | C0A9 | C1A8 | C2M36 | C2A38 | CX | C2A24 | C1A33 | C3A17 | C0A3 | CX | C3A11 | C0A12 | C4A6 | CX | C4M27 | C4M18 | C0A34 | C3M8 | C2A29 | C3M32 | C3M33 | C0A13 | C3A18 | C0A10 | C5A14 | C5M2 | C4A26 | C0M15 | C0M31 | C0M16 | C0M37 | C0M9 | C0M22 | C0M14 | C0M20 | C0M1 | C0M25 | C0M19 | C0M11 | C0M30 | C0M17 | C0M40 | C0M3 | C0M23 | C2A30 | C0M10 | C0M29 | C0M13 | C0M35 | C0M7 | C0M28 | C0M34 | C0M4 | C0M6 | C0A39 | C0M24 | C0M21 | C4A4 | C0A27 | C0A35 | C5A22 | C0A16 | C0M12 | C5A2 | C0A25 | C0M5 | | Fitness: {CraIndexObjective=4.250087365591398, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 9
+Number of solutions: 1
+Solution: (A19M20M6),(A1A10A11A12A13A14A15A16A17A18A2A20A21A23A24A25A26A3A30A31A32A33A35A36A37A38A39A4A40A5A6A7A8A9M1M10M11M12M13M14M15M16M17M18M19M2M21M22M23M25M26M27M28M3M30M31M32M34M35M36M37M38M39M4M40M5M7M8M9),(A22A27A28A34M24),(A29M29M33),
+  Trajectory: CX | C0M18 | C0A26 | C0A16 | C0M7 | C0M10 | C0A1 | C0A15 | C0M27 | C0M37 | C0A21 | C0A40 | CX | C1A27 | C1A22 | C1M24 | C0M14 | C0A2 | C0A24 | C0A13 | C0A30 | C0A9 | C0A31 | C0A32 | C1A28 | C0A7 | C0A10 | C0M39 | C0M22 | CX | C0M25 | C0A35 | C0M3 | C0A36 | C2M29 | C0A20 | C2A29 | CX | C0A6 | C0M13 | C1A34 | C3A19 | C2M33 | C0M38 | C0M30 | C3M6 | C0A4 | C0A39 | C0M2 | C0M15 | C0A17 | C0M35 | C0M34 | C0A8 | C0M11 | C0A33 | C0A38 | C0M40 | C0A12 | C0A25 | C0A3 | C0A18 | C0M12 | C3M20 | C0A23 | C0A11 | C0M36 | C0M28 | C0M23 | C0M19 | C0M32 | C0M21 | C0M26 | C0M5 | C0M4 | C0M17 | C0M9 | C0M16 | C0M8 | C0A14 | C0M31 | C0A37 | C0A5 | C0M1 | | Fitness: {CraIndexObjective=3.8596638655462185, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 10
+Number of solutions: 1
+Solution: (A10A11A12A13A14A15A16A17A18A19A2A20A21A22A23A24A25A26A27A28A3A30A31A32A33A34A35A36A38A39A40A5A6A7A8A9M1M10M11M12M13M14M15M16M17M19M2M20M21M22M23M24M25M26M28M3M30M31M32M34M35M36M38M39M4M40M5M6M7M8M9),(A1M37),(A29M29M33),(A37A4M18M27),
+  Trajectory: CX | C0M39 | C0M13 | C0A19 | C0A30 | C0A22 | C0A40 | C0A16 | C0A34 | C0A23 | C0A24 | C0A33 | C0A28 | C0A21 | C0A7 | C0A8 | C0A25 | C0A6 | C0A31 | C0A14 | C0A27 | C0A36 | C0A18 | C0A9 | C0A5 | C0A2 | C0A3 | C0A17 | C0A15 | CX | C0A26 | C1M33 | CX | C0M2 | C2M27 | C0M36 | C0A38 | C0M12 | CX | C0A11 | C0M30 | C0M40 | C0M4 | C2M18 | C0A35 | C2A37 | C0A39 | C0A13 | C3A1 | C3M37 | C0M8 | C0M9 | C0M21 | C0M14 | C0M3 | C0A32 | C0M28 | C0M24 | C0M15 | C0M11 | C1M29 | C0M5 | C0M22 | C0M35 | C0M6 | C0M20 | C0M34 | C0M17 | C0M16 | C0M26 | C0M19 | C0M38 | C2A4 | C1A29 | C0A20 | C0M32 | C0M10 | C0M23 | C0A12 | C0A10 | C0M25 | C0M1 | C0M7 | C0M31 | | Fitness: {CraIndexObjective=3.545261437908497, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 11
+Number of solutions: 1
+Solution: (A10A11A12A13A14A15A16A17A18A19A2A20A21A22A23A24A27A28A29A3A30A31A32A33A34A35A36A37A38A39A4A40A5A6A7A8M1M11M12M13M16M17M18M19M2M20M21M23M24M25M26M27M28M29M3M30M31M32M33M35M36M37M38M39M40M5M6M7M8M9),(A1M10),(A25M34M4),(A26M14),(A9M15M22),
+  Trajectory: CX | C0M27 | C0A11 | C0A19 | C0M28 | C0M19 | C0A2 | C0M23 | C0A36 | C0M32 | C0A27 | C0M33 | C0A13 | C0A15 | C0A22 | C0A24 | C0A18 | C0A40 | C0A34 | C0M25 | C0A8 | CX | C1A9 | C1M22 | C0A12 | C0A33 | C0A14 | C0A20 | C0A4 | C0M21 | C0A29 | C0A7 | CX | C1M15 | C0A39 | C0A37 | C0M1 | C0M20 | C0A5 | C0M13 | C0A38 | C0M36 | C0A35 | C2M34 | C2A25 | C0M29 | C2M4 | C0M30 | C0M40 | C0M6 | C0A6 | C0A30 | C0M24 | CX | C0M8 | C0A21 | C0M5 | C0A32 | C0A10 | C3A1 | C0M17 | C0A28 | C0M9 | C0M2 | C0M38 | C3M10 | C0M16 | C0M31 | C0A3 | CX | C0A23 | C4A26 | C0A16 | C4M14 | C0M11 | C0M39 | C0M35 | C0M3 | C0M37 | C0M26 | C0M18 | C0M7 | C0A31 | C0A17 | C0M12 | | Fitness: {CraIndexObjective=4.010026737967914, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 12
+Number of solutions: 1
+Solution: (A11A2A38M28),(A1A10A12A13A14A15A16A17A18A19A20A21A22A23A24A25A26A27A28A29A3A30A31A32A33A35A36A37A39A4A40A5A6A7A8M1M10M11M12M13M14M16M17M18M19M2M20M21M23M25M26M27M29M3M30M31M32M33M34M35M36M37M38M39M4M40M6M7M8M9),(A34M24M5),(A9M15M22),
+  Trajectory: CX | C0A23 | C0M33 | C0A14 | CX | C0A7 | C0A33 | C1A2 | CX | C1M28 | C0A29 | C2A9 | C0A4 | C2M22 | C0A21 | C0M8 | C0A12 | C0A6 | C0A36 | C0A16 | C2M15 | C0A3 | C0A30 | C1A38 | C0A28 | CX | C0M23 | C0M17 | C0M30 | C0M27 | C0M26 | C0A22 | C0M3 | C0A37 | C0A39 | C0M9 | C0M21 | C0A10 | C0M32 | C0M4 | C0A1 | C0A5 | C0A8 | C0A18 | C0A40 | C0A35 | C0M13 | C0A13 | C0A20 | C0M37 | C0M1 | C0M12 | C0M25 | C3M5 | C0A15 | C0M40 | C0M19 | C0A27 | C0M39 | C0A24 | C0M16 | C0M36 | C0A31 | C0A17 | C0M10 | C0M29 | C0A26 | C0M18 | C3A34 | C3M24 | C0M7 | C0M2 | C0A25 | C1A11 | C0M34 | C0M20 | C0M6 | C0M38 | C0M14 | C0M11 | C0M31 | C0M35 | C0A32 | C0A19 | | Fitness: {CraIndexObjective=3.3779311724689878, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 13
+Number of solutions: 1
+Solution: (A11M1M29),(A1A10A12A13A14A15A16A17A18A19A2A20A21A23A24A25A26A27A28A29A30A31A32A33A34A35A36A37A39A40A6A8A9M10M11M12M13M14M15M16M17M18M19M2M21M22M24M25M26M27M28M3M30M31M32M33M34M35M36M37M38M39M4M40M5M7M8M9),(A22A38A4A7M23),(A3M20),(A5M6),
+  Trajectory: CX | C0A8 | C0A25 | C0M18 | C0M27 | C0A26 | C0A21 | CX | C1M23 | C1A38 | C0A28 | C0A24 | C0A6 | CX | C0M3 | C0M30 | C0A2 | C0A27 | C0A16 | C0A13 | C0A12 | C1A4 | C0A15 | C2A11 | CX | C0M26 | C2M1 | C0A1 | C0A31 | C0A33 | C0A36 | C0M24 | C0M21 | C0M15 | C0A37 | C0A40 | C0M22 | C0M39 | C0M8 | C1A7 | C0M5 | C0A10 | C0A34 | C0A9 | C0A30 | C0A32 | C0M37 | C2M29 | C0A35 | C0M25 | C0M35 | C0M38 | C3A3 | C3M20 | C1A22 | C0M12 | C0A39 | CX | C4A5 | C0A17 | C4M6 | C0M34 | C0A18 | C0M32 | C0M10 | C0A23 | C0M36 | C0A20 | C0M11 | C0M2 | C0M14 | C0M17 | C0M19 | C0M13 | C0M28 | C0A29 | C0M4 | C0M33 | C0M31 | C0M7 | C0A14 | C0M40 | C0A19 | C0M9 | C0M16 | | Fitness: {CraIndexObjective=3.612948815889992, ConstraintsObjective=0.0} hardObjectives=true
+
+Model: D, run: 14
+Number of solutions: 1
+Solution: (A10A18A25M4),(A1A11A12A13A14A15A16A17A19A2A20A21A23A24A26A27A28A29A3A30A31A33A34A37A39A4A40A5A6A7A8A9M1M10M11M12M13M14M15M16M17M18M19M2M20M21M22M23M24M25M26M27M28M29M30M31M32M33M34M35M36M37M38M40M5M6M7M8M9),(A22A32A35A36A38M3M39),
+  Trajectory: CX | C0A24 | C0M19 | C0A3 | C0A27 | C0M1 | C0A19 | C0A16 | C0A12 | C0A34 | C0A39 | C0A2 | C0A31 | C0A17 | C0A7 | C0M31 | C0A14 | C0M25 | CX | C0M14 | C0A33 | C0M29 | C1A38 | C0M18 | C0A13 | C0A11 | C1A22 | C1M39 | C0A40 | C1A35 | C1M3 | C0A21 | C0A20 | C1A36 | C0M35 | CX | C0A6 | C0M38 | C0M32 | C0M33 | C0M27 | C0M26 | C0M5 | C1A32 | C0M36 | C0A5 | C0M9 | C0A28 | C0A30 | C0M21 | C0A29 | C0A8 | C0M20 | C0M7 | C0A26 | C2A18 | C0A4 | C0M16 | C0M34 | C2A10 | C2M4 | C0A15 | C0M24 | C0M6 | C0A1 | C0M23 | C0M17 | C0M13 | C0A37 | C0M22 | C0M10 | C0M2 | C0M30 | C0M15 | C0M28 | C0M12 | C0A9 | C2A25 | C0A23 | C0M40 | C0M11 | C0M37 | C0M8 | | Fitness: {CraIndexObjective=1.483736861861862, ConstraintsObjective=0.0} hardObjectives=true
+
