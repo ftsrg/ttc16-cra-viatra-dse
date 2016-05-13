@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
+import org.eclipse.viatra.dse.api.Strategies;
+import org.eclipse.viatra.dse.api.strategy.impl.HillClimbingStrategy;
 import org.eclipse.viatra.dse.base.DseIdPoolHelper;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
@@ -25,8 +27,14 @@ import org.eclipse.viatra.dse.evolutionary.stopconditions.OneSurvivalStopConditi
 import org.eclipse.viatra.dse.evolutionary.stopconditions.ParetoFrontIncludesGoalSolutionStopCondition;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
+import org.eclipse.viatra.dse.solutionstore.SolutionStore;
 import org.eclipse.viatra.dse.util.EMFHelper;
+import org.eclipse.viatra.query.runtime.emf.EMFScope;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.transformation.evm.api.Executor;
+import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation;
+import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation.BatchTransformationBuilder;
+import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements;
 import org.junit.Test;
 
 import com.google.common.base.Stopwatch;
@@ -40,53 +48,41 @@ import hu.bme.mit.viatra.ttc.dse.queries.util.NotEncapsulatedFeatureQuerySpecifi
 import hu.bme.mit.viatra.ttc.dse.rules.CraDseRules;
 import hu.bme.mit.viatra.ttc.dse.statecoder.CraStateCoderFactory;
 
-public class CraDseRunner {
+public class CraAlternateDseRunner {
 
     @Test
     public void test() throws IOException, ViatraQueryException {
         Logger.getRootLogger().setLevel(Level.WARN);
-        runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
+        Logger.getLogger(HillClimbingStrategy.class).setLevel(Level.DEBUG);
+        runExplorationWithTtcInput(CraModelNameConstants.INPUT_C);
     }
     
     public static double runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
+        
+        CraDseRules rules = new CraDseRules();
+        BatchTransformation transformation = BatchTransformation.forScope(new EMFScope(model))
+                .addRule(rules.createClassWithFeatureRule)
+                .build();
+        BatchTransformationStatements statements = transformation.getTransformationStatements();
+        
+        statements.fireAllCurrent(rules.createClassWithFeatureRule);
+        
+        
         DesignSpaceExplorer dse = new DesignSpaceExplorer();
         
         dse.setInitialModel(model);
         dse.addMetaModelPackage(ArchitectureCRAPackage.eINSTANCE);
         dse.setStateCoderFactory(new CraStateCoderFactory());
         
-        CraDseRules rules = new CraDseRules();
-        dse.addTransformationRule(rules.createClassRule);
-        dse.addTransformationRule(rules.addFeatureRule);
+        dse.addTransformationRule(rules.mergeClasses);
         
-        dse.addObjective(new ConstraintsObjective()
-                .withHardConstraint("allFeatureEncapsulated", AllFeatureEncapsulatedQuerySpecification.instance())
-                .withHardConstraint("noEmtpyClass", NoEmptyClassQuerySpecification.instance())
-                .withSoftConstraint("unusedFeature", NotEncapsulatedFeatureQuerySpecification.instance(), 1)
-                .withComparator(Comparators.LOWER_IS_BETTER)
-                );
         dse.addObjective(new CraIndexObjective());
-        
-        EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2Builder(40);
-        nsga2.setInitialPopulationSelector(new BfsInitialSelector(0.18f, 2));
-        nsga2.setMutationRate(new SimpleMutationRate(0.8));
-        nsga2.addMutation(new AddRandomTransitionMutation(), 6);
-        nsga2.addMutation(new ModifyRandomTransitionMutation(), 2);
-        nsga2.addCrossover(new CutAndSpliceCrossover());
-        nsga2.addCrossover(new SwapTransitionCrossover());
-        nsga2.addMutation(new RemoveUnusedClassMutation());
-        
-        nsga2.setStopCondition(
-                new CompositeStopCondition()
-                .withCompositeType(CompositeType.AND)
-                .withStopCondition(new OneSurvivalStopCondition(100))
-                .withStopCondition(new ParetoFrontIncludesGoalSolutionStopCondition())
-//                .withStopCondition(new IterationStopCondition(1000))
-//                .withStopCondition(new ConstantParetoFrontStopCondition(100))
-                );
 
-        dse.startExploration(nsga2.build());
-//        dse.startExplorationWithTimeout(nsga2.build(), 20000);
+        SolutionStore solutionStore = new SolutionStore(5);
+        solutionStore.acceptAnySolutions();
+        dse.setSolutionStore(solutionStore);
+        
+        dse.startExploration(EvolutionaryStrategyBuilder.createNsga2Strategy(40));
         
         System.out.println(dse.toStringSolutions());
         DseIdPoolHelper.INSTANCE.resetFallBackId();
@@ -99,12 +95,12 @@ public class CraDseRunner {
     public static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
         System.out.println("---------- " + inputModelName);
         System.out.println("Loading model...");
-        EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
+        EObject initialModel = CraAlternateDseRunner.loadInitialModel(inputModelName);
         System.out.println("Running exploration...");
         
         Stopwatch stopwatch = Stopwatch.createStarted();
         
-        CraDseRunner.runDseWithInputModel(initialModel);
+        CraAlternateDseRunner.runDseWithInputModel(initialModel);
         
         stopwatch.stop();
         long elapsedMiliseconds = stopwatch.elapsed(TimeUnit.MILLISECONDS);

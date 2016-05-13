@@ -62,6 +62,14 @@ pattern addFeature(c : Class, f : Feature) {
     neg find encapsulated(_, f);
 }
 
+pattern mergeClasses(cm : ClassModel, c1 : Class, c2 : Class) {
+    ClassModel(cm);
+    Class(c1);
+    Class(c2);
+    c1 != c2;
+    find sortClass(c1,c2);
+}
+
 // Objectives
 pattern dma(m : Method, a : Attribute) {
     Method.dataDependency(m, a);

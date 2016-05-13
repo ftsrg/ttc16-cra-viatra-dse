@@ -13,6 +13,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.EncapsulatedMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.FeatureMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.MaiMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.MaiPartialMatcher;
+import hu.bme.mit.viatra.ttc.dse.queries.MergeClassesMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.MethodMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.MmiMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.MmiPartialMatcher;
@@ -32,6 +33,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.FeatureQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.MaiPartialQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.MaiQuerySpecification;
+import hu.bme.mit.viatra.ttc.dse.queries.util.MergeClassesQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.MethodQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.MmiPartialQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.MmiQuerySpecification;
@@ -62,6 +64,7 @@ import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
  * <li>createClass</li>
  * <li>createClassWithFeautre</li>
  * <li>addFeature</li>
+ * <li>mergeClasses</li>
  * <li>dma</li>
  * <li>dmm</li>
  * <li>mmiPartial</li>
@@ -105,6 +108,7 @@ public final class Queries extends BaseGeneratedPatternGroup {
     querySpecifications.add(CreateClassQuerySpecification.instance());
     querySpecifications.add(CreateClassWithFeautreQuerySpecification.instance());
     querySpecifications.add(AddFeatureQuerySpecification.instance());
+    querySpecifications.add(MergeClassesQuerySpecification.instance());
     querySpecifications.add(DmaQuerySpecification.instance());
     querySpecifications.add(DmmQuerySpecification.instance());
     querySpecifications.add(MmiPartialQuerySpecification.instance());
@@ -208,6 +212,14 @@ public final class Queries extends BaseGeneratedPatternGroup {
   
   public AddFeatureMatcher getAddFeature(final ViatraQueryEngine engine) throws ViatraQueryException {
     return AddFeatureMatcher.on(engine);
+  }
+  
+  public MergeClassesQuerySpecification getMergeClasses() throws ViatraQueryException {
+    return MergeClassesQuerySpecification.instance();
+  }
+  
+  public MergeClassesMatcher getMergeClasses(final ViatraQueryEngine engine) throws ViatraQueryException {
+    return MergeClassesMatcher.on(engine);
   }
   
   public DmaQuerySpecification getDma() throws ViatraQueryException {

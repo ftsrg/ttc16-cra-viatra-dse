@@ -15,6 +15,7 @@ import architectureCRA.Feature;
 import hu.bme.mit.viatra.ttc.dse.queries.AddFeatureMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassWithFeautreMatch;
+import hu.bme.mit.viatra.ttc.dse.queries.MergeClassesMatch;
 
 public class CraStateCoder implements IStateCoder {
 
@@ -79,6 +80,9 @@ public class CraStateCoder implements IStateCoder {
             return (CX + createClassWithFeautreMatch.getF().getName()).intern();
         } else if (match instanceof CreateClassMatch) {
             return CX;
+        } else if (match instanceof MergeClassesMatch) {
+            MergeClassesMatch mergeClassesMatch = (MergeClassesMatch) match;
+            return mergeClassesMatch.getC1().getName() + mergeClassesMatch.getC2().getName();
         } else {
             throw new RuntimeException("Unsopprted rule.");
         }
