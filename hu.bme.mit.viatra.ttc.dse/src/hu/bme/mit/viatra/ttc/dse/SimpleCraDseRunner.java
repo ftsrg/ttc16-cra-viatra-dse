@@ -49,7 +49,7 @@ public class SimpleCraDseRunner {
         
         dse.setSolutionStore(new SolutionStore().storeBestSolutionsOnly());
         
-        dse.startExploration(Strategies.createDFSStrategy(0));
+        dse.startExploration(Strategies.createDfsStrategy(0));
         
         System.out.println(dse.toStringSolutions());
         
