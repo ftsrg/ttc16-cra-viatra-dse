@@ -38,6 +38,8 @@ public class CraIndexObjective extends BaseObjective {
 
     @Override
     public void init(ThreadContext context) {
+        super.init(context);
+        
         ViatraQueryEngine queryEngine = context.getQueryEngine();
         try {
             mmiMatcher = MmiMatcher.on(queryEngine);
@@ -98,17 +100,11 @@ public class CraIndexObjective extends BaseObjective {
 
     @Override
     public IObjective createNew() {
-        return new CraIndexObjective();
-    }
-
-    @Override
-    public boolean isHardObjective() {
-        return false;
-    }
-
-    @Override
-    public boolean satisifiesHardObjective(Double fitness) {
-        return true;
+        CraIndexObjective objective = new CraIndexObjective();
+        if (isThereFitnessConstraint) {
+            objective.withHardConstraintOnFitness(fitnessConstraint, fitnessConstraintComparator);
+        }
+        return objective;
     }
 
 }

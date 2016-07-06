@@ -10,6 +10,27 @@
     </product>
   </extension>
   <extension id="hu.bme.mit.viatra.ttc.dse.queries.Queries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.viatra.ttc.dse.queries.Queries" id="hu.bme.mit.viatra.ttc.dse.queries.Queries"/>
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.viatra.ttc.dse.queries.Queries" id="hu.bme.mit.viatra.ttc.dse.queries.Queries">
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.feature"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.attribute"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.method"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.encapsulated"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.encapsulatedFeature"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.notEncapsulatedFeature"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.allFeatureEncapsulated"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.emptyClass"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.noEmptyClass"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.createClass"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.createClassWithFeautre"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.addFeature"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.mergeClasses"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.dma"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.dmm"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.mmiPartial"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.maiPartial"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.sortClass"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.mmi"/>
+      <query-specification fqn="hu.bme.mit.viatra.ttc.dse.queries.mai"/>
+    </group>
   </extension>
 </plugin>

@@ -1,3 +1,6 @@
+/**
+ * Generated from platform:/resource/hu.bme.mit.viatra.ttc.dse/src/hu/bme/mit/viatra/ttc/dse/queries/queries.vql
+ */
 package hu.bme.mit.viatra.ttc.dse.queries;
 
 import hu.bme.mit.viatra.ttc.dse.queries.NoEmptyClassMatch;

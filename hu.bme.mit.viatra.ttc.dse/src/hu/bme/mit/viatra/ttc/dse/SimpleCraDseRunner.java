@@ -6,6 +6,7 @@ import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.Strategies;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
+import org.eclipse.viatra.dse.solutionstore.SolutionStore;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.junit.Test;
 
@@ -43,9 +44,10 @@ public class SimpleCraDseRunner {
                 .withHardConstraint("noEmtpyClass", NoEmptyClassQuerySpecification.instance())
                 .withSoftConstraint("unusedFeature", NotEncapsulatedFeatureQuerySpecification.instance(), 1)
                 .withComparator(Comparators.LOWER_IS_BETTER)
-                .withLevel(0)
                 );
-        dse.addObjective(new CraIndexObjective().withLevel(0));
+        dse.addObjective(new CraIndexObjective());
+        
+        dse.setSolutionStore(new SolutionStore().storeBestSolutionsOnly());
         
         dse.startExploration(Strategies.createDFSStrategy(0));
         

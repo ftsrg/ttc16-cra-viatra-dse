@@ -1,3 +1,6 @@
+/**
+ * Generated from platform:/resource/hu.bme.mit.viatra.ttc.dse/src/hu/bme/mit/viatra/ttc/dse/queries/queries.vql
+ */
 package hu.bme.mit.viatra.ttc.dse.queries.util;
 
 import com.google.common.collect.Sets;
@@ -86,7 +89,7 @@ public final class MergeClassesQuerySpecification extends BaseGeneratedEMFQueryS
     
     public static Object ensureInitialized() {
       INSTANCE.ensureInitializedInternalSneaky();
-      return null;					
+      return null;
     }
   }
   
