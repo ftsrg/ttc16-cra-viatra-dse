@@ -20,6 +20,7 @@ public class DseSolverMain {
 			System.out.println("Examples: ");
 			System.out.println("- DseSolver 10");
 			System.out.println("- DseSolver 5 A B");
+			return;
 		}
 
 		final int runs = Integer.valueOf(args[0]);
