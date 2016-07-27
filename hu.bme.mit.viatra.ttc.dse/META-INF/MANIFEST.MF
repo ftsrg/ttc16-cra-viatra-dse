@@ -3,8 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: hu.bme.mit.viatra.ttc.dse
 Bundle-SymbolicName: hu.bme.mit.viatra.ttc.dse;singleton:=true
 Bundle-Version: 0.0.1.qualifier
-Export-Package: hu.bme.mit.viatra.ttc.dse.queries,
- hu.bme.mit.viatra.ttc.dse.queries.util
+Export-Package: hu.bme.mit.viatra.ttc.dse,
+ hu.bme.mit.viatra.ttc.dse.benchmark,
+ hu.bme.mit.viatra.ttc.dse.objectives,
+ hu.bme.mit.viatra.ttc.dse.operators,
+ hu.bme.mit.viatra.ttc.dse.queries,
+ hu.bme.mit.viatra.ttc.dse.queries.util,
+ hu.bme.mit.viatra.ttc.dse.rules,
+ hu.bme.mit.viatra.ttc.dse.statecoder
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.viatra.query.runtime,
  org.eclipse.xtext.xbase.lib,

@@ -3,6 +3,7 @@ package hu.bme.mit.viatra.ttc.dse;
 import java.io.IOException;
 import java.util.Arrays;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
@@ -30,6 +31,7 @@ public class DseSolverMain {
 			inputs = new String[] { "A", "B", "C", "D", "E" };
 		}
 
+		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.WARN);
 
 		final BenchmarkResults results = BenchmarkResults.create();

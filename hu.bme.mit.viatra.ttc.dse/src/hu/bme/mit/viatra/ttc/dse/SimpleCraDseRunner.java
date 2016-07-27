@@ -55,7 +55,7 @@ public class SimpleCraDseRunner {
         
     }
 
-    private ClassModel createSimpleCraProblem() {
+    public static ClassModel createSimpleCraProblem() {
         ArchitectureCRAFactory factory = ArchitectureCRAFactory.eINSTANCE;
         ClassModel model = factory.createClassModel();
         Method m1 = factory.createMethod();

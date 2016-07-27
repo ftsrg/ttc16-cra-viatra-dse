@@ -75,6 +75,7 @@ public class CraDseRunner {
         nsga2.addCrossover(new CutAndSpliceCrossover());
         nsga2.addCrossover(new SwapTransitionCrossover());
         nsga2.addMutation(new RemoveUnusedClassMutation());
+//        nsga2.addStrategyAdapter(new EvolutionaryStrategyLogAdapter());
         
         nsga2.setStopCondition(
                 new CompositeStopCondition()
