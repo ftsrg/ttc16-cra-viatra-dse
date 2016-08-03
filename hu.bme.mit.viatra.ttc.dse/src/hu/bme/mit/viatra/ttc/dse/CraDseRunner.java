@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
+import org.eclipse.viatra.dse.api.DesignSpaceExplorer.DseLoggingLevel;
 import org.eclipse.viatra.dse.base.DseIdPoolHelper;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
@@ -44,7 +45,7 @@ public class CraDseRunner {
 
     @Test
     public void test() throws IOException, ViatraQueryException {
-        Logger.getRootLogger().setLevel(Level.WARN);
+        DesignSpaceExplorer.turnOnLoggingWithBasicConfig(DseLoggingLevel.WARN);
         runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
     }
     
@@ -90,7 +91,6 @@ public class CraDseRunner {
 //        dse.startExplorationWithTimeout(nsga2.build(), 20000);
         
         System.out.println(dse.toStringSolutions());
-        DseIdPoolHelper.INSTANCE.resetFallBackId();
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
         return solution.getFitness().get(CraIndexObjective.CRA_INDEX_OBJECTIVE_NAME);

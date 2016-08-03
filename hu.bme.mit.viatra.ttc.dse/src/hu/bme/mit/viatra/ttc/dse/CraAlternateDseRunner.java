@@ -66,7 +66,6 @@ public class CraAlternateDseRunner {
         dse.startExploration(EvolutionaryStrategyBuilder.createNsga2Strategy(40));
         
         System.out.println(dse.toStringSolutions());
-        DseIdPoolHelper.INSTANCE.resetFallBackId();
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
         return solution.getFitness().get(CraIndexObjective.CRA_INDEX_OBJECTIVE_NAME);
