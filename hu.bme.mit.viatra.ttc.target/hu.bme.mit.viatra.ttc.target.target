@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="Model Metrics Target Platform" sequenceNumber="383">
+<?pde version="3.8"?><target includeMode="feature" name="Model Metrics Target Platform" sequenceNumber="384">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.feature.group" version="4.5.1.v20150904-0015"/>
@@ -26,8 +26,8 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.viatra.query.sdk.feature.source.feature.group" version="1.4.0.201608021211"/>
-<unit id="org.eclipse.viatra.dse.feature.source.feature.group" version="0.14.0.201608021211"/>
+<unit id="org.eclipse.viatra.query.sdk.feature.source.feature.group" version="1.5.0.201610071405"/>
+<unit id="org.eclipse.viatra.dse.feature.source.feature.group" version="0.15.0.201610071405"/>
 <repository location="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository/"/>
 </location>
 </locations>

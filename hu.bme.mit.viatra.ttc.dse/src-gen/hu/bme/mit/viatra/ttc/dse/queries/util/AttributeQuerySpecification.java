@@ -8,6 +8,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.AttributeMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.AttributeMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.FeatureQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -17,6 +18,7 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecificat
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.emf.types.EStructuralFeatureInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality;
@@ -24,6 +26,7 @@ import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedP
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -56,6 +59,11 @@ public final class AttributeQuerySpecification extends BaseGeneratedEMFQuerySpec
   @Override
   protected AttributeMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return AttributeMatcher.on(engine);
+  }
+  
+  @Override
+  public AttributeMatcher instantiate() throws ViatraQueryException {
+    return AttributeMatcher.create();
   }
   
   @Override
@@ -97,6 +105,12 @@ public final class AttributeQuerySpecification extends BaseGeneratedEMFQuerySpec
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static AttributeQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pC = new PParameter("c", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pA = new PParameter("a", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pC, parameter_pA);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.attribute";
@@ -109,14 +123,12 @@ public final class AttributeQuerySpecification extends BaseGeneratedEMFQuerySpec
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("c", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class"))),
-      			 new PParameter("a", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -126,8 +138,8 @@ public final class AttributeQuerySpecification extends BaseGeneratedEMFQuerySpec
       		new TypeConstraint(body, new FlatTuple(var_c), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")));
       		new TypeConstraint(body, new FlatTuple(var_a), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_c, "c"),
-      		   new ExportedParameter(body, var_a, "a")
+      		   new ExportedParameter(body, var_c, parameter_pC),
+      		   new ExportedParameter(body, var_a, parameter_pA)
       		));
       		//     find feature(a)
       		new PositivePatternCall(body, new FlatTuple(var_a), FeatureQuerySpecification.instance().getInternalQueryRepresentation());

@@ -8,6 +8,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.MergeClassesMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.MergeClassesMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.SortClassQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -16,6 +17,7 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
@@ -23,6 +25,7 @@ import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Inequalit
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -55,6 +58,11 @@ public final class MergeClassesQuerySpecification extends BaseGeneratedEMFQueryS
   @Override
   protected MergeClassesMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return MergeClassesMatcher.on(engine);
+  }
+  
+  @Override
+  public MergeClassesMatcher instantiate() throws ViatraQueryException {
+    return MergeClassesMatcher.create();
   }
   
   @Override
@@ -96,6 +104,14 @@ public final class MergeClassesQuerySpecification extends BaseGeneratedEMFQueryS
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static MergeClassesQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pCm = new PParameter("cm", "architectureCRA.ClassModel", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pC1 = new PParameter("c1", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pC2 = new PParameter("c2", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pCm, parameter_pC1, parameter_pC2);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.mergeClasses";
@@ -108,15 +124,12 @@ public final class MergeClassesQuerySpecification extends BaseGeneratedEMFQueryS
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("cm", "architectureCRA.ClassModel", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel"))),
-      			 new PParameter("c1", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class"))),
-      			 new PParameter("c2", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -128,9 +141,9 @@ public final class MergeClassesQuerySpecification extends BaseGeneratedEMFQueryS
       		new TypeConstraint(body, new FlatTuple(var_c1), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")));
       		new TypeConstraint(body, new FlatTuple(var_c2), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_cm, "cm"),
-      		   new ExportedParameter(body, var_c1, "c1"),
-      		   new ExportedParameter(body, var_c2, "c2")
+      		   new ExportedParameter(body, var_cm, parameter_pCm),
+      		   new ExportedParameter(body, var_c1, parameter_pC1),
+      		   new ExportedParameter(body, var_c2, parameter_pC2)
       		));
       		//     ClassModel(cm)
       		new TypeConstraint(body, new FlatTuple(var_cm), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")));

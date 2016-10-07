@@ -7,6 +7,7 @@ import com.google.common.collect.Sets;
 import hu.bme.mit.viatra.ttc.dse.queries.DmaMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.DmaMatcher;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -16,12 +17,14 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecificat
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.emf.types.EStructuralFeatureInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.Equality;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -54,6 +57,11 @@ public final class DmaQuerySpecification extends BaseGeneratedEMFQuerySpecificat
   @Override
   protected DmaMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return DmaMatcher.on(engine);
+  }
+  
+  @Override
+  public DmaMatcher instantiate() throws ViatraQueryException {
+    return DmaMatcher.create();
   }
   
   @Override
@@ -95,6 +103,12 @@ public final class DmaQuerySpecification extends BaseGeneratedEMFQuerySpecificat
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static DmaQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pM = new PParameter("m", "architectureCRA.Method", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pA = new PParameter("a", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pM, parameter_pA);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.dma";
@@ -107,14 +121,12 @@ public final class DmaQuerySpecification extends BaseGeneratedEMFQuerySpecificat
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("m", "architectureCRA.Method", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method"))),
-      			 new PParameter("a", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -124,8 +136,8 @@ public final class DmaQuerySpecification extends BaseGeneratedEMFQuerySpecificat
       		new TypeConstraint(body, new FlatTuple(var_m), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")));
       		new TypeConstraint(body, new FlatTuple(var_a), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_m, "m"),
-      		   new ExportedParameter(body, var_a, "a")
+      		   new ExportedParameter(body, var_m, parameter_pM),
+      		   new ExportedParameter(body, var_a, parameter_pA)
       		));
       		//     Method.dataDependency(m, a)
       		new TypeConstraint(body, new FlatTuple(var_m), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")));

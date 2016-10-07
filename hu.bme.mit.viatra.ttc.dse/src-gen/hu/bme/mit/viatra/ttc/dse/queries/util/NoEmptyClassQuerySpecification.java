@@ -8,12 +8,14 @@ import hu.bme.mit.viatra.ttc.dse.queries.NoEmptyClassMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.NoEmptyClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.EmptyClassQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
@@ -51,6 +53,11 @@ public final class NoEmptyClassQuerySpecification extends BaseGeneratedEMFQueryS
   @Override
   protected NoEmptyClassMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return NoEmptyClassMatcher.on(engine);
+  }
+  
+  @Override
+  public NoEmptyClassMatcher instantiate() throws ViatraQueryException {
+    return NoEmptyClassMatcher.create();
   }
   
   @Override
@@ -92,6 +99,8 @@ public final class NoEmptyClassQuerySpecification extends BaseGeneratedEMFQueryS
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static NoEmptyClassQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final List<PParameter> parameters = Arrays.asList();
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.noEmptyClass";
@@ -104,12 +113,12 @@ public final class NoEmptyClassQuerySpecification extends BaseGeneratedEMFQueryS
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{

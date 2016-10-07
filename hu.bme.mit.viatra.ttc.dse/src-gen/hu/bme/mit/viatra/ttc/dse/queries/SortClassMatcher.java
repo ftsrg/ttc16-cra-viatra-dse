@@ -54,10 +54,21 @@ public class SortClassMatcher extends BaseMatcher<SortClassMatch> {
     // check if matcher already exists
     SortClassMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new SortClassMatcher(engine);
-    	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
+    	matcher = (SortClassMatcher)engine.getMatcher(querySpecification());
     }
     return matcher;
+  }
+  
+  /**
+   * Initializes the pattern matcher within an existing VIATRA Query engine.
+   * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
+   * The match set will be incrementally refreshed upon updates.
+   * @param engine the existing VIATRA Query engine in which this matcher will be created.
+   * @throws ViatraQueryException if an error occurs during pattern matcher creation
+   * 
+   */
+  public static SortClassMatcher create() throws ViatraQueryException {
+    return new SortClassMatcher();
   }
   
   private final static int POSITION_C1 = 0;
@@ -74,8 +85,8 @@ public class SortClassMatcher extends BaseMatcher<SortClassMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private SortClassMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
-    super(engine, querySpecification());
+  private SortClassMatcher() throws ViatraQueryException {
+    super(querySpecification());
   }
   
   /**

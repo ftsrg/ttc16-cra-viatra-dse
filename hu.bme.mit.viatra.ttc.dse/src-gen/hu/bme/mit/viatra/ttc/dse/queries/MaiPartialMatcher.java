@@ -56,10 +56,21 @@ public class MaiPartialMatcher extends BaseMatcher<MaiPartialMatch> {
     // check if matcher already exists
     MaiPartialMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new MaiPartialMatcher(engine);
-    	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
+    	matcher = (MaiPartialMatcher)engine.getMatcher(querySpecification());
     }
     return matcher;
+  }
+  
+  /**
+   * Initializes the pattern matcher within an existing VIATRA Query engine.
+   * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
+   * The match set will be incrementally refreshed upon updates.
+   * @param engine the existing VIATRA Query engine in which this matcher will be created.
+   * @throws ViatraQueryException if an error occurs during pattern matcher creation
+   * 
+   */
+  public static MaiPartialMatcher create() throws ViatraQueryException {
+    return new MaiPartialMatcher();
   }
   
   private final static int POSITION_C1 = 0;
@@ -80,8 +91,8 @@ public class MaiPartialMatcher extends BaseMatcher<MaiPartialMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private MaiPartialMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
-    super(engine, querySpecification());
+  private MaiPartialMatcher() throws ViatraQueryException {
+    super(querySpecification());
   }
   
   /**

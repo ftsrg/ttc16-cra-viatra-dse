@@ -55,10 +55,21 @@ public class AttributeMatcher extends BaseMatcher<AttributeMatch> {
     // check if matcher already exists
     AttributeMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new AttributeMatcher(engine);
-    	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
+    	matcher = (AttributeMatcher)engine.getMatcher(querySpecification());
     }
     return matcher;
+  }
+  
+  /**
+   * Initializes the pattern matcher within an existing VIATRA Query engine.
+   * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
+   * The match set will be incrementally refreshed upon updates.
+   * @param engine the existing VIATRA Query engine in which this matcher will be created.
+   * @throws ViatraQueryException if an error occurs during pattern matcher creation
+   * 
+   */
+  public static AttributeMatcher create() throws ViatraQueryException {
+    return new AttributeMatcher();
   }
   
   private final static int POSITION_C = 0;
@@ -75,8 +86,8 @@ public class AttributeMatcher extends BaseMatcher<AttributeMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private AttributeMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
-    super(engine, querySpecification());
+  private AttributeMatcher() throws ViatraQueryException {
+    super(querySpecification());
   }
   
   /**

@@ -8,6 +8,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.CreateClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.EmptyClassQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -16,12 +17,14 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.NegativePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -54,6 +57,11 @@ public final class CreateClassQuerySpecification extends BaseGeneratedEMFQuerySp
   @Override
   protected CreateClassMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return CreateClassMatcher.on(engine);
+  }
+  
+  @Override
+  public CreateClassMatcher instantiate() throws ViatraQueryException {
+    return CreateClassMatcher.create();
   }
   
   @Override
@@ -95,6 +103,10 @@ public final class CreateClassQuerySpecification extends BaseGeneratedEMFQuerySp
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static CreateClassQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pCm = new PParameter("cm", "architectureCRA.ClassModel", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pCm);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.createClass";
@@ -107,13 +119,12 @@ public final class CreateClassQuerySpecification extends BaseGeneratedEMFQuerySp
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("cm", "architectureCRA.ClassModel", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -122,7 +133,7 @@ public final class CreateClassQuerySpecification extends BaseGeneratedEMFQuerySp
       		PVariable var___0_ = body.getOrCreateVariableByName("_<0>");
       		new TypeConstraint(body, new FlatTuple(var_cm), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_cm, "cm")
+      		   new ExportedParameter(body, var_cm, parameter_pCm)
       		));
       		//     ClassModel(cm)
       		new TypeConstraint(body, new FlatTuple(var_cm), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "ClassModel")));

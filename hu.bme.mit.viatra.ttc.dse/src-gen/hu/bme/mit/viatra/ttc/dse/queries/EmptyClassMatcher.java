@@ -52,10 +52,21 @@ public class EmptyClassMatcher extends BaseMatcher<EmptyClassMatch> {
     // check if matcher already exists
     EmptyClassMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new EmptyClassMatcher(engine);
-    	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
+    	matcher = (EmptyClassMatcher)engine.getMatcher(querySpecification());
     }
     return matcher;
+  }
+  
+  /**
+   * Initializes the pattern matcher within an existing VIATRA Query engine.
+   * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
+   * The match set will be incrementally refreshed upon updates.
+   * @param engine the existing VIATRA Query engine in which this matcher will be created.
+   * @throws ViatraQueryException if an error occurs during pattern matcher creation
+   * 
+   */
+  public static EmptyClassMatcher create() throws ViatraQueryException {
+    return new EmptyClassMatcher();
   }
   
   private final static int POSITION_C = 0;
@@ -70,8 +81,8 @@ public class EmptyClassMatcher extends BaseMatcher<EmptyClassMatch> {
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private EmptyClassMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
-    super(engine, querySpecification());
+  private EmptyClassMatcher() throws ViatraQueryException {
+    super(querySpecification());
   }
   
   /**

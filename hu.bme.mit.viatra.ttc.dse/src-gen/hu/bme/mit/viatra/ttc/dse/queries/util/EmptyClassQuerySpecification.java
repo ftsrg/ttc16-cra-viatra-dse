@@ -8,6 +8,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.EmptyClassMatch;
 import hu.bme.mit.viatra.ttc.dse.queries.EmptyClassMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -16,12 +17,14 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.NegativePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -54,6 +57,11 @@ public final class EmptyClassQuerySpecification extends BaseGeneratedEMFQuerySpe
   @Override
   protected EmptyClassMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return EmptyClassMatcher.on(engine);
+  }
+  
+  @Override
+  public EmptyClassMatcher instantiate() throws ViatraQueryException {
+    return EmptyClassMatcher.create();
   }
   
   @Override
@@ -95,6 +103,10 @@ public final class EmptyClassQuerySpecification extends BaseGeneratedEMFQuerySpe
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static EmptyClassQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pC = new PParameter("c", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pC);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.emptyClass";
@@ -107,13 +119,12 @@ public final class EmptyClassQuerySpecification extends BaseGeneratedEMFQuerySpe
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("c", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -122,7 +133,7 @@ public final class EmptyClassQuerySpecification extends BaseGeneratedEMFQuerySpe
       		PVariable var___0_ = body.getOrCreateVariableByName("_<0>");
       		new TypeConstraint(body, new FlatTuple(var_c), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_c, "c")
+      		   new ExportedParameter(body, var_c, parameter_pC)
       		));
       		//     neg find encapsulated(c, _)
       		new NegativePatternCall(body, new FlatTuple(var_c, var___0_), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());

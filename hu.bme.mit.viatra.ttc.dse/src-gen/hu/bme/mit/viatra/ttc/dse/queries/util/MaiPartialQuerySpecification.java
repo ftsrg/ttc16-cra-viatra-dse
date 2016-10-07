@@ -9,6 +9,7 @@ import hu.bme.mit.viatra.ttc.dse.queries.MaiPartialMatcher;
 import hu.bme.mit.viatra.ttc.dse.queries.util.DmaQuerySpecification;
 import hu.bme.mit.viatra.ttc.dse.queries.util.EncapsulatedQuerySpecification;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EClass;
@@ -17,12 +18,14 @@ import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFPQuery;
 import org.eclipse.viatra.query.runtime.api.impl.BaseGeneratedEMFQuerySpecification;
 import org.eclipse.viatra.query.runtime.emf.types.EClassTransitiveInstancesKey;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.matchers.backend.QueryEvaluationHint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PBody;
 import org.eclipse.viatra.query.runtime.matchers.psystem.PVariable;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicdeferred.ExportedParameter;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.PositivePatternCall;
 import org.eclipse.viatra.query.runtime.matchers.psystem.basicenumerables.TypeConstraint;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameter;
+import org.eclipse.viatra.query.runtime.matchers.psystem.queries.PParameterDirection;
 import org.eclipse.viatra.query.runtime.matchers.psystem.queries.QueryInitializationException;
 import org.eclipse.viatra.query.runtime.matchers.tuple.FlatTuple;
 
@@ -55,6 +58,11 @@ public final class MaiPartialQuerySpecification extends BaseGeneratedEMFQuerySpe
   @Override
   protected MaiPartialMatcher instantiate(final ViatraQueryEngine engine) throws ViatraQueryException {
     return MaiPartialMatcher.on(engine);
+  }
+  
+  @Override
+  public MaiPartialMatcher instantiate() throws ViatraQueryException {
+    return MaiPartialMatcher.create();
   }
   
   @Override
@@ -96,6 +104,16 @@ public final class MaiPartialQuerySpecification extends BaseGeneratedEMFQuerySpe
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private final static MaiPartialQuerySpecification.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
+    private final PParameter parameter_pC1 = new PParameter("c1", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pC2 = new PParameter("c2", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pM1 = new PParameter("m1", "architectureCRA.Method", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")), PParameterDirection.INOUT);
+    
+    private final PParameter parameter_pA2 = new PParameter("a2", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")), PParameterDirection.INOUT);
+    
+    private final List<PParameter> parameters = Arrays.asList(parameter_pC1, parameter_pC2, parameter_pM1, parameter_pA2);
+    
     @Override
     public String getFullyQualifiedName() {
       return "hu.bme.mit.viatra.ttc.dse.queries.maiPartial";
@@ -108,16 +126,12 @@ public final class MaiPartialQuerySpecification extends BaseGeneratedEMFQuerySpe
     
     @Override
     public List<PParameter> getParameters() {
-      return Arrays.asList(
-      			 new PParameter("c1", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class"))),
-      			 new PParameter("c2", "architectureCRA.Class", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Class"))),
-      			 new PParameter("m1", "architectureCRA.Method", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method"))),
-      			 new PParameter("a2", "architectureCRA.Attribute", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")))
-      			);
+      return parameters;
     }
     
     @Override
     public Set<PBody> doGetContainedBodies() throws QueryInitializationException {
+      setEvaluationHints(new QueryEvaluationHint(null, Collections.<String,Object>emptyMap()));
       Set<PBody> bodies = Sets.newLinkedHashSet();
       try {
       	{
@@ -131,10 +145,10 @@ public final class MaiPartialQuerySpecification extends BaseGeneratedEMFQuerySpe
       		new TypeConstraint(body, new FlatTuple(var_m1), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Method")));
       		new TypeConstraint(body, new FlatTuple(var_a2), new EClassTransitiveInstancesKey((EClass)getClassifierLiteral("http://momot.big.tuwien.ac.at/architectureCRA/1.0", "Attribute")));
       		body.setSymbolicParameters(Arrays.<ExportedParameter>asList(
-      		   new ExportedParameter(body, var_c1, "c1"),
-      		   new ExportedParameter(body, var_c2, "c2"),
-      		   new ExportedParameter(body, var_m1, "m1"),
-      		   new ExportedParameter(body, var_a2, "a2")
+      		   new ExportedParameter(body, var_c1, parameter_pC1),
+      		   new ExportedParameter(body, var_c2, parameter_pC2),
+      		   new ExportedParameter(body, var_m1, parameter_pM1),
+      		   new ExportedParameter(body, var_a2, parameter_pA2)
       		));
       		//     find encapsulated(c1, m1)
       		new PositivePatternCall(body, new FlatTuple(var_c1, var_m1), EncapsulatedQuerySpecification.instance().getInternalQueryRepresentation());

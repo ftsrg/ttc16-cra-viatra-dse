@@ -48,10 +48,21 @@ public class AllFeatureEncapsulatedMatcher extends BaseMatcher<AllFeatureEncapsu
     // check if matcher already exists
     AllFeatureEncapsulatedMatcher matcher = engine.getExistingMatcher(querySpecification());
     if (matcher == null) {
-    	matcher = new AllFeatureEncapsulatedMatcher(engine);
-    	// do not have to "put" it into engine.matchers, reportMatcherInitialized() will take care of it
+    	matcher = (AllFeatureEncapsulatedMatcher)engine.getMatcher(querySpecification());
     }
     return matcher;
+  }
+  
+  /**
+   * Initializes the pattern matcher within an existing VIATRA Query engine.
+   * If the pattern matcher is already constructed in the engine, only a light-weight reference is returned.
+   * The match set will be incrementally refreshed upon updates.
+   * @param engine the existing VIATRA Query engine in which this matcher will be created.
+   * @throws ViatraQueryException if an error occurs during pattern matcher creation
+   * 
+   */
+  public static AllFeatureEncapsulatedMatcher create() throws ViatraQueryException {
+    return new AllFeatureEncapsulatedMatcher();
   }
   
   private final static Logger LOGGER = ViatraQueryLoggingUtil.getLogger(AllFeatureEncapsulatedMatcher.class);
@@ -64,8 +75,8 @@ public class AllFeatureEncapsulatedMatcher extends BaseMatcher<AllFeatureEncapsu
    * @throws ViatraQueryException if an error occurs during pattern matcher creation
    * 
    */
-  private AllFeatureEncapsulatedMatcher(final ViatraQueryEngine engine) throws ViatraQueryException {
-    super(engine, querySpecification());
+  private AllFeatureEncapsulatedMatcher() throws ViatraQueryException {
+    super(querySpecification());
   }
   
   /**
