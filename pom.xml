@@ -10,70 +10,32 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtend.version>2.8.2</xtend.version>
-		<tycho.version>0.24.0</tycho.version>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<emf.version>2.10.1</emf.version>
+		<xtend.version>2.10.0</xtend.version>
+		<viatra.version>1.5.0-SNAPSHOT</viatra.version>
+		<viatra.incubation.version>0.15.0-SNAPSHOT</viatra.incubation.version>
 	</properties>
 
 	<modules>
 		<module>hu.bme.mit.viatra.ttc.dse</module>
 		<module>hu.bme.mit.viatra.ttc.model</module>
-		<module>hu.bme.mit.viatra.ttc.target</module>
 	</modules>
-
-	<!-- <pluginRepositories> -->
-	<!-- <pluginRepository> -->
-	<!-- <id>incquery-snapshots</id> -->
-	<!-- <snapshots> -->
-	<!-- <enabled>true</enabled> -->
-	<!-- </snapshots> -->
-	<!-- <releases> -->
-	<!-- <enabled>true</enabled> -->
-	<!-- </releases> -->
-	<!-- <url>https://repo.eclipse.org/content/repositories/emf-incquery/</url> -->
-	<!-- </pluginRepository> -->
-	<!-- </pluginRepositories> -->
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
-				<configuration>
-					<target>
-						<artifact>
-							<groupId>hu.bme.mit.viatra.ttc</groupId>
-							<artifactId>hu.bme.mit.viatra.ttc.target</artifactId>
-							<version>0.0.1-SNAPSHOT</version>
-						</artifact>
-					</target>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>acceleo</id>
+			<url>https://repo.eclipse.org/content/groups/acceleo</url>
+		</repository>
+		<repository>
+			<id>viatra</id>
+			<url>https://repo.eclipse.org/content/groups/viatra2/</url>
+		</repository>
+	</repositories>
 
 </project>

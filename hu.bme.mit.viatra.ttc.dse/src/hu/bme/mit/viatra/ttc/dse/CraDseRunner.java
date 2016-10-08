@@ -3,16 +3,13 @@ package hu.bme.mit.viatra.ttc.dse;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
-import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer.DseLoggingLevel;
-import org.eclipse.viatra.dse.base.DseIdPoolHelper;
+import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.evolutionary.crossovers.CutAndSpliceCrossover;
 import org.eclipse.viatra.dse.evolutionary.crossovers.SwapTransitionCrossover;
