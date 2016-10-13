@@ -3,10 +3,7 @@ package hu.bme.mit.viatra.ttc.dse;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer.DseLoggingLevel;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
@@ -25,7 +22,6 @@ import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective;
 import org.eclipse.viatra.dse.util.EMFHelper;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
-import org.junit.Test;
 
 import com.google.common.base.Stopwatch;
 
@@ -40,10 +36,9 @@ import hu.bme.mit.viatra.ttc.dse.statecoder.CraStateCoderFactory;
 
 public class CraDseRunner {
 
-    @Test
-    public void test() throws IOException, ViatraQueryException {
+    public static void main(String[] args) throws IOException, ViatraQueryException {
         DesignSpaceExplorer.turnOnLoggingWithBasicConfig(DseLoggingLevel.WARN);
-        runExplorationWithTtcInput(CraModelNameConstants.INPUT_A);
+        runExplorationWithTtcInput(CraHelper.INPUT_A);
     }
     
     public static double runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
@@ -58,13 +53,15 @@ public class CraDseRunner {
         dse.addTransformationRule(rules.addFeatureRule);
         
         dse.addObjective(new ConstraintsObjective()
-                .withHardConstraint("allFeatureEncapsulated", AllFeatureEncapsulatedQuerySpecification.instance())
-                .withHardConstraint("noEmtpyClass", NoEmptyClassQuerySpecification.instance())
-                .withSoftConstraint("unusedFeature", NotEncapsulatedFeatureQuerySpecification.instance(), 1)
+                .withHardConstraint(AllFeatureEncapsulatedQuerySpecification.instance())
+                .withHardConstraint(NoEmptyClassQuerySpecification.instance())
+                .withSoftConstraint(NotEncapsulatedFeatureQuerySpecification.instance(), 1)
                 .withComparator(Comparators.LOWER_IS_BETTER)
                 );
         dse.addObjective(new CraIndexObjective());
         
+//        dse.startExploration(EvolutionaryStrategyBuilder.createNsga2Strategy(40));
+
         EvolutionaryStrategyBuilder nsga2 = EvolutionaryStrategyBuilder.createNsga2Builder(40);
         nsga2.setInitialPopulationSelector(new BfsInitialSelector(0.18f, 2));
         nsga2.setMutationRate(new SimpleMutationRate(0.8));
@@ -73,7 +70,6 @@ public class CraDseRunner {
         nsga2.addCrossover(new CutAndSpliceCrossover());
         nsga2.addCrossover(new SwapTransitionCrossover());
         nsga2.addMutation(new RemoveUnusedClassMutation());
-//        nsga2.addStrategyAdapter(new EvolutionaryStrategyLogAdapter());
         
         nsga2.setStopCondition(
                 new CompositeStopCondition()
@@ -86,7 +82,7 @@ public class CraDseRunner {
 
         dse.startExploration(nsga2.build());
 //        dse.startExplorationWithTimeout(nsga2.build(), 20000);
-        
+
         System.out.println(dse.toStringSolutions());
         SolutionTrajectory solution = dse.getArbitrarySolution();
         solution.doTransformation(model);
@@ -97,7 +93,7 @@ public class CraDseRunner {
     public static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
         System.out.println("---------- " + inputModelName);
         System.out.println("Loading model...");
-        EObject initialModel = CraDseRunner.loadInitialModel(inputModelName);
+        EObject initialModel = CraHelper.loadInitialModel(inputModelName);
         System.out.println("Running exploration...");
         
         Stopwatch stopwatch = Stopwatch.createStarted();
@@ -113,14 +109,4 @@ public class CraDseRunner {
         System.out.println("Result model serialized.");
         System.out.println();
     }
-    
-    public static EObject loadInitialModel(String inputModelName) throws IOException {
-        EMFHelper.registerExtensionForXmiSerializer("xmi");
-        ArchitectureCRAPackage.eINSTANCE.eClass();
-        ResourceSetImpl rSet = new ResourceSetImpl();
-        Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
-        resource.load(null);
-        return resource.getContents().get(0);
-    }
-    
 }

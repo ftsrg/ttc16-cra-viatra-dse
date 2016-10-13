@@ -31,7 +31,11 @@ public class BenchmarkEntry {
 
 	@Override
 	public String toString() {
-		return input + SEPARATOR + craIndex + SEPARATOR + stopwatch.elapsed(TimeUnit.MILLISECONDS);
+		return input + SEPARATOR + craIndex + SEPARATOR + getElapsedTime();
 	}
+
+    public long getElapsedTime() {
+        return stopwatch.elapsed(TimeUnit.MILLISECONDS);
+    }
 
 }

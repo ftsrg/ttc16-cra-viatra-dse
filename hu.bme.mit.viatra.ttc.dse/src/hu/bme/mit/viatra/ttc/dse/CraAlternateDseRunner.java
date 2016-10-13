@@ -3,16 +3,10 @@ package hu.bme.mit.viatra.ttc.dse;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
+import org.eclipse.viatra.dse.api.DesignSpaceExplorer.DseLoggingLevel;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
-import org.eclipse.viatra.dse.api.strategy.impl.HillClimbingStrategy;
-import org.eclipse.viatra.dse.base.DseIdPoolHelper;
 import org.eclipse.viatra.dse.evolutionary.EvolutionaryStrategyBuilder;
 import org.eclipse.viatra.dse.solutionstore.SolutionStore;
 import org.eclipse.viatra.dse.util.EMFHelper;
@@ -20,7 +14,6 @@ import org.eclipse.viatra.query.runtime.emf.EMFScope;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation;
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements;
-import org.junit.Test;
 
 import com.google.common.base.Stopwatch;
 
@@ -31,14 +24,13 @@ import hu.bme.mit.viatra.ttc.dse.statecoder.CraStateCoderFactory;
 
 public class CraAlternateDseRunner {
 
-    @Test
-    public void test() throws IOException, ViatraQueryException {
-        Logger.getRootLogger().setLevel(Level.WARN);
-        Logger.getLogger(HillClimbingStrategy.class).setLevel(Level.DEBUG);
-        runExplorationWithTtcInput(CraModelNameConstants.INPUT_C);
+    
+    public static void main(String[] args) throws IOException, ViatraQueryException {
+        DesignSpaceExplorer.turnOnLoggingWithBasicConfig(DseLoggingLevel.WARN);
+        runExplorationWithTtcInput(CraHelper.INPUT_C);
     }
     
-    public static double runDseWithInputModel(EObject model) throws IOException, ViatraQueryException {
+    public static double runDseWithInputModel(EObject model) throws ViatraQueryException {
         
         CraDseRules rules = new CraDseRules();
         BatchTransformation transformation = BatchTransformation.forScope(new EMFScope(model))
@@ -75,7 +67,7 @@ public class CraAlternateDseRunner {
     public static void runExplorationWithTtcInput(String inputModelName) throws IOException, ViatraQueryException {
         System.out.println("---------- " + inputModelName);
         System.out.println("Loading model...");
-        EObject initialModel = CraAlternateDseRunner.loadInitialModel(inputModelName);
+        EObject initialModel = CraHelper.loadInitialModel(inputModelName);
         System.out.println("Running exploration...");
         
         Stopwatch stopwatch = Stopwatch.createStarted();
@@ -91,14 +83,4 @@ public class CraAlternateDseRunner {
         System.out.println("Result model serialized.");
         System.out.println();
     }
-    
-    public static EObject loadInitialModel(String inputModelName) throws IOException {
-        EMFHelper.registerExtensionForXmiSerializer("xmi");
-        ArchitectureCRAPackage.eINSTANCE.eClass();
-        ResourceSetImpl rSet = new ResourceSetImpl();
-        Resource resource = rSet.createResource(URI.createFileURI(inputModelName + ".xmi"));
-        resource.load(null);
-        return resource.getContents().get(0);
-    }
-    
 }
