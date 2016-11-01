@@ -3,5 +3,6 @@ jdk:
   - oraclejdk8
 script:
   - mvn clean install
+  - ./run.sh 1 A
 notifications:
   slack: ftsrg:BnJJuqYm4uWCAEQcP4gORevu
