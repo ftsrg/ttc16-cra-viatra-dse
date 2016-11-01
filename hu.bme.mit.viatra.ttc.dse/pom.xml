@@ -105,6 +105,7 @@
 	</build>
 
 	<dependencies>
+<!--
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.common</artifactId>
@@ -134,6 +135,7 @@
 		  <artifactId>org.eclipse.emf.ecore.change</artifactId>
 		  <version>2.10.0.v20150123-0348</version>
 		</dependency>
+-->
 
 		<dependency>
 			<groupId>org.eclipse.viatra</groupId>
