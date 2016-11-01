@@ -128,7 +128,7 @@
 			<artifactId>org.eclipse.emf.edit</artifactId>
 			<version>${emf.version}</version>
 		</dependency>
-		
+
 		<dependency>
 		  <groupId>org.eclipse.birt.runtime</groupId>
 		  <artifactId>org.eclipse.emf.ecore.change</artifactId>
@@ -178,6 +178,5 @@
 		</dependency>
 
 	</dependencies>
-
 
 </project>
