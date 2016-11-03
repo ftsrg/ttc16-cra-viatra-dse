@@ -107,24 +107,6 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-			<version>${emf.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.edit</artifactId>
-			<version>${emf.version}</version>
-		</dependency>
-
-		<dependency>
-		  <groupId>org.eclipse.birt.runtime</groupId>
-		  <artifactId>org.eclipse.emf.ecore.change</artifactId>
-		  <version>2.10.0.v20150123-0348</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.eclipse.viatra</groupId>
 			<artifactId>viatra-transformation-runtime</artifactId>
 			<version>${viatra.version}</version>
