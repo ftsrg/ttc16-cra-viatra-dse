@@ -40,7 +40,10 @@ public class CraIndexObjective extends BaseObjective {
     public void init(ThreadContext context) {
         super.init(context);
         
-        ViatraQueryEngine queryEngine = context.getQueryEngine();
+        initWithModel(context.getQueryEngine(), context.getModel());
+    }
+
+    public void initWithModel(ViatraQueryEngine queryEngine, Notifier notifier) {
         try {
             mmiMatcher = MmiMatcher.on(queryEngine);
             maiMatcher = MaiMatcher.on(queryEngine);
@@ -48,7 +51,6 @@ public class CraIndexObjective extends BaseObjective {
             methodMatcher = MethodMatcher.on(queryEngine);
         } catch (ViatraQueryException e) {
         }
-        Notifier notifier = context.getModel();
         if (notifier instanceof ClassModel) {
             this.model = (ClassModel) notifier;
         } else if (notifier instanceof Resource) {
