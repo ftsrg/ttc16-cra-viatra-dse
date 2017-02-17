@@ -27,9 +27,9 @@ class CraDseRules {
                 .precondition(CreateClassQuerySpecification.instance())
                 .action[
                     var clazz = ArchitectureCRAFactory::eINSTANCE.createClass()
-                    cm.getClasses().add(clazz)
                     var int id = DseIdPoolHelper::INSTANCE.getId(createClassRule)
                     clazz.setName('''C«id»'''.toString)
+                    cm.getClasses().add(clazz)
                 ]
                 .build
 

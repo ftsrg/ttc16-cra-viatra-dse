@@ -82,7 +82,7 @@ public class CraStateCoder implements IStateCoder {
             return CX;
         } else if (match instanceof MergeClassesMatch) {
             MergeClassesMatch mergeClassesMatch = (MergeClassesMatch) match;
-            return mergeClassesMatch.getC1().getName() + mergeClassesMatch.getC2().getName();
+            return (mergeClassesMatch.getC1().getName() + mergeClassesMatch.getC2().getName()).intern();
         } else {
             throw new RuntimeException("Unsopprted rule.");
         }

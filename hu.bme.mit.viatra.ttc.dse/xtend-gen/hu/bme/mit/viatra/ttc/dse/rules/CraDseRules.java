@@ -49,15 +49,15 @@ public class CraDseRules {
         @Override
         public void process(final CreateClassMatch it) {
           architectureCRA.Class clazz = ArchitectureCRAFactory.eINSTANCE.createClass();
-          ClassModel _cm = it.getCm();
-          EList<architectureCRA.Class> _classes = _cm.getClasses();
-          _classes.add(clazz);
           int id = DseIdPoolHelper.INSTANCE.getId(CraDseRules.this.createClassRule);
           StringConcatenation _builder = new StringConcatenation();
           _builder.append("C");
           _builder.append(id, "");
           String _string = _builder.toString();
           clazz.setName(_string);
+          ClassModel _cm = it.getCm();
+          EList<architectureCRA.Class> _classes = _cm.getClasses();
+          _classes.add(clazz);
         }
       };
       BatchTransformationRuleFactory.BatchTransformationRuleBuilder<CreateClassMatch, CreateClassMatcher> _action = _precondition.action(_function);
