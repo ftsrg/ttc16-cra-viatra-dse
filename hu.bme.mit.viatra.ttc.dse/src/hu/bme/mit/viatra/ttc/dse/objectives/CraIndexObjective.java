@@ -22,6 +22,8 @@ import hu.bme.mit.viatra.ttc.dse.queries.MmiMatcher;
 public class CraIndexObjective extends BaseObjective {
 
     public static final String CRA_INDEX_OBJECTIVE_NAME = "CraIndexObjective";
+    public static final String COHESION_OBJECTIVE_NAME = "CohesionObjective";
+    public static final String COUPLING_OBJECTIVE_NAME = "CouplingObjective";
     private MmiMatcher mmiMatcher;
     private MaiMatcher maiMatcher;
     private AttributeMatcher attributeMatcher;
@@ -31,10 +33,46 @@ public class CraIndexObjective extends BaseObjective {
     private double coupling;
     private ClassModel model;
 
-    public CraIndexObjective() {
-        super(CRA_INDEX_OBJECTIVE_NAME);
-        setComparator(Comparators.HIGHER_IS_BETTER);
+    public static enum CraFitnessType {
+    	CraIndex,
+    	Coupling,
+    	Cohesion
     }
+
+    protected CraFitnessType type = CraFitnessType.CraIndex;
+
+    public CraIndexObjective() {
+    	this(CraFitnessType.CraIndex);
+    }
+
+    public CraIndexObjective(CraFitnessType type) {
+    	super(getObjectiveName(type));
+    	this.type = type;
+		switch (type) {
+		case CraIndex:
+		case Cohesion:
+			setComparator(Comparators.HIGHER_IS_BETTER);
+			break;
+		case Coupling:
+			setComparator(Comparators.LOWER_IS_BETTER);
+			break;
+		default:
+			break;
+		}
+    }
+
+	private static String getObjectiveName(CraFitnessType type) {
+		switch (type) {
+		case CraIndex:
+			return CRA_INDEX_OBJECTIVE_NAME;
+		case Cohesion:
+			return COHESION_OBJECTIVE_NAME;
+		case Coupling:
+			return COUPLING_OBJECTIVE_NAME;
+		default:
+			return null;
+		}
+	}
 
     @Override
     public void init(ThreadContext context) {
@@ -67,6 +105,11 @@ public class CraIndexObjective extends BaseObjective {
         coupling = 0.0d;
 
         for (Class c1 : model.getClasses()) {
+            
+            if (c1.getEncapsulates().isEmpty()) {
+                continue;
+            }
+            
             MaiMatch maiMatch = maiMatcher.getOneArbitraryMatch(c1, c1, null);
             Integer mai = maiMatch.getN();
             MmiMatch mmiMatch = mmiMatcher.getOneArbitraryMatch(c1, c1, null);
@@ -80,7 +123,7 @@ public class CraIndexObjective extends BaseObjective {
             cohesion += (maiDiv == 0 ? 0 : (double) mai / maiDiv) + (mmiDiv == 0 ? 0 : (double) mmi / mmiDiv);
             
             for (Class c2 : model.getClasses()) {
-                if (c1 != c2) {
+                if (c1 != c2 && !c1.getEncapsulates().isEmpty()) {
                     maiMatch = maiMatcher.getOneArbitraryMatch(c1, c2, null);
                     mai = maiMatch.getN();
                     mmiMatch = mmiMatcher.getOneArbitraryMatch(c1, c2, null);
@@ -97,12 +140,21 @@ public class CraIndexObjective extends BaseObjective {
             }
         }
 
-        return cohesion - coupling;
+        switch (type) {
+		case CraIndex:
+			return cohesion - coupling;
+		case Cohesion:
+			return cohesion;
+		case Coupling:
+			return coupling;
+		default:
+			return 0d;
+		}
     }
 
     @Override
     public IObjective createNew() {
-        CraIndexObjective objective = new CraIndexObjective();
+        CraIndexObjective objective = new CraIndexObjective(type);
         if (isThereFitnessConstraint) {
             objective.withHardConstraintOnFitness(fitnessConstraint, fitnessConstraintComparator);
         }
