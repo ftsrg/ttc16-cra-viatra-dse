@@ -14,8 +14,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<emf.version>2.10.1</emf.version>
 		<xtend.version>2.10.0</xtend.version>
-		<viatra.version>1.6.0-SNAPSHOT</viatra.version>
-		<viatra.incubation.version>0.16.0-SNAPSHOT</viatra.incubation.version>
+		<viatra.version>1.5.2</viatra.version>
+		<viatra.incubation.version>0.15.2</viatra.incubation.version>
 	</properties>
 
 	<modules>
